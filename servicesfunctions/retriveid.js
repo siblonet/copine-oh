@@ -23,7 +23,7 @@ if (!svcValue || svcValue.length < 5) {
 }
 
 async function RequestData() {
-    const data = await requesttoBackend('GET', `copine/${svcValue}`);
+    const data = await requesttoBackend('GET', `${svcValue}`);
     if (data) {
         recentProduct(data, svcValue)
     } else {
