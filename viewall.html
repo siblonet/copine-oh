@@ -96,15 +96,18 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/">à Propos</a>
                                 </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="/">Candidats</a>
+                                <li class="nav-item" id="Candidats">
+                                    <a class="nav-link" href="viewall.html?svc=Candidats">Candidats</a>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/">Recruteurs</a>
+                                <li class="nav-item" id="Recruteurs">
+                                    <a class="nav-link" href="viewall.html?svc=Recruteurs">Recruteurs</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/">Partenaires</a>
+                                    <a class="nav-link" href="/">Politique</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Confidentialité</a>
                                 </li>
                                 <li class="nav-space nav-item">
                                     <a class="nav-link" href="/">Contact</a>
@@ -131,13 +134,13 @@
                             <figure class="about-drop-right service-right-drop mb-0">
                                 <img src="assets/images/service-right-drop.png" alt="" class="img-fluid">
                             </figure>
-                            <h1 class="text-white">Candidats</h1>
-                            <p>We love what we do and we do it with passion. We value the experimentation of the message
-                                and smart incentives.</p>
+                            <h1 class="text-white" id="sel_service_a"></h1>
+                            <p id="sel_service_b">Veuillez faire défiler vers le bas pour accéder à la liste des services. Cliquez ensuite
+                                sur les différents services pour obtenir plus de détails les concernant</p>
                             <div class="box">
                                 <span class="mb-0">Acceuil</span>
                                 <figure class="mb-0 arrow"><i class="fas fa-arrow-right"></i></figure>
-                                <span class="mb-0 box_span">Candidats</span>
+                                <span class="mb-0 box_span" id="sel_service_c"></span>
                             </div>
                         </div>
                     </div>
@@ -298,6 +301,12 @@
         </div>
     </section>
 
+    <!-- servicefunction js -->
+
+    <script src="servicesfunctions/retriveid.js"> </script>
+
+
+
     <!-- Latest compiled JavaScript -->
     <script src="assets/js/jquery-3.6.0.min.js"> </script>
     <script src="assets/js/bootstrap.min.js"> </script>
@@ -310,8 +319,5 @@
     <script src="assets/js/animation_links.js"></script>
     <script src="assets/js/animation.js"></script>
 </body>
-
-
-<!-- Mirrored from demo.themehurst.net/html/cleanos/service.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 May 2024 09:08:30 GMT -->
 
 </html>
