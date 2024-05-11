@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'cleanos';
+  src:  url('../fonts/cleanose998.html?cmtdfz');
+  src:  url('../fonts/cleanose998.html?cmtdfz#iefix') format('embedded-opentype'),
+    url('../fonts/cleanose998-2.html?cmtdfz') format('truetype'),
+    url('../fonts/cleanose998-3.html?cmtdfz') format('woff'),
+    url('../fonts/cleanose998.svg?cmtdfz#cleanos') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.cleanos-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'cleanos' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cleanos-cleanos-clean:before {
+  content: "\e901";
+}
+.cleanos-cleanos-cleaning-brush:before {
+  content: "\e902";
+}
+.cleanos-cleanos-floor-mop:before {
+  content: "\e903";
+}
+.cleanos-cleanos-house-clean:before {
+  content: "\e904";
+}
+.cleanos-check:before {
+  content: "\e900";
+}
+.cleanos-clean-02:before {
+  content: "\e912";
+}
+.cleanos-clean-03:before {
+  content: "\e913";
+}
+.cleanos-cleaning:before {
+  content: "\e914";
+}
+.cleanos-cleaning-pot:before {
+  content: "\e920";
+}
+.cleanos-data-cleaning:before {
+  content: "\e921";
+}
+.cleanos-data-cleaning-02:before {
+  content: "\e922";
+}
+.cleanos-data-cleaning-03:before {
+  content: "\e923";
+}
+.cleanos-laundry-service:before {
+  content: "\e93b";
+}
+.cleanos-play-button:before {
+  content: "\e93c";
+}
+.cleanos-shopping-bag:before {
+  content: "\e93d";
+}
+.cleanos-shortlist:before {
+  content: "\e93e";
+}
+.cleanos-vacuum-cleaner:before {
+  content: "\e93f";
+}
+.cleanos-washing-plate:before {
+  content: "\e940";
+}
