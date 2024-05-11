@@ -1734,9 +1734,10 @@ p {
 }
 
 .project-section .overlay:hover figure {
+    cursor: pointer;
     border-radius: 10px;
     opacity: 1;
-    background-image: linear-gradient(to top, #f86823 0%, #000000 100%);
+    background-image: linear-gradient(to top, #145fb8 10%, #000000 100%);
 }
 
 .project-section .overlay:hover img {
@@ -1752,7 +1753,7 @@ p {
     background: var(--e-global-color-primary);
     position: absolute;
     padding: 20px;
-    margin-top: -175px;
+    margin-top: -220px !important;
     border-radius: 0 10px 10px 0;
 }
 
@@ -2508,7 +2509,7 @@ p {
 
 .sub-banner::after {
     content: "";
-    background-image: url('../images/sub-bannerbackground.jpg');
+    background-image: url('../images/baby1.webp');
     border-radius: 0 0 600px 0;
     width: 100%;
     height: 100%;
@@ -2516,6 +2517,9 @@ p {
     left: 0;
     top: 0;
     opacity: 15%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .sub-banner .header {

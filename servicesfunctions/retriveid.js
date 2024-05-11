@@ -19,5 +19,14 @@ if (!svcValue || svcValue.length < 5) {
     document.getElementById(`Candidats`).classList.remove("active");
     document.getElementById(`Recruteurs`).classList.remove("active");
     document.getElementById(`${svcValue}`).classList.add("active");
+    RequestData();
 }
 
+async function RequestData() {
+    const data = await requesttoBackend('GET', `copine/${svcValue}`);
+    if (data) {
+        recentProduct(data, svcValue)
+    } else {
+        recentProduct([], svcValue)
+    }
+}
