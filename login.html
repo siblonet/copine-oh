@@ -112,57 +112,9 @@
             <div class="row">
                 <div class="col-lg-5 col-md-12 col-sm-12 col-12">
                     <div class="contact_content" data-aos="fade-right" data-aos-once="true">
-                        <h6>Contact Info</h6>
-                        <h2>Get in Touch</h2>
-                        <div class="contact-box">
-                            <div class="box-image">
-                                <figure class="contact-location">
-                                    <i class="fa-solid fa-map-location-dot"></i>
-                                </figure>
-                            </div>
-                            <div class="box-content">
-                                <h4>Ville d'habitation:</h4>
-                                <select class="form-control form-group" name="servicetypehtml" id="ivorycoastcity">
-                                    <option value="">SÉLECTIONNE TA VILLE</option>
-                                    <option value="ville 1">ville 1</option>
-                                    <option value="ville 2">ville 2</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="contact-box">
-                            <div class="box-image">
-                                <figure class="contact-email">
-                                    <i class="fa-solid fa-at"></i>
-                                </figure>
-                            </div>
-                            <div class="box-content">
-                                <h4 class="heading">Email:</h4>
-                                <p>
-                                    <a href="mailto:support@example.com"
-                                        class="text-decoration-none">support@example.com</a>
-                                </p>
-                                <p>
-                                    <a href="mailto:info@example.com"
-                                        class="mb-0 text-decoration-none">info@example.com</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contact-box box-mb">
-                            <div class="box-image">
-                                <figure class="contact-phone">
-                                    <i class="fa-solid fa-mobile"></i>
-                                </figure>
-                            </div>
-                            <div class="box-content">
-                                <h4 class="heading">Phone:</h4>
-                                <p>
-                                    <a href="tel:+0123456789" class="text-decoration-none text">+012 (345) 6789</a>
-                                </p>
-                                <p>
-                                    <a href="tel:+0000000000" class="mb-0 text-decoration-none text">+000 (000) 0000</a>
-                                </p>
-                            </div>
-                        </div>
+                        <a href="signup.html" style="color: #cf6d11;">Si tu n'as pas de compte, clique ici.</a>
+                        <h2>Connexion</h2>
+
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-12 col-sm-12 col-12">
@@ -171,33 +123,25 @@
                             <img src="assets/images/offer-circle-drop.png" alt="" class="img-fluid">
                         </figure>
                         <div class="need_content">
-                            <h6 class="text-white">Write to us</h6>
-                            <h2 class="text-white">send us a Message</h2>
-                            <form id="contactpage" method="POST"
-                                action="https://demo.themehurst.net/html/cleanos/mail.php">
+                            <form id="contactpage">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group mb-0">
-                                            <input type="text" class="form_style" placeholder="Your Name:" name="name">
+                                            <input type="tel" class="form_style" placeholder="Numéro:" name="phone">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group mb-0">
-                                            <input type="email" class="form_style" placeholder="Your Email:"
-                                                name="email">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class=" form-group mb-0">
-                                            <textarea class="form_style" placeholder="Message" rows="3"
-                                                name="message"></textarea>
+                                            <input type="password" class="form_style" placeholder="mot de passe:"
+                                                name="password">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="manage-button text-center">
-                                    <button type="submit" class="send_now text-white text-decoration-none">Send Now
+                                    <a class="send_now text-white text-decoration-none" style="cursor: pointer;"
+                                        onclick="Login()" id="loading">Connecter
                                         <i class="circle fa-thin fa-arrow-right"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </form>
                         </div>
@@ -337,6 +281,10 @@
             </figure>
         </div>
     </section>
+
+    <script src="servicesfunctions/variablestore.js"> </script>
+    <script src="servicesfunctions/login.js"> </script>
+
     <!-- Latest compiled JavaScript -->
     <script src="assets/js/jquery-3.6.0.min.js"> </script>
     <script src="assets/js/bootstrap.min.js"> </script>
