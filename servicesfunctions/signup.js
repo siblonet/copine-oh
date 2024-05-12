@@ -29,7 +29,7 @@ selectrole.addEventListener('change', function () {
 
 
 const selectsex = document.getElementById('selecsex');
-sex.addEventListener('change', function () {
+selectsex.addEventListener('change', function () {
     sex = this.value;
     console.log(sex);
 });
