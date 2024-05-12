@@ -112,7 +112,7 @@ const SendTheImage = async (base64Data, fileName) => {
 
     try {
         // Assuming requesttoBackend is a function that returns a Promise
-        const url = await requesttoBackend('POST', 'boutique/uploadImage', { ima: base64Data, nam: fileName });
+        const url = await requesttoBacken('POST', 'boutique/uploadImage', { ima: base64Data, nam: fileName });
         if (url.ima) {
             const us_id = sessionStorage.getItem('_id');
 
