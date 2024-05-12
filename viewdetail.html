@@ -112,20 +112,19 @@
                             <div class="post-item-wrap">
                                 <div class="post-image" data-aos="fade-up" data-aos-once="true">
                                     <a>
-                                        <img alt="" src="assets/images/baby1.webp">
+                                        <img id="imagea" alt="" src="assets/images/baby1.webp">
                                     </a>
                                 </div>
                                 <div class="post-navigation">
-                                    <a class="post-prev" style="cursor: pointer;">
+                                    <a id="nexcb" class="post-prev" style="cursor: pointer;" onclick="ImageNextBack('0')">
                                         <div class="post-prev-title"><span>Précédente</span></div>
                                     </a>
-                                    <a class="post-next" style="cursor: pointer;">
+                                    <a id="nexca" class="post-next" style="cursor: pointer;" onclick="ImageNextBack('1')">
                                         <div class="post-next-title"><span>Photo Suivante</span></div>
                                     </a>
                                 </div>
                                 <div class="post-item-description">
-                                    <h2 class="single-post-heading font_weight_600">Olivia Djédjé
-                                    </h2>
+                                    <h2 class="single-post-heading font_weight_600" id="username"></h2>
                                     <div class="post-meta">
                                         <span class="post-meta-category color01">
                                             <a style="cursor: pointer;">
@@ -134,20 +133,19 @@
                                             </a>
                                         </span>
                                         <span class="post-meta-comments color01">
-                                            <a style="cursor: pointer;">33 Commentaires</a>
+                                            <a style="cursor: pointer;" id="comentnumbera">0 Commentaires</a>
                                         </span>
                                         <span class="post-meta-category color01">
-                                            <a>
+                                            <a id="vuenumber">
                                                 <i class="fa fa-eye"></i>0 Vue
                                             </a>
                                         </span>
                                     </div>
-                                    <p class="text-size-16">It is a long established fact that a reader will be
-                                        distracted by the readable content of a page when looking at its layout.</p>
+                                    <p class="text-size-16" id="userbio"></p>
                                 </div>
                                 <div class="comments" id="comments">
                                     <div class="comment_number text-uppercase font_weight_600">
-                                        Commentaires <span>(33)</span>
+                                        Commentaires <span id="comentnumbera">(0)</span>
                                     </div>
                                     <div class="comment-list">
                                         <div class="comment" id="comment-1">
@@ -329,46 +327,60 @@
                             <div class="widget-title font_weight_600">Infos & Contacts</div>
                             <ul>
                                 <li class="cat-item">
+                                    <a href="single-post.html#">Qualité</a>
+                                    <span class="cat-count-span" id="userrole"></span>
+                                </li>
+                                <li class="cat-item">
                                     <a href="single-post.html#">Ville d'habitation</a>
-                                    <span class="cat-count-span">Abidjan</span>
+                                    <span class="cat-count-span" id="userville"></span>
                                 </li>
                                 <li class="cat-item">
                                     <a href="single-post.html#">Commune</a>
-                                    <span class="cat-count-span">Cocody Riviera 2</span>
+                                    <span class="cat-count-span" id="useraddress"></span>
                                 </li>
                                 <li class="cat-item">
                                     <a href="single-post.html#">Sex</a>
-                                    <span class="cat-count-span">Femme</span>
+                                    <span class="cat-count-span" id="usersex"></span>
                                 </li>
                                 <li class="cat-item">
                                     <a href="single-post.html#">Situation</a>
-                                    <span class="cat-count-span">Célibataire</span>
+                                    <span class="cat-count-span" id="usersituation"></span>
                                 </li>
                                 <li class="cat-item">
                                     <a href="single-post.html#">Âge</a>
-                                    <span class="cat-count-span">23</span>
+                                    <span class="cat-count-span" id="userage"></span>
                                 </li>
                                 <li class="cat-item">
                                     <a href="single-post.html#">Contact</a>
-                                    <span class="cat-count-span">0103470087</span>
+                                    <span class="cat-count-span" id="userphone">0103470087</span>
                                 </li>
                                 <li class="cat-item">
                                     <a href="single-post.html#">WhatsApp</a>
-                                    <span class="cat-count-span">0554468221</span>
+                                    <span class="cat-count-span" id="userwhatsapp">0554468221</span>
                                 </li>
                                 <li class="cat-item">
                                     <a href="single-post.html#">Mail</a>
-                                    <span class="cat-count-span">info@copine.com</span>
+                                    <span class="cat-count-span" id="useremail">info@copine.com</span>
+                                </li>
+                                <li class="cat-item">
+                                    <a href="single-post.html#">Disponibilité</a>
+                                    <span class="cat-count-span" id="useravailability">Disponible</span>
                                 </li>
                                 <li class="cat-item">
                                     <a href="single-post.html#">Natinalité</a>
-                                    <span class="cat-count-span">Ivoiriene</span>
+                                    <span class="cat-count-span" id="usernationality">Ivoiriene</span>
                                 </li>
                                 <li class="cat-item">
                                     <a href="single-post.html#">Réligion</a>
-                                    <span class="cat-count-span">Chrétienne</span>
+                                    <span class="cat-count-span" id="userreligion">Chrétienne</span>
                                 </li>
                             </ul>
+                            <div class="col-lg-12">
+                                <div class="form-group text-center">
+                                    <a style="cursor: pointer; padding: 5px 20px 5px 20px !important; border: 1px solid #145fb8; border-radius: 20px;"
+                                        class="btn font_weight_600"><i class="fa fa-eye" style="color: #aaaaaa;"></i>  Voir</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -377,135 +389,16 @@
     </section>
 
 
-    <!-- Footer -->
-    <section class="footer-section">
-        <div class="container">
-            <figure class="mb-0 about-drop-left">
-                <img src="assets/images/about-drop-right.png" alt="" class="img-fluid">
-            </figure>
-            <div class="middle-portion">
-                <div class="row">
-                    <div class="col-lg-4 col-md-5 col-sm-6 col-12">
-                        <div class="first-column">
-                            <a href="/">
-                                <figure class="footer-logo">
-                                    <img src="assets/images/logo.png" height="50px" width="100px" class="img-fluid"
-                                        alt="">
-                                </figure>
-                            </a>
-                            <p class="text-size-18 footer-text">Nous travaillons avec passion pour relever des défis et
-                                en créer de nouveaux dans le secteur de la publicité.</p>
-                            <div class="lower">
-                                <div class="lower-content">
-                                    <figure class="icon">
-                                        <i class="fa-solid fa-phone-volume"></i>
-                                    </figure>
-                                    <div class="content">
-                                        <span class="text-white">Appelez-nous:</span>
-                                        <a class="text-size-18 mb-0 text text-decoration-none"
-                                            href="tel:0103470087">0103470087</a>
-                                    </div>
-                                </div>
-                                <div class="lower-content">
-                                    <figure class="icon">
-                                        <i class="fa-solid fa-envelope-open-text"></i>
-                                    </figure>
-                                    <div class="content">
-                                        <span class="text-white">Envoyez-nous un e-mail:</span>
-                                        <a href="mailto:info@copine-oh.com"
-                                            class="text-size-18 mb-0 text-decoration-none">info@copine-oh.com</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-12 col-12 d-md-block d-none">
-                        <div class="links list-pd">
-                            <h4 class="heading text-white">Liens rapides</h4>
-                            <ul class="list-unstyled mb-0">
-                                <li><a href="/" class="text-size-18 text text-decoration-none">à Propos</a></li>
-                                <li><a href="/" class="text-size-18 text text-decoration-none">Recruteurs</a></li>
-                                <li><a href="/" class="text-size-18 text text-decoration-none">Candidats</a></li>
-                                <li>
-                                    <a href="/" class="text-size-18 text text-decoration-none">Politique</a>
-                                </li>
-                                <li>
-                                    <a href="/" class="text-size-18 text text-decoration-none">Confidentialité</a>
-                                </li>
-                                <li><a href="/" class="text-size-18 text text-decoration-none">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-12 col-12 d-lg-block d-none">
-                        <div class="links">
-                            <h4 class="heading text-white">Nos Services</h4>
-                            <ul class="list-unstyled mb-0">
-                                <li><a href="/" class="text-size-18 text text-decoration-none">Service de netoyage</a>
-                                </li>
-                                <li><a href="/" class="text-size-18 text text-decoration-none">Nounous</a>
-                                </li>
-                                <li><a href="team.html" class="text-size-18 text text-decoration-none">Prof de
-                                        maison</a></li>
-                                <li><a href="/" class="text-size-18 text text-decoration-none">Chauffeur</a></li>
-                                <li><a href="/" class="text-size-18 text text-decoration-none">Chef Cuisine</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-sm-block d-none">
-                        <div class="icons">
-                            <h4 class="heading mb-0 text-white">Abonnez-vous à</h4>
-                            <h4 class="heading text-white">Notre Newsletter Aujourd'hui !</h4>
-                            <p class="text-size-18 footer-text text-white">Abonnez-vous à notre newsletter pour recevoir
-                                nos dernières mises à jour et actualités.</p>
+    <!-- local JavaScript -->
+    <script src="servicesfunctions/convertisseur.js"> </script>
+    <script src="servicesfunctions/database_handl.js"> </script>
+    <script src="servicesfunctions/product.services.js"> </script>
+    <script src="servicesfunctions/variablestore.js"> </script>
+    <script src="servicesfunctions/veiwdetail.js"> </script>
 
-                            <form id="contactpage1">
-                                <div class="form-group mb-0">
-                                    <input type="text" class="form_style" placeholder="Entrez votre adresse e-mail :"
-                                        name="email">
-                                </div>
-                                <button type="submit" class="subscribe_now text-white text-decoration-none">Abonnez
-                                    <i class="circle fa-thin fa-arrow-right"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <div class="container">
-                    <div class="row copyright-border">
-                        <div class="col-lg-6 col-md-6 col-sm-12 co-12 column">
-                            <p class="text-size-16">Droits d'auteur ©2024 Copine-oh Tous droits réservés</p>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 co-12 d-md-block d-none">
-                            <div class="social-icons position-relative">
-                                <ul class="list-unstyled position-absolute">
-                                    <li><a href="/" class="text-decoration-none"><i
-                                                class="fa-brands fa-facebook-f social-medias"></i></a></li>
-                                    <li><a href="/" class="text-decoration-none"><i
-                                                class="fa-brands fa-twitter social-medias"></i></a></li>
-                                    <li><a href="/" class="text-decoration-none"><i
-                                                class="fa-brands fa-google-plus-g social-medias"></i></a></li>
-                                    <li><a href="/" class="text-decoration-none"><i
-                                                class="fa-brands fa-instagram social-medias"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <figure class="footer-dotimage mb-0">
-                <img src="assets/images/footer-dotimage.png" alt="" class="img-fluid">
-            </figure>
-            <figure class="footer-leftlayer mb-0">
-                <img src="assets/images/common-layer-white.png" alt="" class="img-fluid comon-img-opa">
-            </figure>
-        </div>
-    </section>
 
     <!-- Latest compiled JavaScript -->
+
     <script src="assets/js/jquery-3.6.0.min.js"> </script>
     <script src="assets/js/bootstrap.min.js"> </script>
     <script src="assets/js/video_link.js"></script>

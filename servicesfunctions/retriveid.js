@@ -28,6 +28,7 @@ async function RequestData() {
         document.getElementById('sel_service_c').innerText = data.length;
 
         if (data.length > 0) {
+            await PostCandidate(data);
             recentProduct(data, svcValue)
         } else {
             recentProduct([], svcValue)

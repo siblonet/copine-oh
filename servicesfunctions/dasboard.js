@@ -4,7 +4,6 @@ async function getAdmin() {
 
 
     if (user_id) {
-
         const sesStoge = await GetPersonByID(user_id);
         const username = whatisthis(sesStoge.name);
         const userphone = whatisthis(sesStoge.phone);

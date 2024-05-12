@@ -19,6 +19,28 @@ async function PostPeople(person) {
 }
 
 
+async function PostCandidate(people) {
+    const peopledb = await openCandidatDatabase();
+    const PpTransation = peopledb.transaction(["candidatContent"], "readwrite");
+    const PpStore = PpTransation.objectStore("candidatContent");
+
+    let added = false;
+    people.map(person => {
+        const adding = PpStore.add(person);
+
+        adding.onsuccess = () => {
+            added = true;
+        };
+
+        adding.onerror = (event) => {
+            console.log("PostCandidate", event.target.error);
+        };
+
+    });
+
+    return added
+}
+
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ adding systme as post end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ adding systme as post end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ adding systme as post end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
@@ -51,11 +73,53 @@ async function GetPersonByID(id) {
         };
     })
 
+}
 
+async function GetCandidatByID(id) {
+    return new Promise(async (resolve, reject) => {
+        const peopledb = await openCandidatDatabase();
+        const GPTransation = peopledb.transaction(["candidatContent"], "readonly");
+        const GPStore = GPTransation.objectStore("candidatContent");
+
+        const requestingByID = GPStore.get(id);
+
+        requestingByID.onsuccess = (event) => {
+            const personphone = event.target.result;
+            resolve(personphone);
+        };
+
+        requestingByID.onerror = (event) => {
+            console.error("Error accessing object GetCandidatByID store:", event.target.error);
+            reject(event.target.error);
+        };
+    })
 
 }
 
+async function GetAllCandidat() {
+    const panierdb = await openCandidatDatabase();
+    const GPTransation = panierdb.transaction(["candidatContent"], "readonly");
+    const GPStore = GPTransation.objectStore("candidatContent");
+    return new Promise((resolve, reject) => {
+        const pannier = [];
 
+        GPStore.openCursor().onsuccess = (event) => {
+            const cursor = event.target.result;
+            if (cursor) {
+                pannier.push(cursor.value);
+                cursor.continue();
+            } else {
+                resolve(pannier);
+            }
+        };
+
+        GPTransation.onerror = (event) => {
+            console.log("GetPannier error: " + event.target.errorCode);
+            reject([]);
+        };
+    });
+
+}
 
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ getting systme as get end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
@@ -82,6 +146,23 @@ async function deletePeople() {
     return deleted
 }
 
+async function deleteCandidat() {
+    const peopledb = await openCandidatDatabase();
+    const CPTransation = peopledb.transaction(["candidatContent"], "readwrite");
+    const CPStore = CPTransation.objectStore("candidatContent");
 
+    const clearPeople = CPStore.clear();
+
+    let deleted = false;
+    clearPeople.onsuccess = () => {
+        deleted = true;
+    };
+
+    clearPeople.onerror = (event) => {
+        console.error("Error accessing object deletePeople store:", event.target.error);
+    };
+
+    return deleted
+}
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ deleting systme as delete end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
