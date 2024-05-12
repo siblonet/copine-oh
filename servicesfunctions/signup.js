@@ -79,7 +79,7 @@ async function SignUp() {
 
                 loading.setAttribute("onclick", "SignUp()");
                 loading.innerText = "Créer";
-            } else if (response) {
+            } else if (response.name) {
                 sessionStorage.setItem('copine', "connected");
                 //window.location.href = "/dashboard";
                 console.log(response);

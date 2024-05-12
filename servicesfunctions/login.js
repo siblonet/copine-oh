@@ -25,7 +25,8 @@ async function Login() {
             Connecter
             <i class="circle fa-thin fa-arrow-right"></i>
             `;
-        } else if (response) {
+        } else if (response.name) {
+            console.log(response);
             sessionStorage.setItem('copine', "connected");
             loading.innerHTML = `
             Connecté
