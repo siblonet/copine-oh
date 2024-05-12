@@ -19,16 +19,17 @@ async function getAdmin() {
         const useravailability = sesStoge.availability;
         const useraddress = whatisthis(sesStoge.address);
         const userphoto = sesStoge.image;
+        console.log("ssssss", userphoto.length);
         if (userphoto.length > 0) {
-            document.getElementById(`imagbotoma`).src = userphoto[0].ima;
+            document.getElementById(`imagea`).src = userphoto[0].ima;
 
         }
         if (userphoto.length > 1) {
-            document.getElementById(`imagbotomb`).src = userphoto[1].ima;
+            document.getElementById(`imageb`).src = userphoto[1].ima;
 
         }
         if (userphoto.length > 2) {
-            document.getElementById(`imagbotomc`).src = userphoto[2].ima;
+            document.getElementById(`imagec`).src = userphoto[2].ima;
 
         }
 
