@@ -64,3 +64,143 @@ function ImageNextBack(road) {
     }
 
 }
+let paymen_method_selected = "noselected";
+
+
+const paymenhtm = `
+                <div class="form-group text-center">
+                    <a style="cursor: pointer; padding: 5px 20px 5px 20px !important; border: 1px solid #145fb8; border-radius: 20px;" class="btn font_weight_600">Payer</a>
+                </div>
+        `;
+
+
+const PaymenSelecion = (paymen_method) => {
+    paymen_method_selected = paymen_method;
+    const Orangeci = document.getElementById('orangeci');
+    const Mtnci = document.getElementById('mtnci');
+    const Waveci = document.getElementById('waveci');
+    const Cards = document.getElementById('cards');
+    const payer = document.getElementById('payer');
+
+    Orangeci.classList.remove('payment_icons_selected');
+    Mtnci.classList.remove('payment_icons_selected');
+    Waveci.classList.remove('payment_icons_selected');
+    Cards.classList.remove('payment_icons_selected');
+
+    document.getElementById(paymen_method).classList.add('payment_icons_selected');
+
+    if (paymen_method !== "cards") {
+        const customerphone = document.getElementById('customerphone');
+        customerphone.placeholder = `Entrez tél pour ${paymen_method === "orangeci" ? "ORANGE MONEY" : paymen_method === "mtnci" ? "MTN MONEY" : "Wave"}`;
+        customerphone.style.display = "block";
+        payer.innerHTML = paymenhtm;
+
+    } else {
+        const customerphone = document.getElementById('customerphone');
+        customerphone.value = "";
+        customerphone.placeholder = "";
+        customerphone.style.display = "none";
+    };
+
+
+    if (paymen_method_selected !== "noselected" && prenomValueA.value.length > 2 && nomValueA.value.length > 2 && villeValueA.value.length > 2 && adresseValueA.value.length > 4 && telephoneValueA.value.length > 9 && telephoneValueA.value.length < 11) {
+        document.getElementById("validate-hide-forfil").innerHTML = VALIDAHTML
+
+    }
+};
+
+
+const KaliaPay = async () => {
+    try {
+        const customer = encodeURIComponent(document.getElementById('customerphone').value);
+
+        const response = await requesttoBackend('POST', `orders/${customer ? customer : "0701743686"}/nuance`, order);
+
+        if (response && response.orderid) {
+            await deletePannier();
+            window.location.href = response.orderid
+
+
+        } else if (!response) {
+            handleError("Erreur inconnue, Veuillez réessayer plus tard");
+            document.getElementById('noorderduplu').setAttribute('onclick', 'sendCommen()');
+        }
+
+    } catch (error) {
+        console.log(error);
+        handleError("Vérifiez que vous avez accès à l'internet");
+        document.getElementById('noorderduplu').setAttribute('onclick', 'sendCommen()');
+
+        // Handle errors appropriately
+    }
+}
+
+
+
+
+const PaymenSession = `
+               
+
+<div style="margin-bottom: -50px; align-items: center; text-align: center;">
+                                    <P style="color: #007bff;">Vous serez facturé à 500 pour voir les infos complètes
+                                    </P>
+                                </div>
+                                <div class="tab products-details-tab">
+                                    <br>
+                                    <br>
+                                    <br>
+
+                                    <div class="tab-content">
+                                        <div class="tabs-item">
+                                            <div class="products-details-tab-content">
+                                                <div
+                                                    style="display: flex; justify-content: space-between; width: 100%;">
+                                                    <div class="payment_icons" id="orangeci"
+                                                        onclick="PaymenSelecion('orangeci')">
+                                                        <img src="assets/images/orange.png" alt="ORANGE MONEY">
+                                                    </div>
+                                                    <div class="payment_icons" id="mtnci"
+                                                        onclick="PaymenSelecion('mtnci')">
+                                                        <img src="assets/images/mtn.png" alt="MTN MONEY">
+                                                    </div>
+                                                    <div class="payment_icons" id="waveci"
+                                                        onclick="PaymenSelecion('waveci')">
+                                                        <img src="assets/images/icon.png" alt="WAVE CI">
+                                                    </div>
+                                                    <div class="payment_icons" id="cards"
+                                                        onclick="PaymenSelecion('cards')">
+                                                        <img src="assets/images/vm.png" alt="VISA MASTERCARD">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <input style="height: 40px !important; display: none;"
+                                                    placeholder="Entrez tél pour " type="tel" class="form-control"
+                                                    id="customerphone">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="payment-box" id="validate-hide-forfil">
+
+
+                                </div>
+                                <div class="col-lg-12" id="payer">
+                                    
+                                </div>
+
+
+        `;
+
+
+
+
+
+const Deverrouillage = () => {
+    document.getElementById('paymensession').innerHTML = PaymenSession;
+}
+
+
+
