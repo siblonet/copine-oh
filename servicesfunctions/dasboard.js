@@ -18,7 +18,7 @@ async function getAdmin() {
         const usersex = whatisthis(sesStoge.sex);
         const useravailability = sesStoge.availability;
         const useraddress = whatisthis(sesStoge.address);
-        const userphoto = whatisthis(sesStoge.image);
+        const userphoto = sesStoge.image;
         if (userphoto.length > 0) {
             document.getElementById(`imagbotoma`).src = userphoto[0].ima;
 
