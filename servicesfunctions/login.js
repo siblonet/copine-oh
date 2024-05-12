@@ -1,6 +1,6 @@
 async function Login() {
     const phone = thisiswhat(document.getElementById('phone').value);
-    const password = thisiswhat(document.getElementById('password').value);
+    const password = document.getElementById('password').value;
     const loading = document.getElementById('loading');
 
     if (phone && password) {
@@ -16,6 +16,7 @@ async function Login() {
 
         };
         const response = await requesttoBackend('POST', 'copineconnexion', data);
+        console.log(response);
 
         if (!response) {
             alert("Échec, vérifiez votre connexion ou essayez plus tard.");
@@ -26,12 +27,26 @@ async function Login() {
             <i class="circle fa-thin fa-arrow-right"></i>
             `;
         } else if (response.name) {
-            sessionStorage.setItem('copine', "connected");
+            sessionStorage.setItem('_id', response._id);
+            sessionStorage.setItem('name', response.name);
+            sessionStorage.setItem('phone', response.phone);
+            sessionStorage.setItem('email', response.email);
+            sessionStorage.setItem('password', response.password);
+            sessionStorage.setItem('role', response.role);
+            sessionStorage.setItem('pushtoken', response.pushtoken);
+            sessionStorage.setItem('allow', response.allow);
+            sessionStorage.setItem('ville', response.ville);
+            sessionStorage.setItem('bio', response.bio);
+            sessionStorage.setItem('sex', response.sex);
+            sessionStorage.setItem('availability', response.availability);
+            sessionStorage.setItem('address', response.address);
+
+
             loading.innerHTML = `
             Connecté
             <i class="circle fa-thin fa-arrow-right"></i>
             `;
-            ///window.location.href = "/dashboard";
+            window.location.href = "dashboard";
         } else if (response.ee) {
             alert("Identifient inccorect");
             loading.setAttribute("onclick", "Login()");

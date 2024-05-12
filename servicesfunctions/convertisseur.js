@@ -139,19 +139,32 @@ const dee = {
 
 
 function whatisthis(ee) {
+    // Check if ee is null
+    if (ee === null) {
+        return "";
+    }
+
+    // Replace '/' with '¨'
     const adaa = ee.replaceAll("/", "¨");
+
+    // Initialize dof
     let dof = "";
+
+    // Iterate over each character in adaa
     [...adaa].forEach(en => {
+        // Assuming Upcase, Lowcas, Nu, Sum, dee are objects with properties
         dof += Upcase[`${en}`];
         dof += Lowcas[`${en}`];
         dof += Nu[`${en}`];
         dof += Sum[`${en}`];
         dof += dee[`${en}`];
-
     });
+
+    // Replace "undefined" with ""
     const ad = dof.replaceAll("undefined", "");
     return ad;
 }
+
 
 
 function thisiswhat(eee) {
