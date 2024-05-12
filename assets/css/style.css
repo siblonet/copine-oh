@@ -1753,7 +1753,7 @@ p {
     background: var(--e-global-color-primary);
     position: absolute;
     padding: 20px;
-    margin-top: -220px !important;
+    margin-top: -10px !important;
     border-radius: 0 10px 10px 0;
 }
 
@@ -3611,7 +3611,7 @@ p {
 
 .form-gray-fields .form-control {
     color: #333;
-    background-color: rgba(238, 238, 238, .6);
+    background-color: #ffffff;
 }
 
 .form-gray-fields .btn:hover,

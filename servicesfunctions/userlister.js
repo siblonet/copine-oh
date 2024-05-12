@@ -28,20 +28,21 @@ function recentProduct(user_content, what) {
         user_content.forEach((user, index) => {
             const contenttHTML = `
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                    <div class="case-box overlay">
+                    <a class="case-box overlay" href="viewdetail.html?svc=${user._id}">
                         <div class="overlay-image">
                             <figure class="image mb-0">
                                 <img src="${user.image[0] ? user.image[0].ima : "assets/images/baby1.webp"}" alt="" class="">
                             </figure>
                         </div>
                         <div class="content" style="cursor: pointer;">
-                            <h5 class="text-white" style="filter: blur(7px);">Nounou & Menange</h5>
-                            <p class="text-white" style="filter: blur(7px);">Tél: 0700000000</p>
-                            <p class="text-white" style="filter: blur(7px);">Cocody Riviera 2</p>
-                            <p class="text-white text-size-18">${user.bio}</p>
+                            <img src="assets/images/love.png" style="height: 10px; width: 10px;" alt="love">
+                            <img src="assets/images/love.png" style="height: 10px; width: 10px;" alt="love">
+                            <img src="assets/images/love.png" style="height: 10px; width: 10px;" alt="love">
+                            <img src="assets/images/love.png" style="height: 10px; width: 10px; filter: grayscale(100%);" alt="love">
+                            <img src="assets/images/love.png" style="height: 10px; width: 10px; filter: grayscale(100%);" alt="love">
                         </div>
-                        <span class="text-white" style="filter: blur(2px);">Olivia Djedje</span>
-                    </div>
+                        <span class="text-white" style="filter: blur(2px);">${user.name}</span>
+                    </a>
                 </div>    
         `;
 
