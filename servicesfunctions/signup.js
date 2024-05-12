@@ -52,7 +52,10 @@ async function SignUp() {
     if (full_name && email && phone && commune && password && bio && ville && sex && role) {
         if (password === password1) {
             loading.removeAttribute("onclick");
-            loading.innerText = "En cours ...";
+            loading.innerHTML = `
+                En Cours ...
+            <i class="circle fa-thin fa-arrow-right"></i>
+            `;
 
             const data = {
                 name: full_name,
@@ -80,11 +83,17 @@ async function SignUp() {
                 sessionStorage.setItem('copine', "connected");
                 //window.location.href = "/dashboard";
                 console.log(response);
-                loading.innerText = "Compte créé";
+                loading.innerHTML = `
+                Compte Créé
+                <i class="circle fa-thin fa-arrow-right"></i>
+                `;
             } else if (response.ee) {
                 alert(`Le ${phone} est déjà associé à un compte`);
                 loading.setAttribute("onclick", "SignUp()");
-                loading.innerText = "Créer";
+                loading.innerHTML = `
+                    Créer
+                <i class="circle fa-thin fa-arrow-right"></i>
+                `;
             }
         } else {
             alert("Les mot de passe ne sont pas conform.");

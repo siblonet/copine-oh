@@ -5,7 +5,10 @@ async function Login() {
 
     if (phone && password) {
         loading.removeAttribute("onclick");
-        loading.innerText = "En cours ...";
+        loading.innerHTML = `
+        En cours ...
+        <i class="circle fa-thin fa-arrow-right"></i>
+        `;
 
         const data = {
             phone: phone,
@@ -18,15 +21,24 @@ async function Login() {
             alert("Échec, vérifiez votre connexion ou essayez plus tard.");
 
             loading.setAttribute("onclick", "Login()");
-            loading.innerText = "Connecter";
+            loading.innerHTML = `
+            Connecter
+            <i class="circle fa-thin fa-arrow-right"></i>
+            `;
         } else if (response) {
             sessionStorage.setItem('copine', "connected");
-            loading.innerText = "Connecté";
+            loading.innerHTML = `
+            Connecté
+            <i class="circle fa-thin fa-arrow-right"></i>
+            `;
             ///window.location.href = "/dashboard";
         } else if (response.ee) {
             alert("Identifient inccorect");
             loading.setAttribute("onclick", "Login()");
-            loading.innerText = "Connecter";
+            loading.innerHTML = `
+            Connecter
+            <i class="circle fa-thin fa-arrow-right"></i>
+            `;
         }
 
     } else {
