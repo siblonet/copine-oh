@@ -70,7 +70,13 @@ let imagbotom;
 async function AddUserImage() {
     const imagbotomc = document.getElementById(`${imagbotom}`);
     imagbotomc.removeAttribute("onclick");
-    const imagePreview = document.getElementById(`imagec`);
+    function getLastCharacter(text) {
+        return text[text.length - 1];
+    }
+
+    const lastCharacter = getLastCharacter(imagbotom);
+
+    const imagePreview = document.getElementById(`image${lastCharacter}`);
     imagePreview.src = '';
 
     const fileInput = document.getElementById(`filec`);
@@ -84,42 +90,50 @@ async function AddUserImage() {
     const imageUrl = URL.createObjectURL(file);
     imagePreview.src = imageUrl;
 
-    imagbotomc.setAttribute("onclick", `SendTheImage('${file}')`);
-    imagbotomc.innerHTML = `
-        Valider
-        <i class="circle fa-thin fa-arrow-right"></i>
-    `;
-}
-
-
-const SendTheImage = async (file) => {
     const reader = new FileReader();
-
     reader.onload = async function (event) {
-        try {
-            const base64Data = event.target.result.split(',')[1];
-            const fileName = file.name;
+        const base64Data = event.target.result.split(',')[1];
+        const fileName = file.name;
 
-            // Assuming requesttoBackend is a function that returns a Promise
-            const url = await requesttoBackend('POST', 'boutique/uploadImage', { ima: base64Data, nam: fileName });
-            if (url.ima) {
-                const us_id = sessionStorage.getItem('_id');
-
-                const sending = await requesttoBackend('PUT', `${us_id}`, { image: [{ ima: url.ima }] });
-                if (sending.name) {
-                    await PostPeople(sending);
-                    window.location.reload()
-                } else {
-                    console.log(sending);
-                }
-            }
-
-        } catch (error) {
-            console.error("Error uploading image:", error);
-        }
+        imagbotomc.setAttribute("onclick", `SendTheImage('${base64Data}','${fileName},')`);
+        imagbotomc.innerHTML = `
+        Valider
+        <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
+    `;
     };
 
     reader.readAsDataURL(file);
+}
+
+
+const SendTheImage = async (base64Data, fileName) => {
+    const imagbotomc = document.getElementById(`${imagbotom}`);
+    imagbotomc.innerHTML = `En Cours ...`;
+
+    try {
+        // Assuming requesttoBackend is a function that returns a Promise
+        const url = await requesttoBackend('POST', 'boutique/uploadImage', { ima: base64Data, nam: fileName });
+        if (url.ima) {
+            const us_id = sessionStorage.getItem('_id');
+
+            const sending = await requesttoBackend('PUT', `${us_id}`, { image: [{ ima: url.ima }] });
+            if (sending.name) {
+                await PostPeople(sending);
+                window.location.reload()
+            } else {
+                console.log(sending);
+            }
+        }
+
+    } catch (error) {
+        imagbotomc.innerHTML = `
+            échèc
+            <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
+        `;
+        console.error("Error uploading image:", error);
+    }
+
+
 }
 
 function OpenFileDia(imagbotoma) {
