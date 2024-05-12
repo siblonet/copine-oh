@@ -1,9 +1,11 @@
 function recentProduct(user_content, what) {
+    //console.log(user_content);
     const userContainer = document.getElementById('rendadata');
 
     if (user_content.length > 0) {
         userContainer.classList.remove("offer-section");
-        userContainer.classList.add("project-section projectpage-section");
+        userContainer.classList.add("project-section");
+        userContainer.classList.add("projectpage-section");
         userContainer.innerHTML = `
         
             <figure class="offer-top-layout mb-0">
@@ -29,7 +31,7 @@ function recentProduct(user_content, what) {
                     <div class="case-box overlay">
                         <div class="overlay-image">
                             <figure class="image mb-0">
-                                <img src="${user.photo[0].ima}" alt="" class="">
+                                <img src="${user.image[0] ? user.image[0].ima : "assets/images/baby1.webp"}" alt="" class="">
                             </figure>
                         </div>
                         <div class="content">

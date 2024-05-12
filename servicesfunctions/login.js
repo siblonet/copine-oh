@@ -1,6 +1,6 @@
 async function Login() {
-    const phone = document.getElementById('phone').value;
-    const password = document.getElementById('password').value;
+    const phone = thisiswhat(document.getElementById('phone').value);
+    const password = thisiswhat(document.getElementById('password').value);
     const loading = document.getElementById('loading');
 
     if (phone && password) {
@@ -26,7 +26,6 @@ async function Login() {
             <i class="circle fa-thin fa-arrow-right"></i>
             `;
         } else if (response.name) {
-            console.log(response);
             sessionStorage.setItem('copine', "connected");
             loading.innerHTML = `
             Connecté

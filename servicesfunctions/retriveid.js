@@ -23,10 +23,25 @@ if (!svcValue || svcValue.length < 5) {
 }
 
 async function RequestData() {
-    const data = await requesttoBackend('GET', `${svcValue}`);
-    if (data) {
-        recentProduct(data, svcValue)
-    } else {
-        recentProduct([], svcValue)
+    try {
+        const data = await requesttoBackend('GET', `${svcValue}`);
+        const what = whatisthis(svcValue);
+        const datafiltes = data.length > 0 ? data.filter(rr => rr.role === what) : [];
+        if (datafiltes) {
+            recentProduct(datafiltes, svcValue)
+        } else {
+            recentProduct([], svcValue)
+        }
+    } catch (error) {
+        console.log(error);
+        const userContainera = document.getElementById('rendadatb');
+
+        userContainera.innerHTML = `
+                            <h6>échèc de chargement</h6>
+                            <h2>échèc</h2>
+                            <p>Vérifiez que vous avez de la connexion internet et actualisez</p>
+            
+        `;
     }
+
 }

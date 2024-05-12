@@ -14,37 +14,34 @@ let sex;
 
 const selectville = document.getElementById('selectcity');
 selectville.addEventListener('change', function () {
-    ville = this.value;
-    console.log(ville);
+    ville = thisiswhat(this.value);
 });
 
 
 
 const selectrole = document.getElementById('selecrole');
 selectrole.addEventListener('change', function () {
-    role = this.value;
-    console.log(role);
+    role = thisiswhat(this.value);
 });
 
 
 
 const selectsex = document.getElementById('selecsex');
 selectsex.addEventListener('change', function () {
-    sex = this.value;
-    console.log(sex);
+    sex = thisiswhat(this.value);
 });
 
 
 
 
 async function SignUp() {
-    const full_name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const password = document.getElementById('password').value;
-    const password1 = document.getElementById('passworda').value;
-    const commune = document.getElementById('commune').value;
-    const bio = document.getElementById('bio').value;
+    const full_name = thisiswhat(document.getElementById('name').value);
+    const email = thisiswhat(document.getElementById('email').value);
+    const phone = thisiswhat(document.getElementById('phone').value);
+    const password = thisiswhat(document.getElementById('password').value);
+    const password1 = thisiswhat(document.getElementById('passworda').value);
+    const commune = thisiswhat(document.getElementById('commune').value);
+    const bio = thisiswhat(document.getElementById('bio').value);
 
     const loading = document.getElementById('loading');
 
@@ -71,7 +68,6 @@ async function SignUp() {
                 sex: sex,
                 availability: true
             };
-
             const response = await requesttoBackend('POST', '', data);
 
             if (!response) {
@@ -82,7 +78,6 @@ async function SignUp() {
             } else if (response.name) {
                 sessionStorage.setItem('copine', "connected");
                 //window.location.href = "/dashboard";
-                console.log(response);
                 loading.innerHTML = `
                 Compte Créé
                 <i class="circle fa-thin fa-arrow-right"></i>

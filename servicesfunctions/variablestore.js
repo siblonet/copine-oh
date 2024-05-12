@@ -1,4 +1,4 @@
-const apiUrlfin = 'http://localhost:3000/';
+const apiUrlfin = 'http://localhost:3000/copine/';
 const apiUrlfine = 'https://nuance-doud.adaptable.app/copine/';
 
 const ivoireCities = [
