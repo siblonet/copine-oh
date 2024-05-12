@@ -204,8 +204,9 @@
                             <div class="col-xl-4 mb-5">
                                 <div class="blog_boxcontent mb-0">
                                     <div class="upper_portion">
-                                        <figure class="mb-0"><img src="assets/images/baby1.webp" class="article_img"
-                                                alt=""></figure>
+                                        <figure class="mb-0">
+                                            <img id="imagec" src="assets/images/baby1.webp" class="article_img" alt="">
+                                        </figure>
                                         <div class="image_content">
                                             <div class="content">
                                                 <h3 class="text-white counter">00</h3>
@@ -215,10 +216,13 @@
                                     </div>
                                     <div class="lower_portion_wrapper">
                                         <div class="lower_portion" style="cursor: pointer;">
-                                            <a class="read_more text-decoration-none">Changer la photo
+                                            <a id="imagbotomc" class="read_more text-decoration-none" onclick="OpenFileDia()">Changer la
+                                                photo
                                                 <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i>
                                                 </figure>
                                             </a>
+                                            <input type="file" id="filec" style="display: none !important;"
+                                                accept="image/*" onchange="AddUserImage()">
                                         </div>
                                     </div>
                                 </div>
@@ -314,6 +318,8 @@
 
     <!-- servicefunction js -->
     <script src="servicesfunctions/convertisseur.js"> </script>
+    <script src="servicesfunctions/database_handl.js"> </script>
+    <script src="servicesfunctions/product.services.js"> </script>
     <script src="servicesfunctions/dasboard.js"> </script>
     <script src="servicesfunctions/variablestore.js"> </script>
 

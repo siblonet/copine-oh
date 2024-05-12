@@ -77,20 +77,7 @@ async function SignUp() {
                 loading.innerText = "Créer";
             } else if (response.name) {
                 sessionStorage.setItem('_id', response._id);
-                sessionStorage.setItem('name', response.name);
-                sessionStorage.setItem('phone', response.phone);
-                sessionStorage.setItem('email', response.email);
-                sessionStorage.setItem('password', response.password);
-                sessionStorage.setItem('role', response.role);
-                sessionStorage.setItem('pushtoken', response.pushtoken);
-                sessionStorage.setItem('allow', response.allow);
-                sessionStorage.setItem('ville', response.ville);
-                sessionStorage.setItem('bio', response.bio);
-                sessionStorage.setItem('sex', response.sex);
-                sessionStorage.setItem('availability', response.availability);
-                sessionStorage.setItem('address', response.address);
-
-
+                await PostPeople(response);
                 window.location.href = "dashboard";
                 loading.innerHTML = `
                 Compte Créé

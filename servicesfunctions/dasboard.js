@@ -1,21 +1,27 @@
-function getAdmin() {
-
+async function getAdmin() {
     const user_id = sessionStorage.getItem('_id');
-    const username = whatisthis(sessionStorage.getItem('name'));
-    const userphone = whatisthis(sessionStorage.getItem('phone'));
-    const useremail = whatisthis(sessionStorage.getItem('email'));
-    const userpassword = sessionStorage.getItem('password');
-    const userrole = whatisthis(sessionStorage.getItem('role'));
-    const userpushtoken = whatisthis(sessionStorage.getItem('pushtoken'));
-    const userallow = sessionStorage.getItem('allow');
-    const userville = whatisthis(sessionStorage.getItem('ville'));
-    const userbio = whatisthis(sessionStorage.getItem('bio'));
-    const usersex = whatisthis(sessionStorage.getItem('sex'));
-    const useravailability = sessionStorage.getItem('availability');
-    const useraddress = whatisthis(sessionStorage.getItem('address'));
+
 
 
     if (user_id) {
+
+        const sesStoge = await GetPersonByID(user_id);
+        const username = whatisthis(sesStoge.name);
+        const userphone = whatisthis(sesStoge.phone);
+        const useremail = whatisthis(sesStoge.email);
+        const userpassword = sesStoge.password;
+        const userrole = whatisthis(sesStoge.role);
+        const userpushtoken = whatisthis(sesStoge.pushtoken);
+        const userallow = sesStoge.allow;
+        const userville = whatisthis(sesStoge.ville);
+        const userbio = whatisthis(sesStoge.bio);
+        const usersex = whatisthis(sesStoge.sex);
+        const useravailability = sesStoge.availability;
+        const useraddress = whatisthis(sesStoge.address);
+
+
+
+
         document.getElementById('username').innerText = username;
         document.getElementById('userrole').innerText = userrole;
         document.getElementById('userbio').innerText = userbio;
@@ -41,7 +47,67 @@ async function Disconexion() {
     var result = window.confirm("Etes vous sur ne vouloir, vous deconnectez?");
 
     if (result) {
+        await deletePeople();
         sessionStorage.clear();
         window.location.href = "login"
     }
 };
+
+
+async function AddUserImage() {
+    const imagbotomc = document.getElementById(`imagbotomc`);
+    imagbotomc.removeAttribute("onclick");
+    const imagePreview = document.getElementById(`imagec`);
+    imagePreview.src = '';
+
+    const fileInput = document.getElementById(`filec`);
+    const file = fileInput.files[0];
+
+    if (!file) {
+        alert("Aucune image n'a été sélectionnée !");
+        return;
+    }
+
+    const imageUrl = URL.createObjectURL(file);
+    imagePreview.src = imageUrl;
+
+    imagbotomc.setAttribute("onclick", `SendTheImage('${file}')`);
+    imagbotomc.innerHTML = `
+        Valider
+        <i class="circle fa-thin fa-arrow-right"></i>
+    `;
+}
+
+
+const SendTheImage = async (file) => {
+    const reader = new FileReader();
+
+    reader.onload = async function (event) {
+        try {
+            const base64Data = event.target.result.split(',')[1];
+            const fileName = file.name;
+
+            // Assuming requesttoBackend is a function that returns a Promise
+            const url = await requesttoBackend('POST', 'boutique/uploadImage', { ima: base64Data, nam: fileName });
+            if (url.ima) {
+                const us_id = sessionStorage.getItem('_id');
+
+                const sending = await requesttoBackend('PUT', `${us_id}`, { image: [{ ima: url.ima }] });
+                if (sending.done) {
+                    sessionStorage.clear();
+                    window.location.href = "login"
+                }
+            }
+
+        } catch (error) {
+            console.error("Error uploading image:", error);
+        }
+    };
+
+    reader.readAsDataURL(file);
+}
+
+function OpenFileDia() {
+    document.getElementById('filec').click();
+
+}
