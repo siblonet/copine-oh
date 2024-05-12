@@ -18,7 +18,19 @@ async function getAdmin() {
         const usersex = whatisthis(sesStoge.sex);
         const useravailability = sesStoge.availability;
         const useraddress = whatisthis(sesStoge.address);
+        const userphoto = whatisthis(sesStoge.image);
+        if (userphoto.length > 0) {
+            document.getElementById(`imagbotoma`).src = userphoto[0].ima;
 
+        }
+        if (userphoto.length > 1) {
+            document.getElementById(`imagbotomb`).src = userphoto[1].ima;
+
+        }
+        if (userphoto.length > 2) {
+            document.getElementById(`imagbotomc`).src = userphoto[2].ima;
+
+        }
 
 
 
@@ -53,9 +65,10 @@ async function Disconexion() {
     }
 };
 
+let imagbotom;
 
 async function AddUserImage() {
-    const imagbotomc = document.getElementById(`imagbotomc`);
+    const imagbotomc = document.getElementById(`${imagbotom}`);
     imagbotomc.removeAttribute("onclick");
     const imagePreview = document.getElementById(`imagec`);
     imagePreview.src = '';
@@ -93,9 +106,11 @@ const SendTheImage = async (file) => {
                 const us_id = sessionStorage.getItem('_id');
 
                 const sending = await requesttoBackend('PUT', `${us_id}`, { image: [{ ima: url.ima }] });
-                if (sending.done) {
-                    sessionStorage.clear();
-                    window.location.href = "login"
+                if (sending.name) {
+                    await PostPeople(sending);
+                    window.location.reload()
+                } else {
+                    console.log(sending);
                 }
             }
 
@@ -107,7 +122,8 @@ const SendTheImage = async (file) => {
     reader.readAsDataURL(file);
 }
 
-function OpenFileDia() {
+function OpenFileDia(imagbotoma) {
+    imagbotom = imagbotoma;
     document.getElementById('filec').click();
 
 }
