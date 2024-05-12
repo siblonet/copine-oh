@@ -34,7 +34,7 @@ function recentProduct(user_content, what) {
                                 <img src="${user.image[0] ? user.image[0].ima : "assets/images/baby1.webp"}" alt="" class="">
                             </figure>
                         </div>
-                        <div class="content">
+                        <div class="content" style="cursor: pointer;">
                             <h5 class="text-white" style="filter: blur(7px);">Nounou & Menange</h5>
                             <p class="text-white" style="filter: blur(7px);">Tél: 0700000000</p>
                             <p class="text-white" style="filter: blur(7px);">Cocody Riviera 2</p>
