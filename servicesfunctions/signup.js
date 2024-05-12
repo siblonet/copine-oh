@@ -88,14 +88,8 @@ async function SignUp() {
             }
         } else {
             alert("Les mot de passe ne sont pas conform.");
-
         }
     } else {
         alert("Renseignez tous.");
-
-
     }
-
-
-
 };
