@@ -1,4 +1,4 @@
-const selectElement = document.getElementById('ivorycoastcity');
+const selectElement = document.getElementById('selectcity');
 
 // Loop through the ivoireCities array to create options dynamically
 ivoireCities.forEach(city => {
