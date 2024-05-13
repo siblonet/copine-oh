@@ -20,6 +20,10 @@ const bottom_action_both = `
 async function getAdmin() {
     const user_id = sessionStorage.getItem('_id');
     const account_action = document.getElementById('account_action');
+    const imagbotoma = document.getElementById('imagbotoma');
+    const imagbotomb = document.getElementById('imagbotomb');
+    const imagbotomc = document.getElementById('imagbotomc');
+
     account_action.innerHTML = "";
 
 
@@ -38,18 +42,36 @@ async function getAdmin() {
         const useravailability = sesStoge.availability;
         const useraddress = whatisthis(sesStoge.address);
         const userphoto = sesStoge.image;
-        console.log("ssssss", userphoto.length);
+
         if (userphoto.length > 0) {
             document.getElementById(`imagea`).src = userphoto[0].ima;
-
+            document.getElementById(`ioda`).value = userphoto[0]._id;
+            imagbotoma.setAttribute("onclick", `DeleteImage('${userphoto[0].ima}', '${userphoto[0]._id}', 'imagbotoma')`);
+            imagbotoma.innerHTML = `
+                Modifier
+                <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
+            `;
         }
+
+
         if (userphoto.length > 1) {
             document.getElementById(`imageb`).src = userphoto[1].ima;
-
+            document.getElementById(`iodb`).value = userphoto[1]._id;
+            imagbotomb.setAttribute("onclick", `DeleteImage('${userphoto[1].ima}', '${userphoto[1]._id}', 'imagbotomb')`);
+            imagbotomb.innerHTML = `
+                Modifier
+                <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
+            `;
         }
+
         if (userphoto.length > 2) {
             document.getElementById(`imagec`).src = userphoto[2].ima;
-
+            document.getElementById(`iodc`).value = userphoto[2]._id;
+            imagbotomc.setAttribute("onclick", `DeleteImage('${userphoto[2].ima}', '${userphoto[2]._id}', 'imagbotomc')`);
+            imagbotomc.innerHTML = `
+                Modifier
+                <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
+            `;
         }
 
 
@@ -126,8 +148,10 @@ async function AddUserImage() {
 
     const imagePreview = document.getElementById(`image${lastCharacter}`);
     imagePreview.src = '';
+    const lastfile = getLastCharacter(imagbotom);
 
-    const fileInput = document.getElementById(`filec`);
+    const fileInput = document.getElementById(`file${lastfile}`);
+    console.log("ddfdfdf", `file${lastfile}`);
     const file = fileInput.files[0];
 
     if (!file) {
@@ -143,7 +167,12 @@ async function AddUserImage() {
         const base64Data = event.target.result.split(',')[1];
         const fileName = file.name;
 
-        imagbotomc.setAttribute("onclick", `SendTheImage('${base64Data}','${fileName},')`);
+        if (`file${lastfile}` === "filec") {
+            imagbotomc.setAttribute("onclick", `SendTheImage('${base64Data}', '${fileName}')`);
+        } else {
+            imagbotomc.setAttribute("onclick", `ChangeTheImage('${base64Data}', '${fileName}')`);
+        };
+
         imagbotomc.innerHTML = `
         Valider
         <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
@@ -187,5 +216,86 @@ const SendTheImage = async (base64Data, fileName) => {
 function OpenFileDia(imagbotoma) {
     imagbotom = imagbotoma;
     document.getElementById('filec').click();
+
+}
+
+
+const DeleteImage = async (image_url, id, html_tag_id) => {
+    const user_id = sessionStorage.getItem('_id');
+
+    try {
+        const del_url = await requesttoBacken('POST', 'boutique/deleteImage', { image_url: image_url });
+        if (del_url.done) {
+            const send = await requesttoBackend('PUT', `changecandidateimage/${user_id}/${id}`, { url: null });
+            if (send.name) {
+                await deletePeople();
+                function getLastCharacter(text) {
+                    return text[text.length - 1];
+                }
+                const lastCharacter = getLastCharacter(html_tag_id);
+                const imagbo = document.getElementById(`image${lastCharacter}`);
+
+                const imagboto = document.getElementById(`${html_tag_id}`);
+                imagboto.setAttribute("onclick", `OpenFileDia('${html_tag_id}')`);
+                imagboto.innerHTML = `
+                    Changer la photo
+                    <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
+                `;
+                await PutPeople(send);
+
+                imagbo.src = "assets/images/baby1.webp";
+                imagbotom = html_tag_id;
+                document.getElementById('filea').click();
+            }
+        }
+
+    } catch (error) {
+
+        console.error("Error uploading image:", error);
+    }
+}
+
+const ChangeTheImage = async (base64Data, fileName) => {
+    const imagbotomc = document.getElementById(`${imagbotom}`);
+
+    imagbotomc.innerHTML = `En Cours ...`;
+
+    try {
+        // Assuming requesttoBackend is a function that returns a Promise
+        const url = await requesttoBacken('POST', 'boutique/uploadImage', { ima: base64Data, nam: fileName });
+        if (url.ima) {
+            function getLastCharacter(text) {
+                return text[text.length - 1];
+            }
+            const lastiod = getLastCharacter(html_tag_id);
+
+            const us_id = sessionStorage.getItem('_id');
+            const iod = document.getElementById(`iod${lastiod}`).value;
+
+            const send = await requesttoBackend('PUT', `changecandidateimage/${us_id}/${iod}`, { url: url.ima });
+            if (send.name) {
+                const lastCharacter = getLastCharacter(html_tag_id);
+                const imagbo = document.getElementById(`image${lastCharacter}`);
+                imagbo.src = url.ima;
+
+                await deletePeople();
+                const imagboto = document.getElementById(`${html_tag_id}`);
+                imagboto.setAttribute("onclick", `OpenFileDia('${html_tag_id}')`);
+                imagboto.innerHTML = `
+                    Changer la photo
+                    <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
+                `;
+                await PutPeople(send);
+            }
+        }
+
+    } catch (error) {
+        imagbotomc.innerHTML = `
+            échèc
+            <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
+        `;
+        console.error("Error uploading image:", error);
+    }
+
 
 }

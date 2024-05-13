@@ -124,6 +124,30 @@ async function GetAllCandidat() {
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ getting systme as get end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ putting started @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+async function PutPeople(people) {
+    return new Promise(async (resolve, reject) => {
+        const panierdb = await openCopineDatabase();
+        const PuPTransation = panierdb.transaction(["copineContent"], "readwrite");
+        const PuPStore = PuPTransation.objectStore("copineContent");
+
+        const update = PuPStore.put(people);
+
+        update.onsuccess = () => {
+            resolve(true);
+        };
+
+        update.onerror = (event) => {
+            console.error("Error accessing object PutPeople store:", event.target.error);
+            reject(false);
+        };
+    });
+}
+
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ putting systme as get end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ deleting systme as delete start @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 
