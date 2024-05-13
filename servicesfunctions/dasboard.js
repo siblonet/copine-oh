@@ -1,6 +1,6 @@
 const bottom_action_single = `
     <div class="form-group text-center">
-    <a style="cursor: pointer; padding: 5px 20px 5px 20px !important; border: 1px solid #145fb8; border-radius: 20px;"
+        <a style="cursor: pointer; padding: 5px 20px 5px 20px !important; border: 1px solid #145fb8; border-radius: 20px;"
         class="btn font_weight_600">Modifier</a>
     </div>
     `;
