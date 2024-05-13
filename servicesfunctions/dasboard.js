@@ -191,11 +191,29 @@ const SendTheImage = async (base64Data, fileName) => {
         const url = await requesttoBacken('POST', 'boutique/uploadImage', { ima: base64Data, nam: fileName });
         if (url.ima) {
             const us_id = sessionStorage.getItem('_id');
+            function getLastCharacter(text) {
+                return text[text.length - 1];
+            }
+            const useimach = await GetPersonByID(us_id);
 
-            const sending = await requesttoBackend('PUT', `${us_id}`, { image: [{ ima: url.ima }] });
+            const urlo = useimach.image.length > 0 ? `pushcandidateimage/${us_id}` : `/${us_id}`;
+            const obco = useimach.image.length > 0 ? { ima: url.ima } : { image: [{ ima: url.ima }] };
+
+            const sending = await requesttoBackend('PUT', urlo, obco);
+
             if (sending.name) {
-                await PostPeople(sending);
-                window.location.reload()
+                const lastCharacter = getLastCharacter(imagbotom);
+                const imagbo = document.getElementById(`image${lastCharacter}`);
+                imagbo.src = url.ima;
+
+                await deletePeople();
+                imagbotomc.setAttribute("onclick", `OpenFileDia('${imagbotom}')`);
+                imagbotomc.innerHTML = `
+                    Modifier
+                    <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
+                `;
+                await PutPeople(sending);
+
             } else {
                 console.log(sending);
             }
