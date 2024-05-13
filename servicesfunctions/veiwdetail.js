@@ -40,8 +40,8 @@ async function RequestData() {
         document.getElementById('usersex').innerText = sesStoge.sex;
         //document.getElementById('userallow').innerText = sesStoge.allow === "true" ? "Authorizé" : "Non Authorisé";
         document.getElementById('useravailability').innerText = sesStoge.availability === "true" ? "Diponible" : "Indisponible";
-        
-        
+
+
         //const everrouillage = document.getElementById('Deverrouillage');
         //everrouillage.setAttribute("onclick", `Deverrouillage('${}')`);
 
@@ -214,6 +214,14 @@ const Deverrouillage = async () => {
     const useravailability = sesStoge.availability;
     const useraddress = whatisthis(sesStoge.address);
 
+    /*const usersituation = whatisthis(sesStoge.situation);
+    const userage = whatisthis(sesStoge.age);
+    const userwapp = whatisthis(sesStoge.wapp);
+    const usernatinalite = whatisthis(sesStoge.natinalite);
+    const userreligion = whatisthis(sesStoge.religion);
+    const useretudient = whatisthis(sesStoge.etudient);*/
+
+
 
     document.getElementById('username').innerText = username;
     document.getElementById('userrole').innerText = userrole;
@@ -224,6 +232,15 @@ const Deverrouillage = async () => {
     document.getElementById('useraddress').innerText = useraddress;
     document.getElementById('usersex').innerText = usersex;
     document.getElementById('useravailability').innerText = useravailability === "true" ? "Diponible" : "Indisponible";
+
+
+    /*document.getElementById('usersituation').innerText = usersituation;
+    document.getElementById('userage').innerText = userage;
+    document.getElementById('userwhatsapp').innerText = userwapp;
+    document.getElementById('usernationality').innerText = usernatinalite;
+    document.getElementById('userreligion').innerText = userreligion;
+    document.getElementById('userschool').innerText = useretudient;*/
+
 
     ///document.getElementById('paymensession').innerHTML = PaymenSession;
 }
