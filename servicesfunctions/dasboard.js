@@ -23,7 +23,9 @@ async function getAdmin() {
     const imagbotoma = document.getElementById('imagbotoma');
     const imagbotomb = document.getElementById('imagbotomb');
     const imagbotomc = document.getElementById('imagbotomc');
-
+    document.getElementById(`imagea`).src = "assets/images/loading.gif";
+    document.getElementById(`imageb`).src = "assets/images/loading.gif";
+    document.getElementById(`imagec`).src = "assets/images/loading.gif";
     account_action.innerHTML = "";
 
 
