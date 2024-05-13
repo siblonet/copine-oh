@@ -310,7 +310,7 @@ const ChangeTheImage = async (base64Data, fileName) => {
                 const imagboto = document.getElementById(`${imagbotom}`);
                 imagboto.setAttribute("onclick", `OpenFileDia('${imagbotom}')`);
                 imagboto.innerHTML = `
-                    Changer la photo
+                    Modifier
                     <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
                 `;
                 await PutPeople(send);
