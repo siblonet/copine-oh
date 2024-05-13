@@ -68,14 +68,20 @@ async function Disconexion() {
 async function DeleteMyAccount() {
     var result = window.confirm("Etes vous sur ne vouloir supprimer votre compte?");
     const user_id = sessionStorage.getItem('_id');
-
+    
     if (result) {
-
+        const Supprimer = document.getElementById("Supprimer");
+        Supprimer.removeAttribute("onclick");
+        Supprimer.innerText = "En cours..."
         const deleting = await requesttoBackend('DELETE', `copinedeletinguser/${user_id}`);
         if (deleting.done) {
             await deletePeople();
             sessionStorage.clear();
             window.location.href = "login"
+        }else{
+            alert("échè re-essayez");
+            Supprimer.setAttribute("onclick", "DeleteMyAccount()")
+            Supprimer.innerText = "Supprimer"
         }
     }
 };
