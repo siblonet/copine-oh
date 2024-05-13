@@ -136,6 +136,7 @@ async function DeleteMyAccount() {
 
 
 let imagbotom;
+let fileboton;
 
 async function AddUserImage() {
     const imagbotomc = document.getElementById(`${imagbotom}`);
@@ -148,10 +149,8 @@ async function AddUserImage() {
 
     const imagePreview = document.getElementById(`image${lastCharacter}`);
     imagePreview.src = '';
-    const lastfile = getLastCharacter(imagbotom);
 
-    const fileInput = document.getElementById(`file${lastfile}`);
-    console.log("ddfdfdf", `file${lastfile}`);
+    const fileInput = document.getElementById(`${fileboton}`);
     const file = fileInput.files[0];
 
     if (!file) {
@@ -167,7 +166,7 @@ async function AddUserImage() {
         const base64Data = event.target.result.split(',')[1];
         const fileName = file.name;
 
-        if (`file${lastfile}` === "filec") {
+        if (`${fileboton}` === "filec") {
             imagbotomc.setAttribute("onclick", `SendTheImage('${base64Data}', '${fileName}')`);
         } else {
             imagbotomc.setAttribute("onclick", `ChangeTheImage('${base64Data}', '${fileName}')`);
@@ -215,6 +214,7 @@ const SendTheImage = async (base64Data, fileName) => {
 
 function OpenFileDia(imagbotoma) {
     imagbotom = imagbotoma;
+    fileboton = "filec";
     document.getElementById('filec').click();
 
 }
@@ -245,6 +245,7 @@ const DeleteImage = async (image_url, id, html_tag_id) => {
 
                 imagbo.src = "assets/images/baby1.webp";
                 imagbotom = html_tag_id;
+                fileboton = "filea";
                 document.getElementById('filea').click();
             }
         }
