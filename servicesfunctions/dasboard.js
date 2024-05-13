@@ -66,11 +66,10 @@ async function getAdmin() {
         document.getElementById('usersex').innerText = usersex;
         document.getElementById('userallow').innerText = userallow === "true" ? "Authorizé" : "Non Authorisé";
         document.getElementById('useravailability').innerText = useravailability === "true" ? "Diponible" : "Indisponible";
-        if (userrole === "Recruteurs") {
+        if (userrole === "Owner") {
             account_action.innerHTML = bottom_action_both;
         } else {
             account_action.innerHTML = bottom_action_single;
-
         }
 
     } else {

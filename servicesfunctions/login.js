@@ -1,6 +1,6 @@
 async function Login() {
     const phone = thisiswhat(document.getElementById('phone').value);
-    const password = document.getElementById('password').value;
+    const password = thisiswhat(document.getElementById('password').value);
     const loading = document.getElementById('loading');
 
     if (phone && password) {
