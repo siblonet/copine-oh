@@ -1,7 +1,7 @@
 const apiUrlfin = 'http://localhost:3000/copine/';
 const apiUrlfine = 'https://nuance-doud.adaptable.app/copine/';
-const apiUrlfinb = 'https://nuance-doud.adaptable.app/';
-const apiUrlfina = 'http://localhost:3000/';
+const apiUrlfina = 'https://nuance-doud.adaptable.app/';
+const apiUrlfinb = 'http://localhost:3000/';
 
 const ivoireCities = [
     { "id": 1, "name": "Abidjan" },
