@@ -66,7 +66,14 @@ async function SignUp() {
                 ville: ville,
                 bio: bio,
                 sex: sex,
-                availability: true
+                availability: true,
+                situation: "",
+                age: "",
+                wapp: "",
+                natinalite: "",
+                religion: "",
+                etudient: "",
+                prof: "",
             };
             const response = await requesttoBackend('POST', '', data);
 

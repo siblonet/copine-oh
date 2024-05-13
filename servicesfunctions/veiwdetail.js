@@ -23,7 +23,6 @@ let imageso = [];
 async function RequestData() {
     try {
         const sesStoge = await GetCandidatByID(svcValue);
-        console.log(sesStoge);
         if (sesStoge.image.length > 0) {
             imageso = sesStoge.image;
             document.getElementById(`imagea`).src = sesStoge.image[0].ima;
@@ -41,6 +40,12 @@ async function RequestData() {
         //document.getElementById('userallow').innerText = sesStoge.allow === "true" ? "Authorizé" : "Non Authorisé";
         document.getElementById('useravailability').innerText = sesStoge.availability === "true" ? "Diponible" : "Indisponible";
 
+        document.getElementById('usersituation').innerText = sesStoge.situation;
+        document.getElementById('userage').innerText = "012ff";
+        document.getElementById('userwhatsapp').innerText = sesStoge.wapp;
+        document.getElementById('usernationality').innerText = sesStoge.natinalite;
+        document.getElementById('userreligion').innerText = sesStoge.religion;
+        document.getElementById('userschool').innerText = sesStoge.etudient;
 
         //const everrouillage = document.getElementById('Deverrouillage');
         //everrouillage.setAttribute("onclick", `Deverrouillage('${}')`);
@@ -214,12 +219,12 @@ const Deverrouillage = async () => {
     const useravailability = sesStoge.availability;
     const useraddress = whatisthis(sesStoge.address);
 
-    /*const usersituation = whatisthis(sesStoge.situation);
+    const usersituation = whatisthis(sesStoge.situation);
     const userage = whatisthis(sesStoge.age);
     const userwapp = whatisthis(sesStoge.wapp);
     const usernatinalite = whatisthis(sesStoge.natinalite);
     const userreligion = whatisthis(sesStoge.religion);
-    const useretudient = whatisthis(sesStoge.etudient);*/
+    const useretudient = whatisthis(sesStoge.etudient);
 
 
 
@@ -234,15 +239,21 @@ const Deverrouillage = async () => {
     document.getElementById('useravailability').innerText = useravailability === "true" ? "Diponible" : "Indisponible";
 
 
-    /*document.getElementById('usersituation').innerText = usersituation;
-    document.getElementById('userage').innerText = userage;
+    document.getElementById('usersituation').innerText = usersituation;
+   
+
     document.getElementById('userwhatsapp').innerText = userwapp;
     document.getElementById('usernationality').innerText = usernatinalite;
     document.getElementById('userreligion').innerText = userreligion;
-    document.getElementById('userschool').innerText = useretudient;*/
+    document.getElementById('userschool').innerText = useretudient === "true" ? "Oui" : "Non";
+    const givenDate = new Date(userage);
+    const currentDate = new Date();
+    const differenceMs = currentDate - givenDate;
+    const differenceYears = differenceMs / (1000 * 60 * 60 * 24 * 365);
+    const yearsOld = Math.floor(differenceYears);
+    document.getElementById('userage').innerText = yearsOld;
 
-
-    ///document.getElementById('paymensession').innerHTML = PaymenSession;
+    //document.getElementById('paymensession').innerHTML = PaymenSession;
 }
 
 
@@ -263,7 +274,10 @@ const commentsHtml = `
                                 <i class="far fa-clock"></i> 15:32h, 06 July
                             </span>
                             <a class="comment-reply-link"
-                                style="cursor: pointer; color: #145fb8;">Repondre
+                                style="cursor: pointer; color: #145fb8;">
+                                <i class="fa fa-reply" style="color: #2d96db !important"></i>
+
+                                Repondre
                             </a>
                             <div class="text_holder">
                                 <p class="text-size-16">
