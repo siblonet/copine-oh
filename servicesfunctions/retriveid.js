@@ -29,7 +29,7 @@ if (!svcValue || svcValue.length < 5) {
 async function RequestData() {
     try {
         await deleteCandidat();
-        const data = await requesttoBackend('GET', `${svcValue}`);
+        const data = await requesttoBackend('GET', `${svcValue === "Owner" ? "Nounou" : svcValue}`);
         document.getElementById('sel_service_c').innerText = data.length;
 
         if (data.length > 0) {
@@ -38,6 +38,7 @@ async function RequestData() {
         } else {
             recentProduct([], svcValue)
         }
+
     } catch (error) {
         console.log(error);
         const userContainera = document.getElementById('rendadatb');

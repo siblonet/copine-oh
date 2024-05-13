@@ -89,7 +89,6 @@ async function SuggestionSelected(ssd) {
     const tags_id = document.getElementById('tags_id')
     tags_id.innerHTML = "";
     tags_id.innerHTML = `
-            <a class="suggestion_table Owner" onclick="SuggestionSelected('Owner')">Owner</a>
             <a class="suggestion_table Nounou" onclick="SuggestionSelected('Nounou')">Nounou</a>
             <a class="suggestion_table Chauffeur" onclick="SuggestionSelected('Chauffeur')">Chauffeur</a>
             <a class="suggestion_table Menange" onclick="SuggestionSelected('Menange')">Menange</a>
@@ -113,7 +112,7 @@ async function SuggestionSelected(ssd) {
     $(`.${ssd}`).css("background-color", "#145fb8");
     $(`.${ssd}`).css("color", "#ffffff");
 
-    let sentence = '.Owner, .Nounou, .Menange, .Chef_Cuisinier, .Maitre_maison, .Coiffeuse, .Coursier, .Vendeuse, .Teleconseilleur, .Coiffeur, .Chauffeur';
+    let sentence = '.Nounou, .Menange, .Chef_Cuisinier, .Maitre_maison, .Coiffeuse, .Coursier, .Vendeuse, .Teleconseilleur, .Coiffeur, .Chauffeur';
     let wordsArray = sentence.split(" ");
     let indexToRemove = wordsArray.indexOf(`.${ssd},`);
     if (indexToRemove !== -1) {
@@ -143,7 +142,7 @@ async function SuggestionSelected(ssd) {
 
     try {
         await deleteCandidat();
-        const data = await requesttoBackend('GET', `${ssd}`);
+        const data = await requesttoBackend('GET', `${ssd === "Owner" ? "Nounou" : ssd}`);
         document.getElementById('sel_service_c').innerText = data.length;
 
         if (data.length > 0) {
