@@ -1,6 +1,26 @@
+const bottom_action_single = `
+    <div class="form-group text-center">
+    <a style="cursor: pointer; padding: 5px 20px 5px 20px !important; border: 1px solid #145fb8; border-radius: 20px;"
+        class="btn font_weight_600">Modifier</a>
+    </div>
+    `;
+
+
+const bottom_action_both = `
+    <div class="form-group text-center">
+    <a style="cursor: pointer; padding: 5px 20px 5px 20px !important; border: 1px solid #145fb8; border-radius: 20px;"
+        class="btn font_weight_600">Modifier</a>
+    </div>
+    <div class="form-group text-center">
+    <a id="Supprimer" onclick="DeleteMyAccount()" style="cursor: pointer; padding: 5px 20px 5px 20px !important; border: 1px solid #ff0000; border-radius: 20px; color: #ff0000;"
+        class="btn font_weight_600">Supprimer</a>
+    </div>
+`;
+
 async function getAdmin() {
     const user_id = sessionStorage.getItem('_id');
-
+    const account_action = document.getElementById('account_action');
+    account_action.innerHTML = "";
 
 
     if (user_id) {
@@ -46,6 +66,12 @@ async function getAdmin() {
         document.getElementById('usersex').innerText = usersex;
         document.getElementById('userallow').innerText = userallow === "true" ? "Authorizé" : "Non Authorisé";
         document.getElementById('useravailability').innerText = useravailability === "true" ? "Diponible" : "Indisponible";
+        if (userrole === "Recruteurs") {
+            account_action.innerHTML = bottom_action_both;
+        } else {
+            account_action.innerHTML = bottom_action_single;
+
+        }
 
     } else {
         window.location.href = "/";
@@ -68,7 +94,7 @@ async function Disconexion() {
 async function DeleteMyAccount() {
     var result = window.confirm("Etes vous sur ne vouloir supprimer votre compte?");
     const user_id = sessionStorage.getItem('_id');
-    
+
     if (result) {
         const Supprimer = document.getElementById("Supprimer");
         Supprimer.removeAttribute("onclick");
@@ -78,7 +104,7 @@ async function DeleteMyAccount() {
             await deletePeople();
             sessionStorage.clear();
             window.location.href = "login"
-        }else{
+        } else {
             alert("échè re-essayez");
             Supprimer.setAttribute("onclick", "DeleteMyAccount()")
             Supprimer.innerText = "Supprimer"
