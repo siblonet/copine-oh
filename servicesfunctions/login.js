@@ -1,3 +1,7 @@
+if (sessionStorage.getItem('_id')) {
+    window.location.href = "/";
+}
+
 async function Login() {
     const phone = thisiswhat(document.getElementById('phone').value);
     const password = thisiswhat(document.getElementById('password').value);

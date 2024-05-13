@@ -1,3 +1,7 @@
+if (sessionStorage.getItem('_id')) {
+    window.location.href = "/";
+}
+
 const selectElement = document.getElementById('selectcity');
 
 // Loop through the ivoireCities array to create options dynamically
