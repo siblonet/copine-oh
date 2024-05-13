@@ -44,7 +44,7 @@ async function getAdmin() {
         const userphoto = sesStoge.image;
 
         if (userphoto.length > 0) {
-            document.getElementById(`imagea`).src = userphoto[0].ima;
+            document.getElementById(`imagea`).src = userphoto[0].ima == null? "assets/images/baby1.webp" : userphoto[0].ima;
             document.getElementById(`ioda`).value = userphoto[0]._id;
             imagbotoma.setAttribute("onclick", `DeleteImage('${userphoto[0].ima}', '${userphoto[0]._id}', 'imagbotoma')`);
             imagbotoma.innerHTML = `
@@ -55,7 +55,7 @@ async function getAdmin() {
 
 
         if (userphoto.length > 1) {
-            document.getElementById(`imageb`).src = userphoto[1].ima;
+            document.getElementById(`imageb`).src = userphoto[1].ima == null? "assets/images/baby1.webp" : userphoto[1].ima;
             document.getElementById(`iodb`).value = userphoto[1]._id;
             imagbotomb.setAttribute("onclick", `DeleteImage('${userphoto[1].ima}', '${userphoto[1]._id}', 'imagbotomb')`);
             imagbotomb.innerHTML = `
@@ -65,7 +65,7 @@ async function getAdmin() {
         }
 
         if (userphoto.length > 2) {
-            document.getElementById(`imagec`).src = userphoto[2].ima;
+            document.getElementById(`imagec`).src = userphoto[2].ima == null? "assets/images/baby1.webp" : userphoto[2].ima;
             document.getElementById(`iodc`).value = userphoto[2]._id;
             imagbotomc.setAttribute("onclick", `DeleteImage('${userphoto[2].ima}', '${userphoto[2]._id}', 'imagbotomc')`);
             imagbotomc.innerHTML = `
@@ -245,15 +245,14 @@ const DeleteImage = async (image_url, id, html_tag_id) => {
     }
     const lastCharacter = getLastCharacter(html_tag_id);
     const imagbo = document.getElementById(`image${lastCharacter}`);
-    
-    if (image_url !== null) {
+    if (image_url !== "null") {
         try {
             const del_url = await requesttoBacken('POST', 'boutique/deleteImage', { image_url: image_url });
             if (del_url.done) {
                 const send = await requesttoBackend('PUT', `changecandidateimage/${user_id}/${id}`, { url: null });
                 if (send.name) {
                     await deletePeople();
-                    
+
 
                     const imagboto = document.getElementById(`${html_tag_id}`);
                     imagboto.setAttribute("onclick", `OpenFileDia('${html_tag_id}')`);
