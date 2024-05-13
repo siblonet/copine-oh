@@ -23,9 +23,6 @@ async function getAdmin() {
     const imagbotoma = document.getElementById('imagbotoma');
     const imagbotomb = document.getElementById('imagbotomb');
     const imagbotomc = document.getElementById('imagbotomc');
-    document.getElementById(`imagea`).src = "assets/images/loading.gif";
-    document.getElementById(`imageb`).src = "assets/images/loading.gif";
-    document.getElementById(`imagec`).src = "assets/images/loading.gif";
     account_action.innerHTML = "";
 
 
@@ -53,6 +50,8 @@ async function getAdmin() {
                 Modifier
                 <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
             `;
+        }else{
+            document.getElementById(`imagea`).src = "assets/images/baby1.webp"
         }
 
 
@@ -64,6 +63,8 @@ async function getAdmin() {
                 Modifier
                 <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
             `;
+        }else{
+            document.getElementById(`imagec`).src = "assets/images/baby1.webp"
         }
 
         if (userphoto.length > 2) {
@@ -74,6 +75,8 @@ async function getAdmin() {
                 Modifier
                 <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
             `;
+        }else{
+            document.getElementById(`imagec`).src = "assets/images/baby1.webp"
         }
 
 
