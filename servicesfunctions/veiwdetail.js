@@ -23,7 +23,7 @@ let imageso = [];
 async function RequestData() {
     try {
         const sesStoge = await GetCandidatByID(svcValue);
-        //console.log(sesStoge);
+        console.log(sesStoge);
         if (sesStoge.image.length > 0) {
             imageso = sesStoge.image;
             document.getElementById(`imagea`).src = sesStoge.image[0].ima;

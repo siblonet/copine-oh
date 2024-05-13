@@ -24,6 +24,7 @@ if (!svcValue || svcValue.length < 5) {
 
 async function RequestData() {
     try {
+        await deleteCandidat();
         const data = await requesttoBackend('GET', `${svcValue}`);
         document.getElementById('sel_service_c').innerText = data.length;
 
