@@ -16,7 +16,6 @@ async function Login() {
 
         };
         const response = await requesttoBackend('POST', 'copineconnexion', data);
-        console.log(response);
 
         if (!response) {
             alert("Échec, vérifiez votre connexion ou essayez plus tard.");
