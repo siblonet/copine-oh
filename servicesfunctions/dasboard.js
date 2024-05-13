@@ -240,11 +240,12 @@ async function UpadatMyAccount() {
     if (result) {
         const updating = await requesttoBackend('PUT', `${user_id}`, user_data);
         if (updating.name) {
-            await deletePeople();
             Modifier.setAttribute("onclick", "UpadatMyAccount()")
             Modifier.innerText = "Modifier";
-            await PutPeople(updating);
-            window.location.reload()
+            await deletePeople();
+            sessionStorage.clear();
+            window.location.href = "login"
+
         } else {
             alert("échè re-essayez");
             Modifier.setAttribute("onclick", "UpadatMyAccount()")
