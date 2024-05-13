@@ -52,7 +52,32 @@
             -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
         }
 
-        .candidatspace{
+        .barsearch {
+            padding: 10px 20% 10px 20%;
+            background-color: #eeeeee;
+        }
+
+        .suggestion_table {
+            color: #aaaaaa;
+            cursor: pointer;
+            background-color: #eeeeee;
+            padding: 10px;
+            border: 1px solid #ffffff;
+            border-radius: 20px;
+        }
+
+        .suggestion_table:hover {
+            background-color: #145fb8;
+            color: #ffffff;
+        }
+
+        @media screen and (max-width: 992px) {
+            .barsearch {
+                padding: 10px;
+            }
+        }
+
+        .candidatspace {
             margin-bottom: 30px !important;
         }
     </style>
@@ -99,7 +124,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/">à Propos</a>
                                 </li>
-                              
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="/">Politique</a>
                                 </li>
@@ -159,6 +184,40 @@
     <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
     <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
+    <div class="theiaStickySidebar barsearch">
+        <div class="widget widget-newsletter">
+            <form id="widget-search-form-sidebar" class="form-inline">
+                <div class="input-group">
+                    <input type="text" aria-required="true" name="q" id="search_data"
+                        class="form-control widget-search-form" placeholder="Search for pages...">
+                    <div class="input-group-append">
+                        <span class="input-group-btn">
+                            <a style="cursor: pointer;" onclick="SearchData()" id="widget-widget-search-form-button"
+                                class="btn">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="widget widget-tags" style="padding-top: 10px;">
+            <h4 class="widget-title font_weight_600">Sélectionne un</h4>
+            <div class="tags">
+                <a class="suggestion_table Nounou">Nounou</a>
+                <a class="suggestion_table Chauffeur">Chauffeur</a>
+                <a class="suggestion_table Menange">Menange</a>
+                <a class="suggestion_table Chef_Cuisinier">Chef Cuisinier</a>
+                <a class="suggestion_table Maitre_maison">Maitre de maison</a>
+                <a class="suggestion_table Coiffeur">Coiffeur</a>
+                <a class="suggestion_table Coiffeuse">Coiffeuse</a>
+                <a class="suggestion_table Coursier">Coursier</a>
+                <a class="suggestion_table Vendeuse">Vendeuse</a>
+                <a class="suggestion_table Teleconseilleur">Téléconseilleur</a>
+            </div>
+        </div>
+    </div>
+
     <section class="offer-section" id="rendadata">
         <figure class="offer-top-layout mb-0">
             <img src="assets/images/offer-top-layout.png" alt="" class="img-fluid">
@@ -166,7 +225,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="offer_content" data-aos="fade-up" data-aos-once="true"  id="rendadatb">
+                    <div class="offer_content" data-aos="fade-up" data-aos-once="true" id="rendadatb">
                         <h6>Bienvenue, Patientez</h6>
                         <h2>en cours ...</h2>
                         <p>Les donnée sont en cours de chargement, veuillez patientez</p>

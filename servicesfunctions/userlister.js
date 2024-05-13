@@ -8,9 +8,12 @@ function recentProduct(user_content, what) {
         userContainer.classList.add("projectpage-section");
         userContainer.innerHTML = `
         
+        
             <figure class="offer-top-layout mb-0">
                 <img src="assets/images/offer-top-layout.png" alt="" class="img-fluid">
             </figure>
+
+
             <div class="container">
                 <div class="project_wrapper">
                     <div class="row" id="userContents">
@@ -63,3 +66,7 @@ function recentProduct(user_content, what) {
 };
 
 
+async function SearchData() {
+    const search_data = document.getElementById('search_data');
+    console.log(search_data.value)
+}
