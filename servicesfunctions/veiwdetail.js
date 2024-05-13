@@ -11,7 +11,7 @@ if (!svcValue || svcValue.length < 5) {
     ///document.getElementById('coverfor').classList.add("preloader-area");
 } else {
     document.getElementById('comments').innerHTML = "";
-    document.getElementById('respond').innerHTML = "";
+    //document.getElementById('respond').innerHTML = "";
 
     /*document.getElementById('sel_service_b').innerText = `
      Veuillez faire défiler vers le bas pour accéder à la liste des ${svcValue}. Cliquez ensuite sur les différents ${svcValue} pour obtenir plus de détails les concernant
@@ -40,6 +40,10 @@ async function RequestData() {
         document.getElementById('usersex').innerText = sesStoge.sex;
         //document.getElementById('userallow').innerText = sesStoge.allow === "true" ? "Authorizé" : "Non Authorisé";
         document.getElementById('useravailability').innerText = sesStoge.availability === "true" ? "Diponible" : "Indisponible";
+        
+        
+        //const everrouillage = document.getElementById('Deverrouillage');
+        //everrouillage.setAttribute("onclick", `Deverrouillage('${}')`);
 
     } catch (error) {
         console.log("View detail RequestData", error)
@@ -198,9 +202,106 @@ const PaymenSession = `
 
 
 
-const Deverrouillage = () => {
-    document.getElementById('paymensession').innerHTML = PaymenSession;
+const Deverrouillage = async () => {
+    const sesStoge = await GetCandidatByID(svcValue);
+    const username = whatisthis(sesStoge.name);
+    const userphone = whatisthis(sesStoge.phone);
+    const useremail = whatisthis(sesStoge.email);
+    const userrole = whatisthis(sesStoge.role);
+    const userville = whatisthis(sesStoge.ville);
+    const userbio = whatisthis(sesStoge.bio);
+    const usersex = whatisthis(sesStoge.sex);
+    const useravailability = sesStoge.availability;
+    const useraddress = whatisthis(sesStoge.address);
+
+
+    document.getElementById('username').innerText = username;
+    document.getElementById('userrole').innerText = userrole;
+    document.getElementById('userbio').innerText = userbio;
+    document.getElementById('userphone').innerText = userphone;
+    document.getElementById('useremail').innerText = useremail;
+    document.getElementById('userville').innerText = userville;
+    document.getElementById('useraddress').innerText = useraddress;
+    document.getElementById('usersex').innerText = usersex;
+    document.getElementById('useravailability').innerText = useravailability === "true" ? "Diponible" : "Indisponible";
+
+    ///document.getElementById('paymensession').innerHTML = PaymenSession;
 }
 
 
 
+
+
+const commentsHtml = `
+            <div class="comment_number text-uppercase font_weight_600">
+                Commentaires <span id="comentnumbera">(0)</span>
+            </div>
+            <div class="comment-list">
+                    <div class="comment" id="comment-1">
+                        <div class="image" data-aos="flip-left" data-aos-once="true"><img alt=""
+                                src="assets/images/we.png" class="avatar"></div>
+                        <div class="text">
+                            <h5 class="name font_weight_700">John Kokar</h5>
+                            <span class="comment_date">
+                                <i class="far fa-clock"></i> 15:32h, 06 July
+                            </span>
+                            <a class="comment-reply-link"
+                                style="cursor: pointer; color: #145fb8;">Repondre
+                            </a>
+                            <div class="text_holder">
+                                <p class="text-size-16">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    industry.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+                        <div class="comment post-item-description" id="comment-1-1">
+                            <div class="image" data-aos="flip-left" data-aos-once="true">
+                                <img alt="" src="assets/images/wed.JPG" class="avatar">
+                            </div>
+
+                            <div class="text">
+                                <h5 class="name font_weight_700">John Doe</h5>
+                                <span class="comment_date">
+                                    <i class="far fa-clock"></i> 15:32h, 06 July
+                                </span>
+                            </div>
+                            <div class="blockquote text_holder">
+                                <p class="text-size-16">It is a long established fact that a
+                                    reader will be distracted by the readable content of a page
+                                    when looking at its layout.
+                                </p>
+                                <small style="cursor: pointer; color: #145fb8;">Repondre</small>
+                            </div>
+                        </div>
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment end  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment end  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment end  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment end  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment end  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+                    </div>
+                    
+            </div>
+
+
+`;
+
+
+
+
+
+const ShowComment = async () => {
+    document.getElementById('comments').innerHTML = `
+        <div class="comment_number text-uppercase font_weight_600">
+            Commentaires <span id="comentnumbera">(0)</span>
+        </div>
+    `;
+}

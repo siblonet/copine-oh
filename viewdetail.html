@@ -135,7 +135,7 @@
                                             </a>
                                         </span>
                                         <span class="post-meta-comments color01">
-                                            <a style="cursor: pointer;" id="comentnumbera">0 Commentaires</a>
+                                            <a style="cursor: pointer;" id="comentnumbera" onclick="ShowComment()">0 Commentaires</a>
                                         </span>
                                         <span class="post-meta-category color01">
                                             <a id="vuenumber">
@@ -146,112 +146,15 @@
                                     <p class="text-size-16" id="userbio"></p>
                                 </div>
                                 <div class="comments" id="comments">
-                                    <div class="comment_number text-uppercase font_weight_600">
-                                        Commentaires <span id="comentnumbera">(0)</span>
-                                    </div>
-                                    <div class="comment-list">
-                                        <div class="comment" id="comment-1">
-                                            <div class="image" data-aos="flip-left" data-aos-once="true"><img alt=""
-                                                    src="assets/images/we.png" class="avatar"></div>
-                                            <div class="text">
-                                                <h5 class="name font_weight_700">John Kokar</h5>
-                                                <span class="comment_date">
-                                                    <i class="far fa-clock"></i> 15:32h, 06 July
-                                                </span>
-                                                <a class="comment-reply-link"
-                                                    style="cursor: pointer; color: #145fb8;">Repondre
-                                                </a>
-                                                <div class="text_holder">
-                                                    <p class="text-size-16">
-                                                        Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                        industry.
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-                                            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-                                            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-                                            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-                                            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-
-                                            <div class="comment post-item-description" id="comment-1-1">
-                                                <div class="image" data-aos="flip-left" data-aos-once="true">
-                                                    <img alt="" src="assets/images/wed.JPG" class="avatar">
-                                                </div>
-
-                                                <div class="text">
-                                                    <h5 class="name font_weight_700">John Doe</h5>
-                                                    <span class="comment_date">
-                                                        <i class="far fa-clock"></i> 15:32h, 06 July
-                                                    </span>
-                                                </div>
-                                                <div class="blockquote text_holder">
-                                                    <p class="text-size-16">It is a long established fact that a
-                                                        reader will be distracted by the readable content of a page
-                                                        when looking at its layout.
-                                                    </p>
-                                                    <small style="cursor: pointer; color: #145fb8;">Repondre</small>
-                                                </div>
-                                            </div>
-
-                                            <div class="comment post-item-description" id="comment-1-2">
-                                                <div class="image" data-aos="flip-left" data-aos-once="true">
-                                                    <img alt="" src="assets/images/wed.JPG" class="avatar">
-                                                </div>
-
-                                                <div class="text">
-                                                    <h5 class="name font_weight_700">John Doe</h5>
-                                                    <span class="comment_date">
-                                                        <i class="far fa-clock"></i> 15:32h, 06 July
-                                                    </span>
-                                                </div>
-                                                <div class="blockquote text_holder">
-                                                    <p class="text-size-16">It is a long established fact that a
-                                                        reader will be distracted by the readable content of a page
-                                                        when looking at its layout.
-                                                    </p>
-                                                    <small style="cursor: pointer; color: #145fb8;">Repondre</small>
-                                                </div>
-                                            </div>
-
-                                            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment end  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-                                            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment end  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-                                            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment end  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-                                            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment end  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-                                            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ subecomment end  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-
-                                        </div>
-                                        <div class="comment" id="comment-2">
-                                            <div class="image" data-aos="flip-left" data-aos-once="true"><img alt=""
-                                                    src="assets/images/dayf.png" class="avatar"></div>
-                                            <div class="text">
-                                                <h5 class="name font_weight_700">Francois Dayf</h5>
-                                                <span class="comment_date">
-                                                    <i class="far fa-clock"></i> 15:32h, 06 July
-                                                </span>
-                                                <a class="comment-reply-link"
-                                                    style="cursor: pointer; color: #145fb8;">Repondre
-                                                </a>
-                                                <div class="text_holder">
-                                                    <p class="text-size-16">
-                                                        The standard chunk of Lorem Ipsum used since the 1500s is
-                                                        reproduced below for those interested.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--comment-list-->
-                                    </div>
-                                    <!--comments-->
+                                    
+                                    
                                 </div>
                                 <div class="respond-form" id="respond">
                                     <form class="form-gray-fields">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="upper font_weight_600" for="comment">Entre ton
-                                                        commentaire</label>
+                                                    <label class="upper font_weight_600" for="comment">Laisser un commentaire</label>
                                                     <textarea class="form-control required" name="comment" id="comment">
                                                     </textarea>
                                                 </div>
@@ -383,7 +286,7 @@
                             </ul>
                             <div class="col-lg-12">
                                 <div class="form-group text-center">
-                                    <a onclick="Deverrouillage()"
+                                    <a id="Deverrouillage" onclick="Deverrouillage()"
                                         style="cursor: pointer; padding: 5px 20px 5px 20px !important; border: 1px solid #145fb8; border-radius: 20px;"
                                         class="btn font_weight_600">
                                         <i class="fa fa-eye-slash" style="color: #aaaaaa;"></i> Déverrouiller</a>
