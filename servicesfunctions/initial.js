@@ -3,6 +3,7 @@ async function getInitial() {
     const connecta = document.getElementById('connecta');
     const connectb = document.getElementById('connectb');
     const connectc = document.getElementById('connectc');
+    const connectd = document.getElementById('connectd');
     const htmloo = `
     Compte
     <figure class="mb-0">
@@ -11,12 +12,14 @@ async function getInitial() {
 
 `;
     if (user_id) {
-        connecta.innerHTML = htmloo
-        connecta.href = "dashboard"
-        connectb.innerHTML = htmloo
-        connectb.href = "dashboard"
+        connecta.innerHTML = htmloo;
+        connecta.href = "dashboard";
+        connectb.innerHTML = htmloo;
+        connectb.href = "dashboard";
         connectc.classList = "";
-        connectc.innerHTML = ""
+        connectc.innerHTML = "";
+        connectd.innerHTML = htmloo;
+        connectd.href = "dashboard";
     };
 
     await TeamData();

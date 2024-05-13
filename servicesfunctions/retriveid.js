@@ -15,6 +15,9 @@ if (!svcValue || svcValue.length < 5) {
      Veuillez faire défiler vers le bas pour accéder à la liste des ${svcValue}. Cliquez ensuite sur les différents ${svcValue} pour obtenir plus de détails les concernant
     `;
     document.getElementById('sel_service_d').innerText = svcValue;
+    $(`.${svcValue}`).css("background-color", "#145fb8");
+    $(`.${svcValue}`).css("color", "#ffffff");
+
     /*
         document.getElementById(`Candidats`).classList.remove("active");
         document.getElementById(`Recruteurs`).classList.remove("active");
@@ -48,3 +51,4 @@ async function RequestData() {
     }
 
 }
+

@@ -64,6 +64,7 @@
             padding: 10px;
             border: 1px solid #ffffff;
             border-radius: 20px;
+            margin-bottom: 100px !important;
         }
 
         .suggestion_table:hover {
@@ -203,17 +204,21 @@
         </div>
         <div class="widget widget-tags" style="padding-top: 10px;">
             <h4 class="widget-title font_weight_600">Sélectionne un</h4>
-            <div class="tags">
-                <a class="suggestion_table Nounou">Nounou</a>
-                <a class="suggestion_table Chauffeur">Chauffeur</a>
-                <a class="suggestion_table Menange">Menange</a>
-                <a class="suggestion_table Chef_Cuisinier">Chef Cuisinier</a>
-                <a class="suggestion_table Maitre_maison">Maitre de maison</a>
-                <a class="suggestion_table Coiffeur">Coiffeur</a>
-                <a class="suggestion_table Coiffeuse">Coiffeuse</a>
-                <a class="suggestion_table Coursier">Coursier</a>
-                <a class="suggestion_table Vendeuse">Vendeuse</a>
-                <a class="suggestion_table Teleconseilleur">Téléconseilleur</a>
+            <div class="tags" id="tags_id">
+                <a class="suggestion_table Owner" onclick="SuggestionSelected('Owner')">Owner</a>
+                <a class="suggestion_table Nounou" onclick="SuggestionSelected('Nounou')">Nounou</a>
+                <a class="suggestion_table Chauffeur" onclick="SuggestionSelected('Chauffeur')">Chauffeur</a>
+                <a class="suggestion_table Menange" onclick="SuggestionSelected('Menange')">Menange</a>
+                <a class="suggestion_table Chef_Cuisinier" onclick="SuggestionSelected('Chef_Cuisinier')">Chef
+                    Cuisinier</a>
+                <a class="suggestion_table Maitre_maison" onclick="SuggestionSelected('Maitre_maison')">Maitre de
+                    maison</a>
+                <a class="suggestion_table Coiffeur" onclick="SuggestionSelected('Coiffeur')">Coiffeur</a>
+                <a class="suggestion_table Coiffeuse" onclick="SuggestionSelected('Coiffeuse')">Coiffeuse</a>
+                <a class="suggestion_table Coursier" onclick="SuggestionSelected('Coursier')">Coursier</a>
+                <a class="suggestion_table Vendeuse" onclick="SuggestionSelected('Vendeuse')">Vendeuse</a>
+                <a class="suggestion_table Teleconseilleur"
+                    onclick="SuggestionSelected('Teleconseilleur')">Téléconseilleur</a>
             </div>
         </div>
     </div>
@@ -389,13 +394,8 @@
         </div>
     </section>
 
-    <!-- servicefunction js -->
-    <script src="servicesfunctions/convertisseur.js"> </script>
-    <script src="servicesfunctions/database_handl.js"> </script>
-    <script src="servicesfunctions/product.services.js"> </script>
-    <script src="servicesfunctions/variablestore.js"> </script>
-    <script src="servicesfunctions/retriveid.js"> </script>
-    <script src="servicesfunctions/userlister.js"> </script>
+
+
 
 
 
@@ -410,6 +410,14 @@
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/animation_links.js"></script>
     <script src="assets/js/animation.js"></script>
+
+    <!-- servicefunction js -->
+    <script src="servicesfunctions/convertisseur.js"> </script>
+    <script src="servicesfunctions/database_handl.js"> </script>
+    <script src="servicesfunctions/product.services.js"> </script>
+    <script src="servicesfunctions/variablestore.js"> </script>
+    <script src="servicesfunctions/retriveid.js"> </script>
+    <script src="servicesfunctions/userlister.js"> </script>
 </body>
 
 </html>
