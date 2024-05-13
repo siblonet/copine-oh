@@ -240,38 +240,48 @@ function OpenFileDia(imagbotoma) {
 
 const DeleteImage = async (image_url, id, html_tag_id) => {
     const user_id = sessionStorage.getItem('_id');
+    function getLastCharacter(text) {
+        return text[text.length - 1];
+    }
+    const lastCharacter = getLastCharacter(html_tag_id);
+    const imagbo = document.getElementById(`image${lastCharacter}`);
+    
+    if (image_url !== null) {
+        try {
+            const del_url = await requesttoBacken('POST', 'boutique/deleteImage', { image_url: image_url });
+            if (del_url.done) {
+                const send = await requesttoBackend('PUT', `changecandidateimage/${user_id}/${id}`, { url: null });
+                if (send.name) {
+                    await deletePeople();
+                    
 
-    try {
-        const del_url = await requesttoBacken('POST', 'boutique/deleteImage', { image_url: image_url });
-        if (del_url.done) {
-            const send = await requesttoBackend('PUT', `changecandidateimage/${user_id}/${id}`, { url: null });
-            if (send.name) {
-                await deletePeople();
-                function getLastCharacter(text) {
-                    return text[text.length - 1];
-                }
-                const lastCharacter = getLastCharacter(html_tag_id);
-                const imagbo = document.getElementById(`image${lastCharacter}`);
-
-                const imagboto = document.getElementById(`${html_tag_id}`);
-                imagboto.setAttribute("onclick", `OpenFileDia('${html_tag_id}')`);
-                imagboto.innerHTML = `
-                    Changer la photo
+                    const imagboto = document.getElementById(`${html_tag_id}`);
+                    imagboto.setAttribute("onclick", `OpenFileDia('${html_tag_id}')`);
+                    imagboto.innerHTML = `
+                    En cours...
                     <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
                 `;
-                await PutPeople(send);
+                    await PutPeople(send);
 
-                imagbo.src = "assets/images/baby1.webp";
-                imagbotom = html_tag_id;
-                fileboton = "filea";
-                document.getElementById('filea').click();
+                    imagbo.src = "assets/images/baby1.webp";
+                    imagbotom = html_tag_id;
+                    fileboton = "filea";
+                    document.getElementById('filea').click();
+                }
             }
+
+        } catch (error) {
+
+            console.error("Error uploading image:", error);
         }
 
-    } catch (error) {
-
-        console.error("Error uploading image:", error);
+    } else {
+        imagbo.src = "assets/images/baby1.webp";
+        imagbotom = html_tag_id;
+        fileboton = "filea";
+        document.getElementById('filea').click();
     }
+
 }
 
 const ChangeTheImage = async (base64Data, fileName) => {
@@ -286,20 +296,20 @@ const ChangeTheImage = async (base64Data, fileName) => {
             function getLastCharacter(text) {
                 return text[text.length - 1];
             }
-            const lastiod = getLastCharacter(html_tag_id);
+            const lastiod = getLastCharacter(imagbotom);
 
             const us_id = sessionStorage.getItem('_id');
             const iod = document.getElementById(`iod${lastiod}`).value;
 
             const send = await requesttoBackend('PUT', `changecandidateimage/${us_id}/${iod}`, { url: url.ima });
             if (send.name) {
-                const lastCharacter = getLastCharacter(html_tag_id);
+                const lastCharacter = getLastCharacter(imagbotom);
                 const imagbo = document.getElementById(`image${lastCharacter}`);
                 imagbo.src = url.ima;
 
                 await deletePeople();
-                const imagboto = document.getElementById(`${html_tag_id}`);
-                imagboto.setAttribute("onclick", `OpenFileDia('${html_tag_id}')`);
+                const imagboto = document.getElementById(`${imagbotom}`);
+                imagboto.setAttribute("onclick", `OpenFileDia('${imagbotom}')`);
                 imagboto.innerHTML = `
                     Changer la photo
                     <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
