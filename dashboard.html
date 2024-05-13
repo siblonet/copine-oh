@@ -252,12 +252,12 @@
                                             aria-selected="true">Détails</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" role="tab" aria-controls="featured"
-                                            aria-selected="false">Informations</a>
+                                        <a class="nav-link" id="Modifier" onclick="UpadatMyAccount()"
+                                            style="cursor: pointer;">Modifier</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" role="tab" aria-controls="recent"
-                                            aria-selected="false">Contact</a>
+                                        <a class="nav-link" id="Supprimer" disabled="true"
+                                            style="color: #aaaaaa; cursor: none;">Supprimer</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="tabs-posts-content">
@@ -265,50 +265,177 @@
                                         <div class="post-thumbnail-list">
                                             <div class="post-thumbnail-entry">
                                                 <div class="post-thumbnail-content">
+                                                    <span>Nom Complet: </span>
+                                                    <div class="col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control form-group"
+                                                                name="usernameedi" placeholder="Nom complet"
+                                                                id="usernameedi">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <div class="post-thumbnail-content">
+                                                    <span>Qualité: </span>
+                                                    <div class="col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control form-group"
+                                                                name="userroleedi" placeholder="Proffession"
+                                                                id="userroleedi">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <div class="post-thumbnail-content">
                                                     <span>Ville: </span>
-                                                    <a id="userville"></a>
+                                                    <div class="col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control form-group"
+                                                                name="ville" placeholder="Ville" id="userville">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="post-thumbnail-entry">
                                                 <div class="post-thumbnail-content">
                                                     <span>Commune: </span>
-                                                    <a id="useraddress"></a>
+                                                    <div class="col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control form-group"
+                                                                name="useraddress" placeholder="Commune & Quartier"
+                                                                id="useraddress">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="post-thumbnail-entry">
                                                 <div class="post-thumbnail-content">
-                                                    <span>Disponibilité: </span>
-                                                    <a id="useravailability"></a>
+                                                    <span>Sex: </span>
+                                                    <select class="form-control form-group" id="usersex">
+                                                        <option value="HOMME" selected>HOMME</option>
+                                                        <option value="FEMME">FEMME</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <div class="post-thumbnail-content">
+                                                    <span>Situation: </span>
+                                                    <select class="form-control form-group" id="usersituation">
+                                                        <option value="true">Oui</option>
+                                                        <option value="false">Célibataire</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="post-thumbnail-entry">
+                                                <div class="post-thumbnail-content">
+                                                    <span>Date de naissance: </span>
+                                                    <div class="form-group">
+                                                        <input type="date" class="form-control form-group"
+                                                            name="userage" placeholder="01/Janvier/1900" id="userage">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <div class="post-thumbnail-content">
+                                                    <span>Etudient(e): </span>
+                                                    <select class="form-control form-group" id="useretudient">
+                                                        <option value="true">Oui</option>
+                                                        <option value="false">Non</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <div class="post-thumbnail-content">
+                                                    <span>Pro: </span>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-group"
+                                                            name="userprof" id="userprof">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="post-thumbnail-entry">
                                                 <div class="post-thumbnail-content">
                                                     <span>Numéro: </span>
-                                                    <a id="userphone"></a>
+                                                    <div class="form-group">
+                                                        <input type="tel" class="form-control form-group"
+                                                            name="userphone" placeholder="Numéro de téléphone"
+                                                            id="userphone">
+                                                    </div>
                                                 </div>
                                             </div>
+
+                                            <div class="post-thumbnail-entry">
+                                                <div class="post-thumbnail-content">
+                                                    <span>WhatsApp: </span>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-group"
+                                                            name="userwhatsapp" placeholder="Numéro WhatsApp"
+                                                            id="userwhatsapp">
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="post-thumbnail-entry">
                                                 <div class="post-thumbnail-content">
                                                     <span>Mail: </span>
-                                                    <a id="useremail"></a>
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control form-group"
+                                                            name="useremail" placeholder="Votre email" id="useremail">
+                                                    </div>
                                                 </div>
                                             </div>
+
+                                            <div class="post-thumbnail-entry">
+                                                <div class="post-thumbnail-content">
+                                                    <span>Disponibilité: </span>
+                                                    <select class="form-control form-group" id="useravailability">
+                                                        <option value="true">Disponible</option>
+                                                        <option value="false">Indisponible</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
                                             <div class="post-thumbnail-entry">
                                                 <div class="post-thumbnail-content">
                                                     <span>Access: </span>
                                                     <a id="userallow"></a>
                                                 </div>
                                             </div>
+
                                             <div class="post-thumbnail-entry">
                                                 <div class="post-thumbnail-content">
-                                                    <span>Sex: </span>
-                                                    <a id="usersex">Sex</a>
+                                                    <span>Natinalité: </span>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-group"
+                                                            name="usernationality" placeholder="Votre Natinalité"
+                                                            id="usernationality">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="post-thumbnail-entry" style="width: 320px !important;">
-                                                <div class="col-lg-12" id="account_action"
-                                                    style="display: flex; justify-content: space-between; width: 300px;">
 
+                                            <div class="post-thumbnail-entry">
+                                                <div class="post-thumbnail-content">
+                                                    <span>Réligion: </span>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-group"
+                                                            name="userreligion" placeholder="Votre Religion"
+                                                            id="userreligion">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="post-thumbnail-entry">
+                                                <div class="post-thumbnail-content">
+                                                    <span>Bio: </span>
+                                                    <div class="form-group">
+                                                        <textarea class="form-control required" name="userbioedi"
+                                                            id="userbioedi">
+                                                        </textarea>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

@@ -1,29 +1,10 @@
-const bottom_action_single = `
-    <div class="form-group text-center">
-        <a style="cursor: pointer; padding: 5px 20px 5px 20px !important; border: 1px solid #145fb8; border-radius: 20px;"
-        class="btn font_weight_600">Modifier</a>
-    </div>
-    `;
-
-
-const bottom_action_both = `
-    <div class="form-group text-center">
-    <a style="cursor: pointer; padding: 5px 20px 5px 20px !important; border: 1px solid #145fb8; border-radius: 20px;"
-        class="btn font_weight_600">Modifier</a>
-    </div>
-    <div class="form-group text-center">
-    <a id="Supprimer" onclick="DeleteMyAccount()" style="cursor: pointer; padding: 5px 20px 5px 20px !important; border: 1px solid #ff0000; border-radius: 20px; color: #ff0000;"
-        class="btn font_weight_600">Supprimer</a>
-    </div>
-`;
-
 async function getAdmin() {
     const user_id = sessionStorage.getItem('_id');
-    const account_action = document.getElementById('account_action');
+    const Supprimer = document.getElementById('Supprimer');
     const imagbotoma = document.getElementById('imagbotoma');
     const imagbotomb = document.getElementById('imagbotomb');
     const imagbotomc = document.getElementById('imagbotomc');
-    account_action.innerHTML = "";
+    Supprimer.removeAttribute("onclick");
 
 
     if (user_id) {
@@ -31,6 +12,7 @@ async function getAdmin() {
         const username = whatisthis(sesStoge.name);
         const userphone = whatisthis(sesStoge.phone);
         const useremail = whatisthis(sesStoge.email);
+        const userprof = whatisthis(sesStoge.prof);
         const userpassword = sesStoge.password;
         const userrole = whatisthis(sesStoge.role);
         const userpushtoken = whatisthis(sesStoge.pushtoken);
@@ -42,40 +24,49 @@ async function getAdmin() {
         const useraddress = whatisthis(sesStoge.address);
         const userphoto = sesStoge.image;
 
+        const usersituation = whatisthis(sesStoge.situation ? sesStoge.situation : "");
+        const userage = whatisthis(sesStoge.age ? sesStoge.age : "");
+        const userwhatsapp = whatisthis(sesStoge.wapp ? sesStoge.wapp : "");
+        const usernationality = whatisthis(sesStoge.natinalite ? sesStoge.natinalite : "");
+        const userreligion = whatisthis(sesStoge.religion ? sesStoge.religion : "");
+        const useretudient = whatisthis(sesStoge.etudient ? sesStoge.etudient : "");
+
+
+
         if (userphoto.length > 0) {
-            document.getElementById(`imagea`).src = userphoto[0].ima == null? "assets/images/baby1.webp" : userphoto[0].ima;
+            document.getElementById(`imagea`).src = userphoto[0].ima == null ? "assets/images/baby1.webp" : userphoto[0].ima;
             document.getElementById(`ioda`).value = userphoto[0]._id;
             imagbotoma.setAttribute("onclick", `DeleteImage('${userphoto[0].ima}', '${userphoto[0]._id}', 'imagbotoma')`);
             imagbotoma.innerHTML = `
                 Modifier
                 <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
             `;
-        }else{
+        } else {
             document.getElementById(`imagea`).src = "assets/images/baby1.webp"
         }
 
 
         if (userphoto.length > 1) {
-            document.getElementById(`imageb`).src = userphoto[1].ima == null? "assets/images/baby1.webp" : userphoto[1].ima;
+            document.getElementById(`imageb`).src = userphoto[1].ima == null ? "assets/images/baby1.webp" : userphoto[1].ima;
             document.getElementById(`iodb`).value = userphoto[1]._id;
             imagbotomb.setAttribute("onclick", `DeleteImage('${userphoto[1].ima}', '${userphoto[1]._id}', 'imagbotomb')`);
             imagbotomb.innerHTML = `
                 Modifier
                 <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
             `;
-        }else{
+        } else {
             document.getElementById(`imagec`).src = "assets/images/baby1.webp"
         }
 
         if (userphoto.length > 2) {
-            document.getElementById(`imagec`).src = userphoto[2].ima == null? "assets/images/baby1.webp" : userphoto[2].ima;
+            document.getElementById(`imagec`).src = userphoto[2].ima == null ? "assets/images/baby1.webp" : userphoto[2].ima;
             document.getElementById(`iodc`).value = userphoto[2]._id;
             imagbotomc.setAttribute("onclick", `DeleteImage('${userphoto[2].ima}', '${userphoto[2]._id}', 'imagbotomc')`);
             imagbotomc.innerHTML = `
                 Modifier
                 <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
             `;
-        }else{
+        } else {
             document.getElementById(`imagec`).src = "assets/images/baby1.webp"
         }
 
@@ -83,21 +74,78 @@ async function getAdmin() {
 
         document.getElementById('username').innerText = username;
         document.getElementById('userrole').innerText = userrole;
+        document.getElementById('userprof').value = userprof;
+
         document.getElementById('userbio').innerText = userbio;
 
 
-        document.getElementById('userphone').innerText = userphone;
-        document.getElementById('useremail').innerText = useremail;
-        document.getElementById('userville').innerText = userville;
-        document.getElementById('useraddress').innerText = useraddress;
-        document.getElementById('usersex').innerText = usersex;
+        document.getElementById('userphone').value = userphone;
+        document.getElementById('useremail').value = useremail;
+        document.getElementById('userville').value = userville;
+        document.getElementById('useraddress').value = useraddress;
+        document.getElementById('usersex').value = usersex;
         document.getElementById('userallow').innerText = userallow === "true" ? "Authorizé" : "Non Authorisé";
-        document.getElementById('useravailability').innerText = useravailability === "true" ? "Diponible" : "Indisponible";
-        if (userrole === "Owner") {
-            account_action.innerHTML = bottom_action_both;
-        } else {
-            account_action.innerHTML = bottom_action_single;
+        document.getElementById('useravailability').value = useravailability === "true" ? "Diponible" : "Indisponible";
+        const userAvailability = "false";
+
+
+        document.getElementById('usernameedi').value = username;
+        document.getElementById('userroleedi').value = userrole;
+        document.getElementById('userbioedi').value = userbio;
+
+        document.getElementById('usersituation').value = usersituation;
+        document.getElementById('userage').value = userage;
+        document.getElementById('useretudient').value = useretudient;
+        document.getElementById('userwhatsapp').value = userwhatsapp;
+        document.getElementById('usernationality').value = usernationality;
+        document.getElementById('userreligion').value = userreligion;
+
+        // Get the select element
+        var selectElement = document.getElementById("useravailability");
+        var selectElementusersex = document.getElementById("usersex");
+        var selectElementusersituation = document.getElementById("usersituation");
+        var selectElementuseretudient = document.getElementById("useretudient");
+
+        // Loop through the options and set the selected attribute on the desired option
+        for (var i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].value === userAvailability) {
+                selectElement.options[i].selected = true;
+                break;
+            }
         }
+        for (var i = 0; i < selectElementusersex.options.length; i++) {
+            if (selectElementusersex.options[i].value === userAvailability) {
+                selectElementusersex.options[i].selected = true;
+                break;
+            }
+        }
+        for (var i = 0; i < selectElementusersituation.options.length; i++) {
+            if (selectElementusersituation.options[i].value === userAvailability) {
+                selectElementusersituation.options[i].selected = true;
+                break;
+            }
+        }
+
+        for (var i = 0; i < selectElementuseretudient.options.length; i++) {
+            if (selectElementuseretudient.options[i].value === userAvailability) {
+                selectElementuseretudient.options[i].selected = true;
+                break;
+            }
+        }
+
+
+        if (userrole === "Owner") {
+            Supprimer.setAttribute("onclick", 'DeleteMyAccount()'); // Assigning the function reference directly
+            Supprimer.disabled = false;
+            Supprimer.style.color = "rgb(163, 5, 5)";
+            Supprimer.style.cursor = "pointer";
+        } else {
+            Supprimer.disabled = false;
+            Supprimer.style.color = "#aaaaaa";
+            Supprimer.style.cursor = "none";
+            Supprimer.removeAttribute("onclick");
+        }
+
 
     } else {
         window.location.href = "/";
@@ -133,12 +181,77 @@ async function DeleteMyAccount() {
         } else {
             alert("échè re-essayez");
             Supprimer.setAttribute("onclick", "DeleteMyAccount()")
-            Supprimer.innerText = "Supprimer"
+            Supprimer.innerText = "Supprimer";
+
         }
     }
 };
 
+async function UpadatMyAccount() {
+    const user_id = sessionStorage.getItem('_id');
 
+    const Modifier = document.getElementById("Modifier");
+    Modifier.removeAttribute("onclick");
+    Modifier.innerText = "En cours..."
+    const sesStoge = await GetPersonByID(user_id);
+
+    const usernameedi = document.getElementById('usernameedi').value;
+    const userroleedi = document.getElementById('userroleedi').value;
+    const userville = document.getElementById('userville').value;
+    const useraddress = document.getElementById('useraddress').value;
+    const usersex = document.getElementById('usersex').value;
+    const usersituation = document.getElementById('usersituation').value;
+    const userage = document.getElementById('userage').value;
+    const useretudient = document.getElementById('useretudient').value;
+    const userprofedi = document.getElementById('userprof').value;
+    const userphone = document.getElementById('userphone').value;
+    const userwhatsapp = document.getElementById('userwhatsapp').value;
+    const useremail = document.getElementById('useremail').value;
+    const useravailability = document.getElementById('useravailability').value;
+    const usernationality = document.getElementById('usernationality').value;
+    const userreligion = document.getElementById('userreligion').value;
+    const userbioedi = document.getElementById('userbioedi').value;
+
+
+    const user_data = {
+        name: thisiswhat(usernameedi),
+        phone: thisiswhat(userphone),
+        //password: userville,
+        ville: thisiswhat(userville),
+        role: userroleedi === "Owner" ? sesStoge.role : thisiswhat(userroleedi),
+        address: thisiswhat(useraddress),
+        email: thisiswhat(useremail),
+        bio: thisiswhat(userbioedi),
+        sex: thisiswhat(usersex),
+        //pushtoken: string,
+        image: sesStoge.image,
+        //allow: boolean,
+        availability: useravailability,
+        situation: thisiswhat(usersituation),
+        age: thisiswhat(userage),
+        wapp: thisiswhat(userwhatsapp),
+        natinalite: thisiswhat(usernationality),
+        religion: thisiswhat(userreligion),
+        etudient: thisiswhat(useretudient),
+        prof: thisiswhat(userprofedi),
+    }
+
+    var result = window.confirm("Etes vous sur ne vouloir modifer votre compte?");
+    if (result) {
+        const updating = await requesttoBackend('PUT', `${user_id}`, user_data);
+        if (updating.name) {
+            await deletePeople();
+            Modifier.setAttribute("onclick", "UpadatMyAccount()")
+            Modifier.innerText = "Modifier";
+            await PutPeople(updating);
+            window.location.reload()
+        } else {
+            alert("échè re-essayez");
+            Modifier.setAttribute("onclick", "UpadatMyAccount()")
+            Modifier.innerText = "Modifier";
+        }
+    }
+};
 
 let imagbotom;
 let fileboton;

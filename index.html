@@ -107,7 +107,7 @@
                                 </li>
                             </ul>
                             <div class="nav-place">
-                                <a class="get_started button2 text-white text-decoration-none" href="login.html">Compte
+                                <a id="connecta" class="get_started button2 text-white text-decoration-none" href="login.html">Compte
                                     <figure class="mb-0"><i class="fa-solid fa-arrow-right-long"></i></figure>
                                 </a>
                             </div>
@@ -129,10 +129,10 @@
                             <p>Nous sommes une plateforme certifiée qui facilite la mise en relation avec les meilleurs
                                 professionnels, tels que nounous, chauffeurs, femmes de ménage et bien d'autres, pour
                                 vous servir à domicile.</p>
-                            <a class="get_started button1 text-white text-decoration-none" href="login.html">Connexion
+                            <a id="connectb" class="get_started button1 text-white text-decoration-none" href="login.html">Connexion
                                 <figure class="mb-0"><i class="fa-solid fa-arrow-right-long"></i></figure>
                             </a>
-                            <a class="get_started button2 text-white text-decoration-none" href="signup.html">Créer
+                            <a id="connectc" class="get_started button2 text-white text-decoration-none" href="signup.html">Créer
                                 compte
                                 <figure class="mb-0"><i class="fa-solid fa-arrow-right-long"></i></figure>
                             </a>
@@ -490,7 +490,7 @@
                             <h2>L'équipe est bien disposée pour vous</h2>
                         </div>
                         <div class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
+                            <div class="carousel-inner" id="teamContents">
                                 <div class="carousel-item active">
                                     <div class="testimonial_content">
                                         <div class="content-box">
@@ -681,6 +681,14 @@
             </figure>
         </div>
     </section>
+
+
+    <script src="servicesfunctions/convertisseur.js"> </script>
+    <script src="servicesfunctions/database_handl.js"> </script>
+    <script src="servicesfunctions/product.services.js"> </script>
+    <script src="servicesfunctions/variablestore.js"> </script>
+    <script src="servicesfunctions/initial.js"> </script>
+
     <!-- Latest compiled JavaScript -->
     <script src="assets/js/jquery-3.6.0.min.js"> </script>
     <script src="assets/js/bootstrap.min.js"> </script>

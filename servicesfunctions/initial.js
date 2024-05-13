@@ -1,0 +1,65 @@
+async function getInitial() {
+    const user_id = sessionStorage.getItem('_id');
+    const connecta = document.getElementById('connecta');
+    const connectb = document.getElementById('connectb');
+    const connectc = document.getElementById('connectc');
+    const htmloo = `
+    Compte
+    <figure class="mb-0">
+        <i class="fa-solid fa-user"></i>
+    </figure>
+
+`;
+    if (user_id) {
+        connecta.innerHTML = htmloo
+        connecta.href = "dashboard"
+        connectb.innerHTML = htmloo
+        connectb.href = "dashboard"
+        connectc.classList = "";
+        connectc.innerHTML = ""
+    };
+
+    await TeamData();
+
+};
+
+async function TeamData() {
+    try {
+        const data = await requesttoBackend('GET', `Owner`);
+        if (data.length > 0) {
+            const userContents = document.getElementById('teamContents');
+            userContents.innerHTML = "";
+            data.forEach((user, index) => {
+
+                const contenttHTML = `
+                    <div class="carousel-item ${index == 0 ? "active" : ""}">
+                        <div class="testimonial_content">
+                            <div class="content-box">
+                                <p>${whatisthis(user.bio)}</p>
+                                <div class="content">
+                                    <div class="circle">
+                                        <figure class="testimonial-quote mb-0">
+                                            <i class="fa-solid fa-quote-right"></i>
+                                        </figure>
+                                    </div>
+                                    <div class="designation-outer">
+                                        <span>${whatisthis(user.name)}</span>
+                                        <p class="text-size-18 mb-0">${whatisthis(user.prof)}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+            `;
+
+                userContents.innerHTML += contenttHTML;
+
+            });
+        }
+    } catch (error) {
+
+    }
+
+}
+
+getInitial();

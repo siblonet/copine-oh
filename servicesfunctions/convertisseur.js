@@ -181,4 +181,4 @@ function thisiswhat(eee) {
 };
 
 
-//console.log(thisiswhat("Candidats"))
+//console.log(thisiswhat("Graphic Designer"))
