@@ -27,7 +27,7 @@ function recentProduct(user_content, what) {
         const userContents = document.getElementById('userContents');
         user_content.forEach((user, index) => {
             const contenttHTML = `
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-12 candidatspace">
                     <a class="case-box overlay" href="viewdetail.html?svc=${user._id}">
                         <div class="overlay-image">
                             <figure class="image mb-0">
@@ -43,7 +43,7 @@ function recentProduct(user_content, what) {
                         </div>
                         <span class="text-white" style="filter: blur(2px);">${user.name}</span>
                     </a>
-                </div>    
+                </div>   
         `;
 
             userContents.innerHTML += contenttHTML;
