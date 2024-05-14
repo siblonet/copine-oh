@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+
+<head>
+    <title>Admininstateur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#145fb8">
+
+    <meta name="description" content="Besoin d'une Nounou ou d'un Chauffeur ou encore un prof de maison">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="CÔCÔCÔ, COCOCO, COCOCOR, John, Kokar, emploi, offre " />
+    <meta name="author" content="John Kokar" />
+    <meta property="og:title" content="CÔCÔCÔ" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Besoin d'une Nounou ou d'un Chauffeur ou encore un prof de maison?" />
+    <meta property="og:site_name" content="CÔCÔCÔ" />
+    <meta property="og:locale" content="fr-FR" />
+    <meta property="image" content="assets/images/sharea.png" />
+    <meta property="og:image" content="assets/images/sharea.png" />
+    <meta property="article:published_time" content="2024-05-06T15:00:00Z" />
+    <meta property="article:modified_time" content="2024-05-13T01:20:00Z" />
+    <meta property="article:author" content="John Kokar" />
+
+    <style>
+        *::-webkit-scrollbar-track {
+            background-color: #145fb8;
+        }
+
+        *::-webkit-scrollbar {
+            width: 12px;
+            background-color: #F5F5F5;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            border-radius: 12px;
+            background-color: #2d96db;
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        }
+    </style>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Font Awesome link -->
+    <link rel="stylesheet" href="assets/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- StyleSheet link CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/cleanos-fonts.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/custom-style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/libs/magnific-popup.js/1.1.0/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/table.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="sub-banner sub-banner1">
+        <header class="header">
+            <div class="main-header">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/">
+                            <figure class="mb-0 banner-logo">
+                                <img src="assets/images/logo.png" height="50px" width="100px" alt="" class="img-fluid">
+                            </figure>
+                        </a>
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Acceuil</a>
+                                </li>
+                                <li class="nav-item" style="cursor: pointer;">
+                                    <a class="nav-link" onclick="LoadUsersData('Owner')">Partners</a>
+                                </li>
+                                <li class="nav-item" style="cursor: pointer;">
+                                    <a class="nav-link" onclick="LoadUsersData('user')">Users</a>
+                                </li>
+                                <li class="nav-space nav-item" style="cursor: pointer;">
+                                    <a class="nav-link" onclick="Disconexion()">Déconnexion</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+    </div>
+
+
+    <!--Contact -->
+
+
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <section class="contact-section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Role</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Street</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user_partners">
+                            
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- Footer -->
+    <section class="footer-section">
+        <div class="container">
+            <figure class="mb-0 about-drop-left">
+                <img src="assets/images/about-drop-right.png" alt="" class="img-fluid">
+            </figure>
+            <div class="middle-portion">
+                <div class="row">
+                    <div class="col-lg-4 col-md-5 col-sm-6 col-12">
+                        <div class="first-column">
+                            <a href="/">
+                                <figure class="footer-logo">
+                                    <img src="assets/images/logo.png" height="50px" width="100px" class="img-fluid"
+                                        alt="">
+                                </figure>
+                            </a>
+                            <p class="text-size-18 footer-text">Nous travaillons avec passion pour relever des défis et
+                                en créer de nouveaux dans le secteur de la publicité.</p>
+                            <div class="lower">
+                                <div class="lower-content">
+                                    <figure class="icon">
+                                        <i class="fa-solid fa-phone-volume"></i>
+                                    </figure>
+                                    <div class="content">
+                                        <span class="text-white">Appelez-nous:</span>
+                                        <a class="text-size-18 mb-0 text text-decoration-none"
+                                            href="tel:0103470087">0103470087</a>
+                                    </div>
+                                </div>
+                                <div class="lower-content">
+                                    <figure class="icon">
+                                        <i class="fa-solid fa-envelope-open-text"></i>
+                                    </figure>
+                                    <div class="content">
+                                        <span class="text-white">Envoyez-nous un e-mail:</span>
+                                        <a href="mailto:info@côcôcô.com"
+                                            class="text-size-18 mb-0 text-decoration-none">info@côcôcô.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-12 col-12 d-md-block d-none">
+                        <div class="links list-pd">
+                            <h4 class="heading text-white">Liens rapides</h4>
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="/" class="text-size-18 text text-decoration-none">à Propos</a></li>
+                                <li>
+                                    <a href="/" class="text-size-18 text text-decoration-none">Politique</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="text-size-18 text text-decoration-none">Confidentialité</a>
+                                </li>
+                                <li><a href="/" class="text-size-18 text text-decoration-none">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-12 d-lg-block d-none">
+                        <div class="links">
+                            <h4 class="heading text-white">Nos Services</h4>
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="viewall.html?svc=Menange"
+                                        class="text-size-18 text text-decoration-none">Service de netoyage
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="viewall.html?svc=Nounou"
+                                        class="text-size-18 text text-decoration-none">Nounous</a>
+                                </li>
+                                <li>
+                                    <a href="viewall.html?svc=Maitre de maison"
+                                        class="text-size-18 text text-decoration-none">Prof de maison
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="viewall.html?svc=Chauffeur"
+                                        class="text-size-18 text text-decoration-none">Chauffeur
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="viewall.html?svc=Chef Cuisine"
+                                        class="text-size-18 text text-decoration-none">Chef Cuisine
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 d-sm-block d-none">
+                        <div class="icons">
+                            <h4 class="heading mb-0 text-white">Abonnez-vous à</h4>
+                            <h4 class="heading text-white">Notre Newsletter Aujourd'hui !</h4>
+                            <p class="text-size-18 footer-text text-white">Abonnez-vous à notre newsletter pour recevoir
+                                nos dernières mises à jour et actualités.</p>
+
+                            <form id="contactpage1">
+                                <div class="form-group mb-0">
+                                    <input type="text" class="form_style" placeholder="Entrez votre adresse e-mail :"
+                                        name="email">
+                                </div>
+                                <button type="submit" class="subscribe_now text-white text-decoration-none">Abonnez
+                                    <i class="circle fa-thin fa-arrow-right"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="row copyright-border">
+                        <div class="col-lg-6 col-md-6 col-sm-12 co-12 column">
+                            <p class="text-size-16">Droits d'auteur ©2024 Côcôcô Tous droits réservés</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 co-12 d-md-block d-none">
+                            <div class="social-icons position-relative">
+                                <ul class="list-unstyled position-absolute">
+                                    <li><a href="/" class="text-decoration-none"><i
+                                                class="fa-brands fa-facebook-f social-medias"></i></a></li>
+                                    <li><a href="/" class="text-decoration-none"><i
+                                                class="fa-brands fa-twitter social-medias"></i></a></li>
+                                    <li><a href="/" class="text-decoration-none"><i
+                                                class="fa-brands fa-google-plus-g social-medias"></i></a></li>
+                                    <li><a href="/" class="text-decoration-none"><i
+                                                class="fa-brands fa-instagram social-medias"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <figure class="footer-dotimage mb-0">
+                <img src="assets/images/footer-dotimage.png" alt="" class="img-fluid">
+            </figure>
+            <figure class="footer-leftlayer mb-0">
+                <img src="assets/images/common-layer-white.png" alt="" class="img-fluid comon-img-opa">
+            </figure>
+        </div>
+    </section>
+
+
+    <!-- Latest compiled JavaScript -->
+    <script src="assets/js/jquery-3.6.0.min.js"> </script>
+    <script src="assets/js/bootstrap.min.js"> </script>
+    <script src="assets/js/video_link.js"></script>
+    <script src="assets/js/video.js"></script>
+    <script src="assets/js/counter.js"></script>
+    <script src="assets/js/owl.carousel.js"></script>
+    <script src="assets/js/custom-carousel.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/animation_links.js"></script>
+    <script src="assets/js/animation.js"></script>
+
+
+    <!-- servicefunction js -->
+    <script src="servicesfunctions/convertisseur.js"></script>
+    <script src="servicesfunctions/database_handl.js"></script>
+    <script src="servicesfunctions/product.services.js"></script>
+    <script src="servicesfunctions/variablestore.js"></script>
+    <script src="servicesfunctions/admin.js"></script>
+
+</body>
+
+</html>

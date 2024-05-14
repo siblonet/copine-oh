@@ -41,6 +41,45 @@ async function PostCandidate(people) {
     return added
 }
 
+
+async function PostSingleCandidate(person) {
+    return new Promise((resolve, reject) => {
+        openCandidatDatabase().then(peopledb => {
+            const PpTransaction = peopledb.transaction(["candidatContent"], "readwrite");
+            const PpStore = PpTransaction.objectStore("candidatContent");
+
+            const adding = PpStore.add(person);
+
+            adding.onsuccess = () => {
+                resolve(true);
+            };
+
+            adding.onerror = (event) => {
+                console.error("Error adding object to PostSingleCandidate store:", event.target.error);
+                reject(event.target.error);
+            };
+
+            PpTransaction.oncomplete = () => {
+                console.log("Transaction completed: database modification finished.");
+            };
+
+            PpTransaction.onerror = (event) => {
+                console.error("Transaction error:", event.target.error);
+                reject(event.target.error);
+            };
+
+            PpTransaction.onabort = (event) => {
+                console.error("Transaction aborted:", event.target.error);
+                reject(event.target.error);
+            };
+        }).catch(error => {
+            console.error("Error opening database:", error);
+            reject(error);
+        });
+    });
+}
+
+
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ adding systme as post end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ adding systme as post end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ adding systme as post end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
