@@ -1,6 +1,10 @@
 if (sessionStorage.getItem('_id')) {
     window.location.href = "/";
 }
+document.getElementById('name').value = "";
+document.getElementById('password').value = "";
+
+
 
 const selectElement = document.getElementById('selectcity');
 
