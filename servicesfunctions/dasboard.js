@@ -60,7 +60,7 @@ async function getAdmin() {
                 <figure class="arrow mb-0"><i class="fa-solid fa-arrow-right"></i></figure>
             `;
         } else {
-            document.getElementById(`imagec`).src = "assets/images/baby1.webp"
+            document.getElementById(`imageb`).src = "assets/images/baby1.webp"
         }
 
         if (userphoto.length > 2) {
