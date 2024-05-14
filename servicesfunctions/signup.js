@@ -4,7 +4,7 @@ if (sessionStorage.getItem('_id')) {
 setTimeout(() => {
     document.getElementById('name').value = "";
     document.getElementById('password').value = "";
-}, 5000);
+}, 2200);
 
 
 
