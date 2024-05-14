@@ -71,12 +71,11 @@ async function BlockUser(user_id, allow) {
     const Modifier = document.getElementById(`${user_id}block`);
     Modifier.removeAttribute("onclick");
     Modifier.innerHTML = "<i class='fa fa-spinner fa-spin'></i>";
-    const newAllow = allow  ? false : true;
+    const newAllow = allow === "true" ? false : true;
 
     const user_data = {
         allow: newAllow,
     };
-
     try {
         const updating = await requesttoBackend('PUT', `${user_id}`, user_data);
         if (updating.name) {
@@ -97,31 +96,31 @@ async function BlockUser(user_id, allow) {
 
 
 async function UpdateUser(user_id) {
-   /* const Modifier = document.getElementById(`${user_id}update`);
-    Modifier.removeAttribute("onclick");
-    Modifier.innerHTML = "<i class='fa fa-spinner fa-spin'></i>";
-
-    const userroleedi = document.getElementById('userroleedi').value;
-
-    const user_data = {
-        role: thisiswhat(userroleedi),
-    };
-
-    try {
-        const updating = await requesttoBackend('PUT', `${user_id}`, user_data);
-        if (updating.name) {
-            Modifier.setAttribute("onclick", `UpdateUser('${user_id}')`);
-            Modifier.innerHTML = "<i class='fas fa-edit'></i>";
-        } else {
-            alert("Échec, veuillez réessayer.");
-            Modifier.setAttribute("onclick", `UpdateUser('${user_id}')`);
-            Modifier.innerHTML = "<i class='fas fa-edit'></i>";
-        }
-    } catch (error) {
-        alert("Une erreur s'est produite, veuillez réessayer.");
-        Modifier.setAttribute("onclick", `UpdateUser('${user_id}')`);
-        Modifier.innerHTML = "<i class='fas fa-edit'></i>";
-    }*/
+    /* const Modifier = document.getElementById(`${user_id}update`);
+     Modifier.removeAttribute("onclick");
+     Modifier.innerHTML = "<i class='fa fa-spinner fa-spin'></i>";
+ 
+     const userroleedi = document.getElementById('userroleedi').value;
+ 
+     const user_data = {
+         role: thisiswhat(userroleedi),
+     };
+ 
+     try {
+         const updating = await requesttoBackend('PUT', `${user_id}`, user_data);
+         if (updating.name) {
+             Modifier.setAttribute("onclick", `UpdateUser('${user_id}')`);
+             Modifier.innerHTML = "<i class='fas fa-edit'></i>";
+         } else {
+             alert("Échec, veuillez réessayer.");
+             Modifier.setAttribute("onclick", `UpdateUser('${user_id}')`);
+             Modifier.innerHTML = "<i class='fas fa-edit'></i>";
+         }
+     } catch (error) {
+         alert("Une erreur s'est produite, veuillez réessayer.");
+         Modifier.setAttribute("onclick", `UpdateUser('${user_id}')`);
+         Modifier.innerHTML = "<i class='fas fa-edit'></i>";
+     }*/
 }
 
 
