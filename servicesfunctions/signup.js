@@ -71,13 +71,13 @@ async function SignUp() {
                 bio: bio,
                 sex: sex,
                 availability: true,
-                situation: "",
-                age: "",
-                wapp: "",
-                natinalite: "",
-                religion: "",
-                etudient: "",
-                prof: "",
+                situation: "vide",
+                age: "2000-01-01",
+                wapp: "vide",
+                natinalite: "vide",
+                religion: "vide",
+                etudient: "vide",
+                prof: "vide",
             };
             const response = await requesttoBackend('POST', '', data);
 

@@ -239,7 +239,7 @@ const Deverrouillage = async () => {
     document.getElementById('useravailability').innerText = useravailability === "true" ? "Diponible" : "Indisponible";
 
 
-    document.getElementById('usersituation').innerText = usersituation;
+    document.getElementById('usersituation').innerText = usersituation === "true" ? "Marié" : "Célibataire";
    
 
     document.getElementById('userwhatsapp').innerText = userwapp;
