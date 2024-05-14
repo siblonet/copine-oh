@@ -74,7 +74,7 @@ async function BlockUser(user_id, allow) {
     const newAllow = allow === 'true' ? 'false' : 'true';
 
     const user_data = {
-        allow: thisiswhat(newAllow),
+        allow: newAllow,
     };
 
     try {
