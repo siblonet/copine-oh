@@ -118,7 +118,7 @@ async function SuggestionSelected(ssd) {
     $(`.${ssd}`).css("background-color", "#145fb8");
     $(`.${ssd}`).css("color", "#ffffff");
 
-    let sentence = '.Nounou .Rayonnist .Technicien_de_surface .esthticienne .Menange .Chef_Cuisinier .Maitre_maison .Coiffeuse .Coursier .Vendeuse .Teleconseilleur .Coiffeur .Chauffeur .Rayonniste';
+    let sentence = '.Nounou .Rayonnist .Technicien_de_surface .esthticienne .Menage .Chef_Cuisinier .Maitre_maison .Coiffeuse .Coursier .Vendeuse .Teleconseilleur .Coiffeur .Chauffeur .Rayonniste';
     let wordsArray = sentence.split(" ");
     let indexToRemove = wordsArray.indexOf(`.${ssd}`);
     if (indexToRemove !== -1) {
