@@ -97,7 +97,7 @@ async function BlockUser(user_id, allow) {
 
 
 async function UpdateUser(user_id) {
-    const Modifier = document.getElementById(`${user_id}update`);
+   /* const Modifier = document.getElementById(`${user_id}update`);
     Modifier.removeAttribute("onclick");
     Modifier.innerHTML = "<i class='fa fa-spinner fa-spin'></i>";
 
@@ -121,7 +121,7 @@ async function UpdateUser(user_id) {
         alert("Une erreur s'est produite, veuillez réessayer.");
         Modifier.setAttribute("onclick", `UpdateUser('${user_id}')`);
         Modifier.innerHTML = "<i class='fas fa-edit'></i>";
-    }
+    }*/
 }
 
 
