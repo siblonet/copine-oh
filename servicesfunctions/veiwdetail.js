@@ -459,7 +459,7 @@ async function ShowReplyable(params) {
                     </div>
 
                     <div class="text">
-                        <h5 class="name font_weight_700">${whatisthis(reply.commenta.name)}${whatisthis(reply.commenta.role) === "Owner" ? ' <img  style="height: 15px; width: 15px;" src="assets/images/park_success.png">' : ''}</h5>
+                        <h5 style="margin-bottom: -5px" class="name font_weight_700">${whatisthis(reply.commenta.name)}${whatisthis(reply.commenta.role) === "Owner" ? ' <img  style="height: 15px; width: 15px;" src="assets/images/park_success.png">' : ''}</h5>
                         <span class="comment_date">
                             <i class="far fa-clock"></i> ${moment(reply.comented_at).format('MMMM Do YYYY, HH:mm:ss')}
                         </span>
@@ -471,13 +471,14 @@ async function ShowReplyable(params) {
                                     ` :
 
                     ''}
+                        <div class="text_holder" style="margin-top: -5px">
+                            <p class="text-size-16">
+                             ${reply.message}
+                            </p>
+                            <br>
+                        </div>
+
                     </div>
-                    <div class="blockquote text_holder">
-                        <p class="text-size-16"><p class="text-size-16">
-                            ${reply.message}
-                        </p>
-                       
-                </div>
                 `;
 
             ReplyContents.innerHTML += ReplytHTML;
