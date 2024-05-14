@@ -10,12 +10,14 @@ const svcValue = getUrlParameter('svc');
 if (!svcValue || svcValue.length < 5) {
     ///document.getElementById('coverfor').classList.add("preloader-area");
 } else {
-    document.getElementById('comments').innerHTML = "";
+    document.getElementById('commentsa').innerHTML = "";
     //document.getElementById('respond').innerHTML = "";
 
     /*document.getElementById('sel_service_b').innerText = `
      Veuillez faire défiler vers le bas pour accéder à la liste des ${svcValue}. Cliquez ensuite sur les différents ${svcValue} pour obtenir plus de détails les concernant
     `;*/
+    document.getElementById('postid').value = svcValue;
+
     RequestData()
 }
 
@@ -49,7 +51,7 @@ async function RequestData() {
 
         //const everrouillage = document.getElementById('Deverrouillage');
         //everrouillage.setAttribute("onclick", `Deverrouillage('${}')`);
-
+        CommentNumber()
     } catch (error) {
         console.log("View detail RequestData", error)
     }
@@ -240,7 +242,7 @@ const Deverrouillage = async () => {
 
 
     document.getElementById('usersituation').innerText = usersituation === "true" ? "Marié" : "Célibataire";
-   
+
 
     document.getElementById('userwhatsapp').innerText = userwapp;
     document.getElementById('usernationality').innerText = usernatinalite;
@@ -261,9 +263,6 @@ const Deverrouillage = async () => {
 
 
 const commentsHtml = `
-            <div class="comment_number text-uppercase font_weight_600">
-                Commentaires <span id="comentnumbera">(0)</span>
-            </div>
             <div class="comment-list">
                     <div class="comment" id="comment-1">
                         <div class="image" data-aos="flip-left" data-aos-once="true"><img alt=""
@@ -325,14 +324,113 @@ const commentsHtml = `
 
 `;
 
+const DeleteComment = async (id) => {
+    const deleti = await requesttoBackend('DELETE', `deletingcopinecomment/${id}`);
+    if (deleti.done) {
+        document.getElementById('commentsa').innerHTML = "";
+        ShowComment();
+    }
+}
 
 
 
 
 const ShowComment = async () => {
-    document.getElementById('comments').innerHTML = `
-        <div class="comment_number text-uppercase font_weight_600">
-            Commentaires <span id="comentnumbera">(0)</span>
-        </div>
+    const user_id = sessionStorage.getItem('_id');
+
+    document.getElementById('commentsa').innerHTML = `
+                <div class="comment_number text-uppercase font_weight_600">
+                    En cours...
+                </div>
+        `;
+    const comments = await requesttoBackend('GET', `gettingbycopinecomment/${document.getElementById('postid').value}`);
+
+    if (comments.length > 0) {
+        document.getElementById('commentsa').innerHTML = `
+                <div class="comment_number text-uppercase font_weight_600">
+                    Commentaires <span id="comentnumbera">(${comments.length})</span>
+                </div>
+                <div class="comment-list" id="ComentContents">
+
+                </div> 
+        `;
+
+        const ComentContents = document.getElementById('ComentContents');
+        ComentContents.innerHTML = "";
+        moment.locale('fr');
+
+        comments.forEach((comment, index) => {
+
+            const ComenttHTML = `
+                    <div class="comment" id="${comment._id}">
+                        <div class="image">
+                            <img alt="" src="${comment.commenta.image ? comment.commenta.image[0].ima : ""}" class="avatar">
+                        </div>
+                        <div class="text">
+                            <h5 class="name font_weight_700">${whatisthis(comment.commenta.name)}</h5>
+                            <span class="comment_date">
+                                <i class="far fa-clock"></i> ${moment(comment.comented_at).format('MMMM Do YYYY, HH:mm:ss')}
+                            </span>
+                            <a class="comment-reply-link"
+                                style="cursor: pointer; color: #145fb8;">
+                                <i class="fa fa-reply" style="color: #2d96db !important"></i>
+                                Repondre 
+                                ${comment.commenta._id === user_id ? '<i class="fa fa-trash" style="color: #da1a34 !important; margin-left: 5px"  onclick="DeleteComment(${comment._id})"></i>' : ''}
+                            </a>
+                            <div class="text_holder">
+                                <p class="text-size-16">
+                                ${comment.message}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                   
+            `;
+
+            ComentContents.innerHTML += ComenttHTML;
+
+        });
+
+    } else {
+
+    }
+
+
+}
+
+
+const SendComennt = async () => {
+    const user_id = sessionStorage.getItem('_id');
+    const loading = document.getElementById('Envoyer');
+
+
+    if (user_id) {
+        loading.removeAttribute("onclick");
+        loading.innerHTML = `En cours ...`;
+        const data = {
+            commenta: user_id,
+            recepto: document.getElementById('postid').value,
+            message: document.getElementById('comment').value,
+        };
+
+        const comment = await requesttoBackend('POST', 'commentcopinecreating', data);
+        if (comment.message) {
+            ShowComment()
+        }
+        loading.setAttribute("onclick", "SendComennt()");
+        loading.innerHTML = `Envoyer`;
+    } else {
+        alert("Connectez-vous ou Créez un compte pour commenter")
+    }
+
+}
+
+const CommentNumber = async () => {
+    const comments = await requesttoBackend('GET', `gettingbycopinecomment/${document.getElementById('postid').value}`);
+    document.getElementById('comentnumbera').innerHTML = `
+    ${comments.length}
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 1791 1996" id="comments">
+            <path d="M704 384q-153 0-286 52T206.5 577 128 768q0 82 53 158t149 132l97 56-35 84q34-20 62-39l44-31 53 10q78 14 153 14 153 0 286-52t211.5-141 78.5-191-78.5-191T990 436t-286-52zm0-128q191 0 353.5 68.5T1314 511t94 257-94 257-256.5 186.5T704 1280q-86 0-176-16-124 88-278 128-36 9-86 16h-3q-11 0-20.5-8t-11.5-21q-1-3-1-6.5t.5-6.5 2-6l2.5-5 3.5-5.5 4-5 4.5-5 4-4.5q5-6 23-25t26-29.5 22.5-29 25-38.5 20.5-44q-124-72-195-177T0 768q0-139 94-257t256.5-186.5T704 256zm822 1169q10 24 20.5 44t25 38.5 22.5 29 26 29.5 23 25q1 1 4 4.5t4.5 5 4 5 3.5 5.5l2.5 5 2 6 .5 6.5-1 6.5q-3 14-13 22t-22 7q-50-7-86-16-154-40-278-128-90 16-176 16-271 0-472-132 58 4 88 4 161 0 309-45t264-129q125-92 192-212t67-254q0-77-23-152 129 71 204 178t75 230q0 120-71 224.5T1526 1425z" fill="#c0810d"></path>
+        </svg>
     `;
 }
