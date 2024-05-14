@@ -262,6 +262,9 @@ async function UpadatMyAccount() {
             Modifier.setAttribute("onclick", "UpadatMyAccount()")
             Modifier.innerText = "Modifier";
         }
+    } else {
+        Modifier.setAttribute("onclick", "UpadatMyAccount()")
+        Modifier.innerText = "Modifier";
     }
 };
 
