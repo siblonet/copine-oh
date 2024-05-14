@@ -2,6 +2,11 @@ if (sessionStorage.getItem('_id')) {
     window.location.href = "/";
 }
 
+setTimeout(() => {
+    document.getElementById('phone').value = "";
+    document.getElementById('password').value = "";
+}, 5000);
+
 async function Login() {
     const phone = thisiswhat(document.getElementById('phone').value);
     const password = thisiswhat(document.getElementById('password').value);
