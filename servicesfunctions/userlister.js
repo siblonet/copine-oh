@@ -91,7 +91,7 @@ async function SuggestionSelected(ssd) {
     tags_id.innerHTML = `
                 <a class="suggestion_table Nounou" onclick="SuggestionSelected('Nounou')">Nounou</a>
                 <a class="suggestion_table Chauffeur" onclick="SuggestionSelected('Chauffeur')">Chauffeur</a>
-                <a class="suggestion_table Menange" onclick="SuggestionSelected('Menange')">Menange</a>
+                <a class="suggestion_table Menage" onclick="SuggestionSelected('Menage')">Menange</a>
                 <a class="suggestion_table Chef_Cuisinier" onclick="SuggestionSelected('Chef_Cuisinier')">Chef
                     Cuisinier</a>
                 <a class="suggestion_table Maitre_maison" onclick="SuggestionSelected('Maitre_maison')">Maitre de
