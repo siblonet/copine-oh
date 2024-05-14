@@ -28,7 +28,7 @@ async function getInitial() {
 
 async function TeamData() {
     try {
-        const data = await requesttoBackend('GET', `Owner`);
+        const data = await requesttoBackend('GET', `team/show/giveaccess/Owner`);
         if (data.length > 0) {
             const userContents = document.getElementById('teamContents');
             userContents.innerHTML = "";

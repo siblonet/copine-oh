@@ -368,7 +368,7 @@ const ShowComment = async () => {
             const ComenttHTML = `
                     <div class="comment" id="${comment._id}">
                         <div class="image">
-                            <img alt="" src="${comment.commenta.image ? comment.commenta.image[0].ima : ""}" class="avatar">
+                            <img alt="" src="${comment.commenta.image ? comment.commenta.image[0].ima : "assets/images/avatay.png"}" class="avatar">
                         </div>
                         <div class="text">
                             <h5 class="name font_weight_700">${whatisthis(comment.commenta.name)}</h5>
@@ -455,7 +455,7 @@ async function ShowReplyable(params) {
         replies.forEach((reply, index) => {
             const ReplytHTML = `
                 <div class="image" data-aos="flip-left" data-aos-once="true">
-                        <img alt="" src="${reply.commenta.image ? reply.commenta.image[0].ima : ""}" class="avatar">
+                        <img alt="" src="${reply.commenta.image ? reply.commenta.image[0].ima : "assets/images/avatay.png"}" class="avatar">
                     </div>
 
                     <div class="text">
