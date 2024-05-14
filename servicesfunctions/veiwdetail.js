@@ -365,7 +365,6 @@ const ShowComment = async () => {
         moment.locale('fr');
 
         comments.forEach((comment, index) => {
-
             const ComenttHTML = `
                     <div class="comment" id="${comment._id}">
                         <div class="image">
@@ -376,8 +375,8 @@ const ShowComment = async () => {
                             <span class="comment_date">
                                 <i class="far fa-clock"></i> ${moment(comment.comented_at).format('MMMM Do YYYY, HH:mm:ss')}
                             </span>
-                            <a class="comment-reply-link" style="cursor: pointer; color: #145fb8;">
-                                <i onclick="" class="fa fa-reply" style="color: #2d96db !important;"></i>
+                            <a onclick="ShowReplyable('${comment._id}')" class="comment-reply-link" style="cursor: pointer; color: #145fb8;">
+                                <i class="fa fa-reply" style="color: #2d96db !important;"></i> ${comment.reply}
                                 Répondre 
                             </a>
                             ${comment.commenta._id === user_id ?
@@ -393,6 +392,17 @@ const ShowComment = async () => {
                                 ${comment.message}
                                 </p>
                             </div>
+                            
+
+
+
+                                <div class="widget widget-newsletter replaybar" id="${comment._id}idtagconreplable">
+                                    
+                                </div>
+
+                        </div>
+                        <div class="comment post-item-description" id="${comment._id}repiesSubs">
+                            
                         </div>
                     </div>
                    
@@ -416,6 +426,95 @@ const ShowComment = async () => {
 
 }
 
+async function ShowReplyable(params) {
+    const user_id = sessionStorage.getItem('_id');
+    const replau = document.getElementById(params + "idtagconreplable");
+    replau.innerHTML = `
+        <form id="widget-search-form-sidebar" class="form-inline">
+            <div class="input-group">
+                <textarea type="text" aria-required="true" name="replay" id="replay"
+                    class="form-control widget-search-form replay" placeholder="Saisissez-ici">
+                </textarea>
+                    <div class="input-group-append">
+                    <span class="input-group-btn">
+                        <a style="cursor: pointer;" onclick="Sendreply('${params}')" id="widget-widget-search-form-button"
+                            class="btn">
+                            <i id="${params}b" class="fa fa-paper-plane"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </form>
+    `;
+    const replies = await requesttoBackend('GET', `gettingbycopinecomment/${document.getElementById('postid').value}`);
+    if (replies.length) {
+        const ReplyContents = document.getElementById(params + "repiesSubs");
+        ReplyContents.innerHTML = "";
+        moment.locale('fr');
+
+        replies.forEach((reply, index) => {
+            const ReplytHTML = `
+                <div class="image" data-aos="flip-left" data-aos-once="true">
+                        <img alt="" src="${reply.commenta.image ? reply.commenta.image[0].ima : ""}" class="avatar">
+                    </div>
+
+                    <div class="text">
+                        <h5 class="name font_weight_700">${whatisthis(reply.commenta.name)}</h5>
+                        <span class="comment_date">
+                            <i class="far fa-clock"></i> ${moment(reply.comented_at).format('MMMM Do YYYY, HH:mm:ss')}
+                        </span>
+                        ${reply.commenta._id === user_id ?
+                            `
+                                            <a class="comment-reply-link" style="cursor: pointer; color: #145fb8; margin-left: 5px;" onclick="DeleteComment('${comment._id}')">
+                                                <i id="${comment._id}a" class="fa fa-trash" style="color: #da1a34 !important"></i>
+                                            </a>
+                                    ` :
+        
+                            ''}
+                    </div>
+                    <div class="blockquote text_holder">
+                        <p class="text-size-16"><p class="text-size-16">
+                            ${reply.message}
+                        </p>
+                       
+                </div>
+                `;
+
+            ReplyContents.innerHTML += ReplytHTML;
+
+        });
+    }
+}
+
+
+
+const Sendreply = async (comid) => {
+    const user_id = sessionStorage.getItem('_id');
+    const loading = document.getElementById(comid + "b");
+    const replau = document.getElementById(comid + "idtagconreplable");
+
+
+    if (user_id) {
+        loading.classList = "fa fa-spinner fa-spin";
+
+        const data = {
+            commenta: user_id,
+            recepto: comid,
+            message: document.getElementById('replay').value,
+        };
+
+        const comment = await requesttoBackend('POST', 'replycopinecreating', data);
+        if (comment && comment.length > 0) {
+            document.getElementById('replay').value = "";
+            //ShowSubComment();
+            replau.innerHTML = ""
+
+        }
+    } else {
+        alert("Connectez-vous ou Créez un compte pour commenter")
+    }
+
+}
 
 const SendComennt = async () => {
     const user_id = sessionStorage.getItem('_id');
