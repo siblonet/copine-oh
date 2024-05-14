@@ -71,7 +71,7 @@ async function BlockUser(user_id, allow) {
     const Modifier = document.getElementById(`${user_id}block`);
     Modifier.removeAttribute("onclick");
     Modifier.innerHTML = "<i class='fa fa-spinner fa-spin'></i>";
-    const newAllow = allow === 'true' ? 'false' : 'true';
+    const newAllow = allow  ? false : true;
 
     const user_data = {
         allow: newAllow,
@@ -82,16 +82,16 @@ async function BlockUser(user_id, allow) {
         if (updating.name) {
             // Toggle the state for the allow parameter
             Modifier.setAttribute("onclick", `BlockUser('${user_id}', '${newAllow}')`);
-            Modifier.innerHTML = "<i class='far fa-eye'></i>";
+            Modifier.innerHTML = `<i class='far fa-eye${newAllow ? '' : '-slash'}'></i>`;
         } else {
             alert("Échec, veuillez réessayer.");
             Modifier.setAttribute("onclick", `BlockUser('${user_id}', '${allow}')`);
-            Modifier.innerHTML = "<i class='far fa-eye'></i>";
+            Modifier.innerHTML = `<i class='far fa-eye${allow ? '' : '-slash'}'></i>`;
         }
     } catch (error) {
         alert("Une erreur s'est produite, veuillez réessayer.");
         Modifier.setAttribute("onclick", `BlockUser('${user_id}', '${allow}')`);
-        Modifier.innerHTML = "<i class='far fa-eye'></i>";
+        Modifier.innerHTML = `<i class='far fa-eye${allow ? '' : '-slash'}'></i>`;
     }
 }
 
