@@ -211,8 +211,8 @@ const PaymenSession = `
 
 const Deverrouillage = async () => {
     const sesStoge = await GetCandidatByID(svcValue);
-    const username = whatisthis(sesStoge.name);
-    const userphone = whatisthis(sesStoge.phone);
+    const username = sesStoge.name;
+    const userphone = sesStoge.phone;
     const useremail = whatisthis(sesStoge.email);
     const userrole = whatisthis(sesStoge.role);
     const userville = whatisthis(sesStoge.ville);

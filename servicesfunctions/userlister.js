@@ -89,19 +89,25 @@ async function SuggestionSelected(ssd) {
     const tags_id = document.getElementById('tags_id')
     tags_id.innerHTML = "";
     tags_id.innerHTML = `
-            <a class="suggestion_table Nounou" onclick="SuggestionSelected('Nounou')">Nounou</a>
-            <a class="suggestion_table Chauffeur" onclick="SuggestionSelected('Chauffeur')">Chauffeur</a>
-            <a class="suggestion_table Menange" onclick="SuggestionSelected('Menange')">Menange</a>
-            <a class="suggestion_table Chef_Cuisinier" onclick="SuggestionSelected('Chef_Cuisinier')">Chef
-                Cuisinier</a>
-            <a class="suggestion_table Maitre_maison" onclick="SuggestionSelected('Maitre_maison')">Maitre de
-                maison</a>
-            <a class="suggestion_table Coiffeur" onclick="SuggestionSelected('Coiffeur')">Coiffeur</a>
-            <a class="suggestion_table Coiffeuse" onclick="SuggestionSelected('Coiffeuse')">Coiffeuse</a>
-            <a class="suggestion_table Coursier" onclick="SuggestionSelected('Coursier')">Coursier</a>
-            <a class="suggestion_table Vendeuse" onclick="SuggestionSelected('Vendeuse')">Vendeuse</a>
-            <a class="suggestion_table Teleconseilleur"
-                onclick="SuggestionSelected('Teleconseilleur')">Téléconseilleur</a>
+                <a class="suggestion_table Nounou" onclick="SuggestionSelected('Nounou')">Nounou</a>
+                <a class="suggestion_table Chauffeur" onclick="SuggestionSelected('Chauffeur')">Chauffeur</a>
+                <a class="suggestion_table Menange" onclick="SuggestionSelected('Menange')">Menange</a>
+                <a class="suggestion_table Chef_Cuisinier" onclick="SuggestionSelected('Chef_Cuisinier')">Chef
+                    Cuisinier</a>
+                <a class="suggestion_table Maitre_maison" onclick="SuggestionSelected('Maitre_maison')">Maitre de
+                    maison</a>
+                <a class="suggestion_table Coiffeur" onclick="SuggestionSelected('Coiffeur')">Coiffeur</a>
+                <a class="suggestion_table Coiffeuse" onclick="SuggestionSelected('Coiffeuse')">Coiffeuse</a>
+                <a class="suggestion_table Coursier" onclick="SuggestionSelected('Coursier')">Coursier</a>
+                <a class="suggestion_table Vendeuse" onclick="SuggestionSelected('Vendeuse')">Vendeuse</a>
+
+                <a class="suggestion_table Rayonniste" onclick="SuggestionSelected('Rayonniste')">Rayonniste</a>
+                <a class="suggestion_table Rayonnist" onclick="SuggestionSelected('Rayonnist')">Rayonnist</a>
+                <a class="suggestion_table Technicien_de_surface"
+                    onclick="SuggestionSelected('Technicien_de_surface')">Technicien de surface</a>
+                <a class="suggestion_table esthticienne" onclick="SuggestionSelected('esthticienne')">Esthéticienne</a>
+                <a class="suggestion_table Teleconseilleur"
+                    onclick="SuggestionSelected('Teleconseilleur')">Téléconseilleur</a>
 
     `;
 
@@ -112,7 +118,7 @@ async function SuggestionSelected(ssd) {
     $(`.${ssd}`).css("background-color", "#145fb8");
     $(`.${ssd}`).css("color", "#ffffff");
 
-    let sentence = '.Nounou .Menange .Chef_Cuisinier .Maitre_maison .Coiffeuse .Coursier .Vendeuse .Teleconseilleur .Coiffeur .Chauffeur';
+    let sentence = '.Nounou .Rayonnist .Technicien_de_surface .esthticienne .Menange .Chef_Cuisinier .Maitre_maison .Coiffeuse .Coursier .Vendeuse .Teleconseilleur .Coiffeur .Chauffeur .Rayonniste';
     let wordsArray = sentence.split(" ");
     let indexToRemove = wordsArray.indexOf(`.${ssd}`);
     if (indexToRemove !== -1) {
