@@ -28,8 +28,9 @@ async function getInitial() {
 
 async function TeamData() {
     try {
-        const data = await requesttoBackend('GET', `team/show/giveaccess/Owner`);
-        if (data.length > 0) {
+        const dato = await requesttoBackend('GET', `team/show/giveaccess/Owner`);
+        if (dato.length > 0) {
+            const data = dato.filter((re) => re.allow);
             const userContents = document.getElementById('teamContents');
             userContents.innerHTML = "";
             data.forEach((user, index) => {
