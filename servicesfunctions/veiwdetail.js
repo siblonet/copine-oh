@@ -371,7 +371,7 @@ const ShowComment = async () => {
                             <img alt="" src="${comment.commenta.image.length > 0 ? comment.commenta.image[0].ima : "assets/images/avatay.png"}" class="avatar">
                         </div>
                         <div class="text">
-                            <h5 class="name font_weight_700">${whatisthis(comment.commenta.name)}</h5>
+                            <h5 class="name font_weight_700">${whatisthis(comment.commenta.name)}${whatisthis(comment.commenta.role) === "Owner" ? ' <img  style="height: 15px; width: 15px;" src="assets/images/park_success.png">' : ''}</h5>
                             <span class="comment_date">
                                 <i class="far fa-clock"></i> ${moment(comment.comented_at).format('MMMM Do YYYY, HH:mm:ss')}
                             </span>
@@ -459,18 +459,18 @@ async function ShowReplyable(params) {
                     </div>
 
                     <div class="text">
-                        <h5 class="name font_weight_700">${whatisthis(reply.commenta.name)}</h5>
+                        <h5 class="name font_weight_700">${whatisthis(reply.commenta.name)}${whatisthis(reply.commenta.role) === "Owner" ? ' <img  style="height: 15px; width: 15px;" src="assets/images/park_success.png">' : ''}</h5>
                         <span class="comment_date">
                             <i class="far fa-clock"></i> ${moment(reply.comented_at).format('MMMM Do YYYY, HH:mm:ss')}
                         </span>
                         ${reply.commenta._id === user_id ?
-                            `
+                    `
                                             <a class="comment-reply-link" style="cursor: pointer; color: #145fb8; margin-left: 5px;" onclick="DeleteComment('${comment._id}')">
                                                 <i id="${comment._id}a" class="fa fa-trash" style="color: #da1a34 !important"></i>
                                             </a>
                                     ` :
-        
-                            ''}
+
+                    ''}
                     </div>
                     <div class="blockquote text_holder">
                         <p class="text-size-16"><p class="text-size-16">
