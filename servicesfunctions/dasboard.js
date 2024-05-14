@@ -1,3 +1,8 @@
+let sexslea
+let useravailabilitysleb
+let usersituationslec
+let useretudientsled
+
 async function getAdmin() {
     const user_id = sessionStorage.getItem('_id');
     const Supprimer = document.getElementById('Supprimer');
@@ -83,55 +88,43 @@ async function getAdmin() {
         document.getElementById('useremail').value = useremail;
         document.getElementById('userville').value = userville;
         document.getElementById('useraddress').value = useraddress;
-        document.getElementById('usersex').value = usersex;
+        document.getElementById('usersex').innerHTML = `
+            <option id="usersexseleca" value="HOMME" ${usersex === "HOMME" ? "selected" : ""}>HOMME</option>
+            <option id="usersexselecb" value="FEMME" ${usersex === "FEMME" ? "selected" : ""}>FEMME</option>
+        `;
+        sexslea = usersex;
+
+
         document.getElementById('userallow').innerText = userallow === "true" ? "Authorizé" : "Non Authorisé";
-        document.getElementById('useravailability').value = useravailability === "true" ? "Diponible" : "Indisponible";
-        const userAvailability = "false";
+        document.getElementById('useravailability').innerHTML = `
+                                <option id="useravailabilityseleca" value="true" ${useravailability === "true" ? "selected" : ""}>Disponible</option>
+                                <option id="useravailabilityselecb" value="false" ${useravailability === "false" ? "selected" : ""}>Indisponible</option>
+        `;
+        useravailabilitysleb = useravailability;
 
 
         document.getElementById('usernameedi').value = username;
         document.getElementById('userroleedi').value = userrole;
         document.getElementById('userbioedi').value = userbio;
 
-        document.getElementById('usersituation').value = usersituation;
+        document.getElementById('usersituation').innerHTML = `
+            <option id="usersituationseleca" value="true" ${usersituation === "true" ? "selected" : ""}>Marié</option>
+            <option id="usersituationselecb" value="false" ${usersituation === "false" ? "selected" : ""}>Célibataire</option>
+        `;
+        usersituationslec = usersituation;
+
+
         document.getElementById('userage').value = userage;
-        document.getElementById('useretudient').value = useretudient;
+        document.getElementById('useretudient').innerHTML = `
+            <option id="usersituationseleca" value="true" ${useretudient === "true" ? "selected" : ""}>Oui</option>
+            <option id="usersituationselecb" value="false" ${useretudient === "false" ? "selected" : ""}>Non</option>
+        `;
+        useretudientsled = useretudient;
+
         document.getElementById('userwhatsapp').value = userwhatsapp;
         document.getElementById('usernationality').value = usernationality;
         document.getElementById('userreligion').value = userreligion;
 
-        // Get the select element
-        var selectElement = document.getElementById("useravailability");
-        var selectElementusersex = document.getElementById("usersex");
-        var selectElementusersituation = document.getElementById("usersituation");
-        var selectElementuseretudient = document.getElementById("useretudient");
-
-        // Loop through the options and set the selected attribute on the desired option
-        for (var i = 0; i < selectElement.options.length; i++) {
-            if (selectElement.options[i].value === userAvailability) {
-                selectElement.options[i].selected = true;
-                break;
-            }
-        }
-        for (var i = 0; i < selectElementusersex.options.length; i++) {
-            if (selectElementusersex.options[i].value === userAvailability) {
-                selectElementusersex.options[i].selected = true;
-                break;
-            }
-        }
-        for (var i = 0; i < selectElementusersituation.options.length; i++) {
-            if (selectElementusersituation.options[i].value === userAvailability) {
-                selectElementusersituation.options[i].selected = true;
-                break;
-            }
-        }
-
-        for (var i = 0; i < selectElementuseretudient.options.length; i++) {
-            if (selectElementuseretudient.options[i].value === userAvailability) {
-                selectElementuseretudient.options[i].selected = true;
-                break;
-            }
-        }
 
 
         if (userrole === "Owner") {
@@ -187,6 +180,30 @@ async function DeleteMyAccount() {
     }
 };
 
+
+
+const selectlista = document.getElementById('usersex');
+const selectlistb = document.getElementById('useravailability');
+const selectlistc = document.getElementById('usersituation');
+const selectlistd = document.getElementById('useretudient');
+
+selectlista.addEventListener("change", function () {
+    sexslea = selectlista.value;
+});
+
+selectlistb.addEventListener("change", function () {
+    useravailabilitysleb = selectlistb.value;
+});
+
+selectlistc.addEventListener("change", function () {
+    usersituationslec = selectlistc.value;
+});
+
+selectlistd.addEventListener("change", function () {
+    useretudient = selectlistd.value;
+});
+
+
 async function UpadatMyAccount() {
     const user_id = sessionStorage.getItem('_id');
 
@@ -199,15 +216,11 @@ async function UpadatMyAccount() {
     const userroleedi = document.getElementById('userroleedi').value;
     const userville = document.getElementById('userville').value;
     const useraddress = document.getElementById('useraddress').value;
-    const usersex = document.getElementById('usersex').value;
-    const usersituation = document.getElementById('usersituation').value;
     const userage = document.getElementById('userage').value;
-    const useretudient = document.getElementById('useretudient').value;
     const userprofedi = document.getElementById('userprof').value;
     const userphone = document.getElementById('userphone').value;
     const userwhatsapp = document.getElementById('userwhatsapp').value;
     const useremail = document.getElementById('useremail').value;
-    const useravailability = document.getElementById('useravailability').value;
     const usernationality = document.getElementById('usernationality').value;
     const userreligion = document.getElementById('userreligion').value;
     const userbioedi = document.getElementById('userbioedi').value;
@@ -222,17 +235,17 @@ async function UpadatMyAccount() {
         address: thisiswhat(useraddress),
         email: thisiswhat(useremail),
         bio: thisiswhat(userbioedi),
-        sex: thisiswhat(usersex),
+        sex: thisiswhat(sexslea),
         //pushtoken: string,
         image: sesStoge.image,
         //allow: boolean,
-        availability: useravailability,
-        situation: thisiswhat(usersituation),
+        availability: useravailabilitysleb,
+        situation: thisiswhat(usersituationslec),
         age: thisiswhat(userage),
         wapp: thisiswhat(userwhatsapp),
         natinalite: thisiswhat(usernationality),
         religion: thisiswhat(userreligion),
-        etudient: thisiswhat(useretudient),
+        etudient: thisiswhat(useretudientsled),
         prof: thisiswhat(userprofedi),
     }
 

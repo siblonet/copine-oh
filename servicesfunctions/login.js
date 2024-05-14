@@ -32,10 +32,6 @@ async function Login() {
         } else if (response.name) {
             sessionStorage.setItem('_id', response._id);
             await PostPeople(response);
-            loading.innerHTML = `
-            Connecté
-            <i class="circle fa-thin fa-arrow-right"></i>
-            `;
             window.location.href = "dashboard";
         } else if (response.ee) {
             alert("Identifient inccorect");
