@@ -325,9 +325,14 @@ const commentsHtml = `
 `;
 
 const DeleteComment = async (id) => {
+    const trashlodin = document.getElementById(`${id}a`);
+    trashlodin.classList = "fa fa-spinner fa-spin";
+
+
     const deleti = await requesttoBackend('DELETE', `deletingcopinecomment/${id}`);
     if (deleti.done) {
         document.getElementById('commentsa').innerHTML = "";
+        CommentNumber()
         ShowComment();
     }
 }
@@ -371,12 +376,18 @@ const ShowComment = async () => {
                             <span class="comment_date">
                                 <i class="far fa-clock"></i> ${moment(comment.comented_at).format('MMMM Do YYYY, HH:mm:ss')}
                             </span>
-                            <a class="comment-reply-link"
-                                style="cursor: pointer; color: #145fb8;">
-                                <i class="fa fa-reply" style="color: #2d96db !important"></i>
-                                Repondre 
-                                ${comment.commenta._id === user_id ? '<i class="fa fa-trash" style="color: #da1a34 !important; margin-left: 5px"  onclick="DeleteComment(${comment._id})"></i>' : ''}
+                            <a class="comment-reply-link" style="cursor: pointer; color: #145fb8;">
+                                <i onclick="" class="fa fa-reply" style="color: #2d96db !important;"></i>
+                                Répondre 
                             </a>
+                            ${comment.commenta._id === user_id ?
+                    `
+                                    <a class="comment-reply-link" style="cursor: pointer; color: #145fb8; margin-left: 5px;" onclick="DeleteComment('${comment._id}')">
+                                        <i id="${comment._id}a" class="fa fa-trash" style="color: #da1a34 !important"></i>
+                                    </a>
+                            ` :
+
+                    ''}
                             <div class="text_holder">
                                 <p class="text-size-16">
                                 ${comment.message}
@@ -392,7 +403,14 @@ const ShowComment = async () => {
         });
 
     } else {
+        document.getElementById('commentsa').innerHTML = `
+        <div class="comment_number text-uppercase font_weight_600">
+            Commentaires <span id="comentnumbera">(0)</span>
+        </div>
+        <div class="comment-list" id="ComentContents">
 
+        </div> 
+`;
     }
 
 
@@ -414,9 +432,13 @@ const SendComennt = async () => {
         };
 
         const comment = await requesttoBackend('POST', 'commentcopinecreating', data);
-        if (comment.message) {
-            ShowComment()
+        if (comment && comment.length > 0) {
+            document.getElementById('comment').value = "";
+            CommentNumber();
+            ShowComment();
         }
+
+
         loading.setAttribute("onclick", "SendComennt()");
         loading.innerHTML = `Envoyer`;
     } else {
