@@ -329,7 +329,7 @@ const SendTheImage = async (base64Data, fileName) => {
             }
             const useimach = await GetPersonByID(us_id);
 
-            const urlo = useimach.image.length > 0 ? `pushcandidateimage/${us_id}` : `/${us_id}`;
+            const urlo = useimach.image.length > 0 ? `pushcandidateimage/${us_id}` : `${us_id}`;
             const obco = useimach.image.length > 0 ? { ima: url.ima } : { image: [{ ima: url.ima }] };
 
             const sending = await requesttoBackend('PUT', urlo, obco);
