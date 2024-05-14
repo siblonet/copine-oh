@@ -242,10 +242,8 @@ async function UpadatMyAccount() {
         if (updating.name) {
             Modifier.setAttribute("onclick", "UpadatMyAccount()")
             Modifier.innerText = "Modifier";
-            const updastat = await PutPeople(updating);
-            if (updastat) {
-                getAdmin();
-            }
+            await PutPeople(updating);
+            window.location.reload()
         } else {
             alert("échè re-essayez");
             Modifier.setAttribute("onclick", "UpadatMyAccount()")

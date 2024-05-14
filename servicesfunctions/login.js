@@ -48,8 +48,6 @@ async function Login() {
 
     } else {
         alert("Renseignez tous.");
-
-
     }
 
 };
