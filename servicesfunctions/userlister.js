@@ -31,7 +31,7 @@ function recentProduct(user_content, what) {
         user_content.forEach((user, index) => {
             const contenttHTML = `
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 candidatspace">
-                    <a class="case-box overlay" href="viewdetail.html?svc=${user._id}">
+                    <a class="case-box overlay" href="viewdata?svc=${user._id}">
                         <div class="overlay-image">
                             <figure class="image mb-0">
                                 <img src="${user.image[0] ? user.image[0].ima : "assets/images/baby1.webp"}" alt="" class="">

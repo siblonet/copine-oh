@@ -166,5 +166,5 @@ const LoadUsersData = async (whos) => {
 };
 
 const OpenNew = (id) => {
-    window.open(`viewdetail.html?svc=${id}`, '_blank');
+    window.open(`viewdata?svc=${id}`, '_blank');
 }
