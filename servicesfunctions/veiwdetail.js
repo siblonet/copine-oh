@@ -17,6 +17,14 @@ if (!svcValue || svcValue.length < 5) {
      Veuillez faire défiler vers le bas pour accéder à la liste des ${svcValue}. Cliquez ensuite sur les différents ${svcValue} pour obtenir plus de détails les concernant
     `;*/
     document.getElementById('postid').value = svcValue;
+    const user_id = sessionStorage.getItem('_id');
+    if (user_id) {
+        document.getElementById('login').innerHTML = `
+            <a class="nav-link" href="dashboard">Mon Compte</a>
+        `;
+
+        document.getElementById('creacom').innerHTML = "";
+    }
 
     RequestData()
 }
