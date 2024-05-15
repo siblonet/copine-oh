@@ -129,8 +129,8 @@ const LoadUsersData = async (whos) => {
 
     try {
         const user_content = await requesttoBackend('GET', `team/show/giveaccess/${whos}`);
-
         if (user_content && user_content.length > 0) {
+            document.getElementById('number_of_user').innerText = user_content.length;
             const user_partners = document.getElementById('user_partners');
             let contentHTML = ''; // Initialize an empty string to accumulate HTML
             await PostCandidate(user_content);
