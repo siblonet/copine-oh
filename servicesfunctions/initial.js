@@ -36,10 +36,10 @@ async function TeamData() {
     try {
         const length = await requesttoBackend('GET', `suscribed/services/users`);
         if (length.getta) {
-            document.getElementById('Nounou').innerText = length.nounou;
-            document.getElementById('Chauffeur').innerText = length.chauffeur;
-            document.getElementById('Menange').innerText = length.menange;
-            document.getElementById('Maitre_maison').innerText = length.maitre_maison;
+            document.getElementById('Nounou').innerText = length.Nounou;
+            document.getElementById('Chauffeur').innerText = length.Chauffeur;
+            document.getElementById('Menange').innerText = length.Menange;
+            document.getElementById('Maitre_maison').innerText = length.Maitre_maison;
         };
 
         const dato = await requesttoBackend('GET', `team/show/giveaccess/Owner`);

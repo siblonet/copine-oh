@@ -85,7 +85,7 @@ async function SignUp() {
                 religion: "vide",
                 etudient: "vide",
                 prof: "vide",
-                ecord: { [role]: 1 }
+                ecord: { [whatisthis(role)]: 1 }
             };
 
             const response = await requesttoBackend('POST', '', data);
