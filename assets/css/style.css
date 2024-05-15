@@ -878,7 +878,7 @@ p {
 
 .about-section::after {
     content: "";
-    background: url('../images/clean-up-01.jpg') no-repeat;
+    background: url('../images/clea1.webp') no-repeat;
     border-radius: 0 0 0 600px;
     width: 65%;
     height: 100%;

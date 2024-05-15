@@ -34,6 +34,14 @@ const OpenNave = (urlo) => {
 
 async function TeamData() {
     try {
+        const length = await requesttoBackend('GET', `suscribed/services/users`);
+        if (length.nounou > 0) {
+            document.getElementById('Nounou').innerText = length.nounou;
+            document.getElementById('Chauffeur').innerText = length.chauffeur;
+            document.getElementById('Menange').innerText = length.menange;
+            document.getElementById('Maitre_maison').innerText = length.maitre_maison;
+        };
+
         const dato = await requesttoBackend('GET', `team/show/giveaccess/Owner`);
         if (dato.length > 0) {
             const data = dato.filter((re) => re.allow);
