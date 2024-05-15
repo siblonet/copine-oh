@@ -38,7 +38,7 @@ async function TeamData() {
         if (length.getta) {
             document.getElementById('Nounou').innerText = length.Nounou;
             document.getElementById('Chauffeur').innerText = length.Chauffeur;
-            document.getElementById('Menange').innerText = length.Menange;
+            document.getElementById('Menage').innerText = length.Menage;
             document.getElementById('Maitre_maison').innerText = length.Maitre_maison;
         };
 
