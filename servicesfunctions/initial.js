@@ -35,7 +35,7 @@ const OpenNave = (urlo) => {
 async function TeamData() {
     try {
         const length = await requesttoBackend('GET', `suscribed/services/users`);
-        if (length.nounou > 0) {
+        if (length.getta > 0) {
             document.getElementById('Nounou').innerText = length.nounou;
             document.getElementById('Chauffeur').innerText = length.chauffeur;
             document.getElementById('Menange').innerText = length.menange;

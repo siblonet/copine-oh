@@ -33,33 +33,66 @@ let imageso = [];
 async function RequestData() {
     try {
         const sesStoge = await GetCandidatByID(svcValue);
-        if (sesStoge.image.length > 0) {
-            imageso = sesStoge.image;
-            document.getElementById(`imagea`).src = sesStoge.image[0].ima;
+        if (sesStoge > 0) {
+
+            if (sesStoge.image.length > 0) {
+                imageso = sesStoge.image;
+                document.getElementById(`imagea`).src = sesStoge.image[0].ima;
+            }
+
+
+            document.getElementById('username').innerText = sesStoge.name;
+            document.getElementById('userrole').innerText = sesStoge.role;
+            document.getElementById('userbio').innerText = sesStoge.bio;
+            document.getElementById('userphone').innerText = sesStoge.phone;
+            document.getElementById('useremail').innerText = sesStoge.email;
+            document.getElementById('userville').innerText = sesStoge.ville;
+            document.getElementById('useraddress').innerText = sesStoge.address;
+            document.getElementById('usersex').innerText = sesStoge.sex;
+            //document.getElementById('userallow').innerText = sesStoge.allow === "true" ? "Authorizé" : "Non Authorisé";
+            document.getElementById('useravailability').innerText = sesStoge.availability === "true" ? "Diponible" : "Indisponible";
+
+            document.getElementById('usersituation').innerText = sesStoge.situation;
+            document.getElementById('userage').innerText = sesStoge.age;
+            document.getElementById('userwhatsapp').innerText = sesStoge.wapp;
+            document.getElementById('usernationality').innerText = sesStoge.natinalite;
+            document.getElementById('userreligion').innerText = sesStoge.religion;
+            document.getElementById('userschool').innerText = sesStoge.etudient;
+
+            //const everrouillage = document.getElementById('Deverrouillage');
+            //everrouillage.setAttribute("onclick", `Deverrouillage('${}')`);
+            CommentNumber()
+        } else {
+            const userdata = await requesttoBackend('GET', `gettingmyaccountinfo/${svcValue}`);
+
+            if (userdata.image.length > 0) {
+                imageso = userdata.image;
+                document.getElementById(`imagea`).src = userdata.image[0].ima;
+            }
+
+
+            document.getElementById('username').innerText = userdata.name;
+            document.getElementById('userrole').innerText = userdata.role;
+            document.getElementById('userbio').innerText = userdata.bio;
+            document.getElementById('userphone').innerText = userdata.phone;
+            document.getElementById('useremail').innerText = userdata.email;
+            document.getElementById('userville').innerText = userdata.ville;
+            document.getElementById('useraddress').innerText = userdata.address;
+            document.getElementById('usersex').innerText = userdata.sex;
+            //document.getElementById('userallow').innerText = sesStoge.allow === "true" ? "Authorizé" : "Non Authorisé";
+            document.getElementById('useravailability').innerText = userdata.availability === "true" ? "Diponible" : "Indisponible";
+
+            document.getElementById('usersituation').innerText = userdata.situation;
+            document.getElementById('userage').innerText = userdata.age;
+            document.getElementById('userwhatsapp').innerText = userdata.wapp;
+            document.getElementById('usernationality').innerText = userdata.natinalite;
+            document.getElementById('userreligion').innerText = userdata.religion;
+            document.getElementById('userschool').innerText = userdata.etudient;
+
+            //const everrouillage = document.getElementById('Deverrouillage');
+            //everrouillage.setAttribute("onclick", `Deverrouillage('${}')`);
+            CommentNumber()
         }
-
-
-        document.getElementById('username').innerText = sesStoge.name;
-        document.getElementById('userrole').innerText = sesStoge.role;
-        document.getElementById('userbio').innerText = sesStoge.bio;
-        document.getElementById('userphone').innerText = sesStoge.phone;
-        document.getElementById('useremail').innerText = sesStoge.email;
-        document.getElementById('userville').innerText = sesStoge.ville;
-        document.getElementById('useraddress').innerText = sesStoge.address;
-        document.getElementById('usersex').innerText = sesStoge.sex;
-        //document.getElementById('userallow').innerText = sesStoge.allow === "true" ? "Authorizé" : "Non Authorisé";
-        document.getElementById('useravailability').innerText = sesStoge.availability === "true" ? "Diponible" : "Indisponible";
-
-        document.getElementById('usersituation').innerText = sesStoge.situation;
-        document.getElementById('userage').innerText = "012ff";
-        document.getElementById('userwhatsapp').innerText = sesStoge.wapp;
-        document.getElementById('usernationality').innerText = sesStoge.natinalite;
-        document.getElementById('userreligion').innerText = sesStoge.religion;
-        document.getElementById('userschool').innerText = sesStoge.etudient;
-
-        //const everrouillage = document.getElementById('Deverrouillage');
-        //everrouillage.setAttribute("onclick", `Deverrouillage('${}')`);
-        CommentNumber()
     } catch (error) {
         console.log("View detail RequestData", error)
     }
