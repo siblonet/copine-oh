@@ -210,52 +210,59 @@ const PaymenSession = `
 
 
 const Deverrouillage = async () => {
-    const sesStoge = await GetCandidatByID(svcValue);
-    const username = whatisthis(sesStoge.name);
-    const userphone = whatisthis(sesStoge.phone);
-    const useremail = whatisthis(sesStoge.email);
-    const userrole = whatisthis(sesStoge.role);
-    const userville = whatisthis(sesStoge.ville);
-    const userbio = whatisthis(sesStoge.bio);
-    const usersex = whatisthis(sesStoge.sex);
-    const useravailability = sesStoge.availability;
-    const useraddress = whatisthis(sesStoge.address);
+    const user_id = sessionStorage.getItem('_id');
 
-    const usersituation = whatisthis(sesStoge.situation);
-    const userage = whatisthis(sesStoge.age);
-    const userwapp = whatisthis(sesStoge.wapp);
-    const usernatinalite = whatisthis(sesStoge.natinalite);
-    const userreligion = whatisthis(sesStoge.religion);
-    const useretudient = whatisthis(sesStoge.etudient);
+    if (user_id) {
+        const sesStoge = await GetCandidatByID(svcValue);
+        const username = whatisthis(sesStoge.name);
+        const userphone = whatisthis(sesStoge.phone);
+        const useremail = whatisthis(sesStoge.email);
+        const userrole = whatisthis(sesStoge.role);
+        const userville = whatisthis(sesStoge.ville);
+        const userbio = whatisthis(sesStoge.bio);
+        const usersex = whatisthis(sesStoge.sex);
+        const useravailability = sesStoge.availability;
+        const useraddress = whatisthis(sesStoge.address);
 
-
-
-    document.getElementById('username').innerText = username;
-    document.getElementById('userrole').innerText = userrole;
-    document.getElementById('userbio').innerText = userbio;
-    document.getElementById('userphone').innerText = userphone;
-    document.getElementById('useremail').innerText = useremail;
-    document.getElementById('userville').innerText = userville;
-    document.getElementById('useraddress').innerText = useraddress;
-    document.getElementById('usersex').innerText = usersex;
-    document.getElementById('useravailability').innerText = useravailability === "true" ? "Diponible" : "Indisponible";
+        const usersituation = whatisthis(sesStoge.situation);
+        const userage = whatisthis(sesStoge.age);
+        const userwapp = whatisthis(sesStoge.wapp);
+        const usernatinalite = whatisthis(sesStoge.natinalite);
+        const userreligion = whatisthis(sesStoge.religion);
+        const useretudient = whatisthis(sesStoge.etudient);
 
 
-    document.getElementById('usersituation').innerText = usersituation === "true" ? "Marié" : "Célibataire";
+
+        document.getElementById('username').innerText = username;
+        document.getElementById('userrole').innerText = userrole;
+        document.getElementById('userbio').innerText = userbio;
+        document.getElementById('userphone').innerText = userphone;
+        document.getElementById('useremail').innerText = useremail;
+        document.getElementById('userville').innerText = userville;
+        document.getElementById('useraddress').innerText = useraddress;
+        document.getElementById('usersex').innerText = usersex;
+        document.getElementById('useravailability').innerText = useravailability === "true" ? "Diponible" : "Indisponible";
 
 
-    document.getElementById('userwhatsapp').innerText = userwapp;
-    document.getElementById('usernationality').innerText = usernatinalite;
-    document.getElementById('userreligion').innerText = userreligion;
-    document.getElementById('userschool').innerText = useretudient === "true" ? "Oui" : "Non";
-    const givenDate = new Date(userage);
-    const currentDate = new Date();
-    const differenceMs = currentDate - givenDate;
-    const differenceYears = differenceMs / (1000 * 60 * 60 * 24 * 365);
-    const yearsOld = Math.floor(differenceYears);
-    document.getElementById('userage').innerText = yearsOld;
+        document.getElementById('usersituation').innerText = usersituation === "true" ? "Marié" : "Célibataire";
 
-    //document.getElementById('paymensession').innerHTML = PaymenSession;
+
+        document.getElementById('userwhatsapp').innerText = userwapp;
+        document.getElementById('usernationality').innerText = usernatinalite;
+        document.getElementById('userreligion').innerText = userreligion;
+        document.getElementById('userschool').innerText = useretudient === "true" ? "Oui" : "Non";
+        const givenDate = new Date(userage);
+        const currentDate = new Date();
+        const differenceMs = currentDate - givenDate;
+        const differenceYears = differenceMs / (1000 * 60 * 60 * 24 * 365);
+        const yearsOld = Math.floor(differenceYears);
+        document.getElementById('userage').innerText = yearsOld;
+
+        //document.getElementById('paymensession').innerHTML = PaymenSession;
+    } else {
+        alert("Connectez-vous ou Créez un compte pour Déverrouiller")
+    }
+
 }
 
 

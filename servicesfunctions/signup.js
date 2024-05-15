@@ -73,7 +73,7 @@ async function SignUp() {
                 address: commune,
                 email: email,
                 pushtoken: "null",
-                allow: false,
+                allow: true,
                 ville: ville,
                 bio: bio,
                 sex: sex,
