@@ -95,10 +95,11 @@ async function getAdmin() {
         sexslea = usersex;
 
 
-        document.getElementById('userallow').innerText = userallow === "true" ? "Authorizé" : "Non Authorisé";
+        document.getElementById('userallow').innerText = userallow === true ? "Authorizé" : "Non Authorisé";
+
         document.getElementById('useravailability').innerHTML = `
-                                <option id="useravailabilityseleca" value="true" ${useravailability === "true" ? "selected" : ""}>Disponible</option>
-                                <option id="useravailabilityselecb" value="false" ${useravailability === "false" ? "selected" : ""}>Indisponible</option>
+                                <option id="useravailabilityseleca" value="true" ${useravailability === true ? "selected" : ""}>Disponible</option>
+                                <option id="useravailabilityselecb" value="false" ${useravailability === false ? "selected" : ""}>Indisponible</option>
         `;
         useravailabilitysleb = useravailability;
 
