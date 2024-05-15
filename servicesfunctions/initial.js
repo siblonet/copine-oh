@@ -26,6 +26,12 @@ async function getInitial() {
 
 };
 
+
+const OpenNave = (urlo) => {
+    window.location.href = urlo
+}
+
+
 async function TeamData() {
     try {
         const dato = await requesttoBackend('GET', `team/show/giveaccess/Owner`);
