@@ -4,7 +4,6 @@ async function getAdmin() {
         const sesStoge = await GetPersonByID(user_id);
         const userrole = whatisthis(sesStoge.role);
         if (userrole === "Owner") {
-            LoadUsersData('user');
             /*const username = whatisthis(sesStoge.name);
             if (sesStoge.image.length > 0) {
                 //document.getElementById(`imagea`).src = sesStoge.image[0].ima == null ? "assets/images/baby1.webp" : sesStoge.image[0].ima;
@@ -164,6 +163,9 @@ const LoadUsersData = async (whos) => {
         console.error('Error loading user data:', error);
     }
 };
+LoadUsersData('user');
+
+
 
 const OpenNew = (id) => {
     window.open(`viewdata?svc=${id}`, '_blank');
