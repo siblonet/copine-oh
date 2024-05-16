@@ -4,13 +4,13 @@ async function getAdmin() {
         const sesStoge = await GetPersonByID(user_id);
         const userrole = whatisthis(sesStoge.role);
         if (userrole === "Owner") {
-            const username = whatisthis(sesStoge.name);
+            /*const username = whatisthis(sesStoge.name);
             if (sesStoge.image.length > 0) {
                 //document.getElementById(`imagea`).src = sesStoge.image[0].ima == null ? "assets/images/baby1.webp" : sesStoge.image[0].ima;
 
             } else {
                 //document.getElementById(`imagea`).src = "assets/images/baby1.webp"
-            }
+            }*/
         } else {
             window.location.href = "/";
         }
