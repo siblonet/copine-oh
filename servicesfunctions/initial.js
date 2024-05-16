@@ -31,6 +31,11 @@ const OpenNave = (urlo) => {
     window.location.href = urlo
 }
 
+const CloseMessega = () => {
+    document.getElementById('messaga').style = "";
+    document.getElementById('messaga').classList = "";
+    document.getElementById('messaga').innerHTML = "";
+}
 
 async function TeamData() {
     try {

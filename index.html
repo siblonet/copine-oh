@@ -21,13 +21,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
     <meta name="theme-color" content="#145fb8">
 
-    <meta name="description" content="Besoin d'une Nounou, d'un Chauffeur, Menagaire, Maitre de maison ou trouver travail?">
+    <meta name="description"
+        content="Besoin d'une Nounou, d'un Chauffeur, Menagaire, Maitre de maison ou trouver travail?">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="CÔCÔCÔ, COCOCO, COCOCOR, John, Kokar, emploi, offre " />
     <meta name="author" content="John Kokar" />
     <meta property="og:title" content="CÔCÔCÔ" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Besoin d'une Nounou, d'un Chauffeur, Menagaire, Maitre de maison ou trouver travail?" />
+    <meta property="og:description"
+        content="Besoin d'une Nounou, d'un Chauffeur, Menagaire, Maitre de maison ou trouver travail?" />
     <meta property="og:site_name" content="CÔCÔCÔ" />
     <meta property="og:locale" content="fr-FR" />
     <meta property="image" content="assets/images/sharea.png" />
@@ -52,6 +54,17 @@
             box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
             -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
         }
+
+        .messaga {
+            position: absolute;
+            z-index: 9999999;
+            height: 100%;
+            width: 100%;
+            background-color: #02121b;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
     </style>
 
     <!-- Latest compiled and minified CSS -->
@@ -70,6 +83,27 @@
 </head>
 
 <body>
+    <div class="messaga" id="messaga">
+        <h1 style="color: #88133a;">CôCôCô Message important</h1>
+        <h4 style="color: #317da8;">Suivez les instructions suivantes après avoir fermé cette fenêtre</h4>
+        <div>
+            <ol style="text-align: left;">
+                <li style="color: #857d7d; letter-spacing: 3px; font-weight: bold; font-size: 17px;">Cliquer sur Créer
+                    compte</li>
+                <br>
+                <li style="color: #857d7d; letter-spacing: 3px; font-weight: bold; font-size: 17px;">Cliquer sur
+                    Connecter si vous êtes déjà inscrit</li>
+                <br>
+                <li style="color: #857d7d; letter-spacing: 3px; font-weight: bold; font-size: 17px;">Remplissez tout sur
+                    la page de création et cliquez sur Créer</li>
+                <br>
+                <li style="color: #857d7d; letter-spacing: 3px; font-weight: bold; font-size: 17px;">NB : retenez bien
+                    votre mot de passe et numéro de téléphone</li>
+            </ol>
+        </div>
+        <a style="cursor: pointer; color: #857d7d;" onclick="CloseMessega()">Clique ici pour fermer</a>
+    </div>
+
     <!-- Header  -->
     <div class="banner_outer">
         <header class="header">
@@ -172,6 +206,8 @@
         </section>
     </div>
     <!-- Service -->
+
+
     <section class="service-section">
         <figure class="service-left-layout mb-0">
             <img src="assets/images/common-layer-orange.png" alt="" class="img-fluid comon-img-opa">
