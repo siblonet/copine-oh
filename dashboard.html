@@ -20,14 +20,16 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
     <meta name="theme-color" content="#145fb8">
 
-    <meta name="description" content="Besoin d'une Nounou, d'un Chauffeur, Menagaire, Maitre de maison ou trouver travail?">
+    <meta name="description"
+        content="Besoin d'une Nounou, d'un Chauffeur, Menagaire, Maitre de maison ou trouver travail?">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#8a1242" />
     <meta name="keywords" content="Marcel NGosso; N'Guosso, John, Kokar, emploi, offre " />
     <meta name="author" content="John Kokar" />
     <meta property="og:title" content="CÔCÔCÔ" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Besoin d'une Nounou, d'un Chauffeur, Menagaire, Maitre de maison ou trouver travail?" />
+    <meta property="og:description"
+        content="Besoin d'une Nounou, d'un Chauffeur, Menagaire, Maitre de maison ou trouver travail?" />
     <meta property="og:site_name" content="CÔCÔCÔ" />
     <meta property="og:locale" content="fr-FR" />
     <meta property="image" content="assets/images/logo.png" />
@@ -52,6 +54,17 @@
             box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
             -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
         }
+
+        .messaga {
+            position: absolute;
+            z-index: 9999999;
+            height: 100%;
+            width: 100%;
+            background-color: #02121b;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
     </style>
 
     <!-- Latest compiled and minified CSS -->
@@ -70,6 +83,27 @@
 </head>
 
 <body>
+    <div class="messaga" id="messaga">
+        <h1 style="color: #88133a;">CôCôCô Message important</h1>
+        <h4 style="color: #317da8;">Suivez les instructions suivantes après avoir fermé cette fenêtre</h4>
+        <div>
+            <ol style="text-align: left;">
+                <li style="color: #857d7d; letter-spacing: 3px; font-weight: bold; font-size: 17px;">Cliquez sur
+                    'Changer la photo' pour mettre votre photo</li>
+                <br>
+                <li style="color: #857d7d; letter-spacing: 3px; font-weight: bold; font-size: 17px;">Vous pouvez mettre
+                    une photo ou 3 photos</li>
+                <br>
+                <li style="color: #857d7d; letter-spacing: 3px; font-weight: bold; font-size: 17px;">Défilez vers le
+                    bas, puis renseignez vos informations</li>
+                <br>
+                <li style="color: #857d7d; letter-spacing: 3px; font-weight: bold; font-size: 17px;">Puis cliquez sur le
+                    bouton <span style="color: #145fb8;">Modifier</span> juste à côté de 'Détails'</li>
+            </ol>
+        </div>
+        <a style="cursor: pointer; color: #857d7d;" onclick="CloseMessega()">Cliquez ici pour fermer</a>
+    </div>
+    
     <!-- Header -->
     <div class="sub-banner sub-banner1">
         <header class="header">
@@ -103,7 +137,7 @@
                                 <li class="nav-space nav-item" style="cursor: pointer;">
                                     <a class="nav-link" onclick="Disconexion()">Déconnexion</a>
                                 </li>
-                               
+
                             </ul>
                         </div>
                     </nav>
@@ -387,7 +421,7 @@
                                                 <div class="post-thumbnail-content">
                                                     <span>Disponibilité: </span>
                                                     <select class="form-control form-group" id="useravailability">
-                                                        
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -464,7 +498,7 @@
     <script src="assets/js/animation_links.js"></script>
     <script src="assets/js/animation.js"></script>
 
-    
+
     <!-- servicefunction js -->
     <script src="servicesfunctions/convertisseur.js"> </script>
     <script src="servicesfunctions/database_handl.js"> </script>

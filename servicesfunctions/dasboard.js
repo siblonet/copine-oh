@@ -371,6 +371,11 @@ function OpenFileDia(imagbotoma) {
 
 }
 
+const CloseMessega = () => {
+    document.getElementById('messaga').style = "";
+    document.getElementById('messaga').classList = "";
+    document.getElementById('messaga').innerHTML = "";
+}
 
 const DeleteImage = async (image_url, id, html_tag_id) => {
     const user_id = sessionStorage.getItem('_id');
