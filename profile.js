@@ -264,8 +264,9 @@ const ShowReplies = async (id) => {
                                 <div class="comment_down_buttons">
                                     ${reply.commenta._id === user_id ?
                 `
-                                            <a onclick="DeleteReply('${reply._id}', '${reply.recepto}')" class="mefirst" style="background-color: #da1a344f; border-radius: 7px !important; padding: 5px !important; color: #da1a34 !important; font-size: 15px; cursor: pointer;">
-                                                <i id="${reply._id}a" class="fa fa-trash" style="color: #da1a34 !important;"></i>
+                                            <div style="padding: 0px 50px 0px 50px !important"></div>
+                                            <a onclick="DeleteReply('${reply._id}', '${reply.recepto}')" class="mefirst" style="background-color: #da1a344f; border-radius: 7px !important; padding: 0px 10px 0px 10px !important; color: #da1a34 !important; font-size: 15px; cursor: pointer; align-self: end !important">
+                                                <span id="${reply._id}a" class="" style="color: #da1a34 !important; font-weight: bold">effacer</span>
                                             </a>             
                                             ` :
 
