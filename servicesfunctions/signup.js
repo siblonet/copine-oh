@@ -98,7 +98,7 @@ async function SignUp() {
             } else if (response.name) {
                 sessionStorage.setItem('_id', response._id);
                 await PostPeople(response);
-                window.location.href = "dashboard";
+                window.location.href = "profile.html";
                 loading.innerHTML = `
                 Compte Créé
                 <i class="circle fa-thin fa-arrow-right"></i>

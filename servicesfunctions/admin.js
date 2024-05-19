@@ -95,6 +95,38 @@ async function BlockUser(user_id, allow) {
 }
 
 
+
+async function VerifyUser(user_id, statusa) {
+    const Modifier = document.getElementById(`${user_id}verify`);
+    Modifier.removeAttribute("onclick");
+    Modifier.innerHTML = "<i class='fa fa-spinner fa-spin'></i>";
+    const newAllow = statusa === "true" ? false : true;
+
+    const user_data = {
+        status: newAllow,
+    };
+    try {
+        const updating = await requesttoBackend('PUT', `${user_id}`, user_data);
+        if (updating.name) {
+            // Toggle the state for the allow parameter
+            Modifier.setAttribute("onclick", `VerifyUser('${user_id}', '${newAllow}')`);
+            Modifier.innerHTML = `<i class='far fa-eye${newAllow ? '' : '-slash'}'></i>`;
+        } else {
+            alert("Échec, veuillez réessayer.");
+            Modifier.setAttribute("onclick", `VerifyUser('${user_id}', '${statusa}')`);
+            Modifier.innerHTML = `<i class='far fa-eye${statusa ? '' : '-slash'}'></i>`;
+        }
+    } catch (error) {
+        alert("Une erreur s'est produite, veuillez réessayer.");
+        Modifier.setAttribute("onclick", `VerifyUser('${user_id}', '${statusa}')`);
+        Modifier.innerHTML = `<i class='far fa-eye${statusa ? '' : '-slash'}'></i>`;
+    }
+}
+
+
+
+
+
 async function UpdateUser(user_id) {
     /* const Modifier = document.getElementById(`${user_id}update`);
      Modifier.removeAttribute("onclick");
@@ -151,6 +183,9 @@ const LoadUsersData = async (whos) => {
                             </button>
                             <button type="button" class="btn btn-danger" id="${user._id}delete" onclick="DeleteUser('${user._id}')">
                                 <i class="far fa-trash-alt"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger" id="${user._id}verify" onclick="VerifyUser('${user._id}', '${user.status}')">
+                                <i class="fa-solid fa-check"></i>
                             </button>
                         </td>
                     </tr>

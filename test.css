@@ -1,0 +1,185 @@
+
+/** 
+Hello Future Developer Thanks for Using learningrobo.com, 
+Check our website Regularly For New Snippets Post.
+
+Share & Support us
+**/
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Signika', sans-serif;
+    margin: 0%;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+.box{
+    width: 450px;
+    height: 480px;
+    background-color: white;
+    border-radius: 25px;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.head1{
+    width: 95%;
+    height: 140px;
+    background-color: #353942;
+    border-radius: 30px;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.head1 h1{
+    margin: 0%;
+    background: #CFE7fA;
+    background: linear-gradient(to right, #CFE7fA 0%, #6393C1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+.profile{
+    width: 120px;
+    height: 120px;
+    background-color: #353942;
+    border-radius: 50%;
+    margin: -60px 0px 0px -260px;
+    border: 6px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.head2{
+    width: 85%;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+}
+.user{
+    width: auto;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+}
+.name{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 5px;
+}
+.name h3{
+    margin: 0%;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.name p{
+    margin: 0%;
+    color: #353942;
+}
+.follow{
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+.follow button{
+    padding: 9px;
+    width: 100px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background-color: #2387fa;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.desc{
+    width: auto;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+.desc p{
+    margin: 0%;
+    font-size: 18px;
+    color: #353942;
+    font-weight: 500;
+}
+.count{
+    width: auto;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 40px;
+}
+.count span{
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+.count p{
+    margin: 0%;
+    font-size: 18px;
+    color: #52565f;
+    font-weight: bold;
+}
+.link{
+    width: auto;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 5px;
+}
+.link a{
+    text-decoration: none;
+    color: #2387fa;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.link p{
+    margin: 0%;
+    font-size: 18px;
+    color: #353942;
+}
+@media screen and (max-width:630px){
+    .box{
+        width:98%;
+        height:fit-content
+    }
+    .profile{
+        width: 100px;
+        height: 100px;
+        margin: -50px 0px 0px 0px;
+    }
+}
+.credit a{
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+}
+.credit{
+    color: black;
+    text-align: center;
+    margin-top: 10px;
+    font-family: Verdana,Geneva,Tahoma,sans-serif;
+}
+.credit span{
+    color:tomato;
+    font-size:20px;
+}
+

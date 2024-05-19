@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#145fb8">
+
+    <meta name="description"
+        content="Besoin d'une Nounou, d'un Chauffeur, Menagaire, Maitre de maison ou trouver travail?">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="CÔCÔCÔ, COCOCO, COCOCOR, John, Kokar, emploi, offre " />
+    <meta name="author" content="John Kokar" />
+    <meta property="og:title" content="CÔCÔCÔ" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description"
+        content="Besoin d'une Nounou, d'un Chauffeur, Menagaire, Maitre de maison ou trouver travail?" />
+    <meta property="og:site_name" content="CÔCÔCÔ" />
+    <meta property="og:locale" content="fr-FR" />
+    <meta property="image" content="assets/images/sharea.png" />
+    <meta property="og:image" content="assets/images/sharea.png" />
+    <meta property="article:published_time" content="2024-05-06T15:00:00Z" />
+    <meta property="article:modified_time" content="2024-05-13T01:20:00Z" />
+    <meta property="article:author" content="John Kokar" />
+
+    <link rel="stylesheet" href="profile.css">
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/5d72166fb5.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap" rel="stylesheet">
+    <style>
+        *::-webkit-scrollbar-track {
+            background-color: #fd8905;
+        }
+
+        *::-webkit-scrollbar {
+            width: 12px;
+            background-color: #F5F5F5;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            border-radius: 12px;
+            background-color: #2d96db;
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="social-overlap process-scetion mt100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="social-bar">
+                        <div class="social-icons mb-3 iconpad text-center">
+                            <a class="slider-nav-item" href="/">
+                                <i class="fa-solid fa-house"></i>
+                            </a>
+
+                            <a style="cursor: pointer;" class="slider-nav-item" onclick="Disconexion()">
+                                <i class="fa-solid fa-power-off"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="box">
+            <div class="head1">
+                <img id="cover_ima_tag" src="assets/images/baby1.webp" class="article_img" alt="">
+            </div>
+            <span class="profile">
+                <img id="profile_ima_tag" src="assets/images/baby1.webp" style="height: 100%; width: 100%;" alt="">
+            </span>
+
+            <div class="head2">
+                <div class="user">
+                    <div class="name">
+                        <h3 id="name_tag"></h3>
+                        <p id="status_tag" style="">
+                        </p>
+                    </div>
+                    <div class="follow">
+                        <button style="cursor: pointer;" type="button" onclick="NaveTo()">Modifier</button>
+                    </div>
+                </div>
+                <div class="desc">
+                    <p id="desc_tag" style=""></p>
+                </div>
+
+                <hr class="styled-hr">
+
+                <div class="count">
+                    <p><span id="count_tag">0</span>
+                        <!-- i class="fa fa-heart" style="color: #aaaaaa;"></i-->
+                        J'aime
+                    </p>
+
+                    <p>
+                        <span id="count_tag">0</span> Vue
+                        <!-- i class="fa fa-eye" style="color: #aaaaaa;"></i-->
+                    </p>
+
+                    <a onclick="ShowComments()"
+                        style="padding: 5px 15px 5px 15px; border-radius: 10px; background-color: #eeeeee; cursor: pointer;">
+                        <span id="comennt_tag">0</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="margin-bottom: -4px;"
+                            viewBox="0 0 1791 1996" id="comments">
+                            <path
+                                d="M704 384q-153 0-286 52T206.5 577 128 768q0 82 53 158t149 132l97 56-35 84q34-20 62-39l44-31 53 10q78 14 153 14 153 0 286-52t211.5-141 78.5-191-78.5-191T990 436t-286-52zm0-128q191 0 353.5 68.5T1314 511t94 257-94 257-256.5 186.5T704 1280q-86 0-176-16-124 88-278 128-36 9-86 16h-3q-11 0-20.5-8t-11.5-21q-1-3-1-6.5t.5-6.5 2-6l2.5-5 3.5-5.5 4-5 4.5-5 4-4.5q5-6 23-25t26-29.5 22.5-29 25-38.5 20.5-44q-124-72-195-177T0 768q0-139 94-257t256.5-186.5T704 256zm822 1169q10 24 20.5 44t25 38.5 22.5 29 26 29.5 23 25q1 1 4 4.5t4.5 5 4 5 3.5 5.5l2.5 5 2 6 .5 6.5-1 6.5q-3 14-13 22t-22 7q-50-7-86-16-154-40-278-128-90 16-176 16-271 0-472-132 58 4 88 4 161 0 309-45t264-129q125-92 192-212t67-254q0-77-23-152 129 71 204 178t75 230q0 120-71 224.5T1526 1425z"
+                                fill="#aaaaaa">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="boxa">
+            <div class="head3">
+                <div class="count" style="height: 20px !important">
+                    <a style="cursor: pointer; font-weight: normal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" style="margin-bottom: -5px;"
+                            viewBox="0 0 1791 1996">
+                            <path
+                                d="M704 384q-153 0-286 52T206.5 577 128 768q0 82 53 158t149 132l97 56-35 84q34-20 62-39l44-31 53 10q78 14 153 14 153 0 286-52t211.5-141 78.5-191-78.5-191T990 436t-286-52zm0-128q191 0 353.5 68.5T1314 511t94 257-94 257-256.5 186.5T704 1280q-86 0-176-16-124 88-278 128-36 9-86 16h-3q-11 0-20.5-8t-11.5-21q-1-3-1-6.5t.5-6.5 2-6l2.5-5 3.5-5.5 4-5 4.5-5 4-4.5q5-6 23-25t26-29.5 22.5-29 25-38.5 20.5-44q-124-72-195-177T0 768q0-139 94-257t256.5-186.5T704 256zm822 1169q10 24 20.5 44t25 38.5 22.5 29 26 29.5 23 25q1 1 4 4.5t4.5 5 4 5 3.5 5.5l2.5 5 2 6 .5 6.5-1 6.5q-3 14-13 22t-22 7q-50-7-86-16-154-40-278-128-90 16-176 16-271 0-472-132 58 4 88 4 161 0 309-45t264-129q125-92 192-212t67-254q0-77-23-152 129 71 204 178t75 230q0 120-71 224.5T1526 1425z"
+                                fill="#aaaaaa">
+                            </path>
+                        </svg>
+                        Commentaires
+                    </a>
+                </div>
+
+                <hr class="styled-hr">
+
+                <div class="comment_dis_sessse" style="padding-top: 20px; border-top: 1px solid #eeeeee;">
+                    <div class="comment_photo_sess_style">
+                        <div class="comment_photo_style">
+                            <img id="comment_ima_tag" src="assets/images/baby1.webp" style="height: 50px; width: 50px;"
+                                alt="">
+                        </div>
+                    </div>
+
+
+                    <div class="comment_inpu_style">
+                        <textarea class="" name="comment_data" id="comment_data"></textarea>
+
+                        <a id="Envoyer" onclick="SendComennt()" class="send_button">
+                            <i class="fa fa-send" style="color: #aaaaaa !important;"></i>
+                        </a>
+                    </div>
+                </div>
+                <br>
+
+                <div id="comment_data_render">
+                </div>
+ 
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="servicesfunctions/convertisseur.js"> </script>
+<script src="servicesfunctions/database_handl.js"> </script>
+<script src="servicesfunctions/product.services.js"> </script>
+<script src="servicesfunctions/variablestore.js"> </script>
+<script src="profile.js"></script>
+
+</html>
