@@ -37,7 +37,7 @@ async function Login() {
         } else if (response.name) {
             sessionStorage.setItem('_id', response._id);
             await PostPeople(response);
-            window.location.href = "profile.html";
+            window.location.href = "profile";
         } else if (response.ee) {
             alert("Identifient inccorect");
             loading.setAttribute("onclick", "Login()");
