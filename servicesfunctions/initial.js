@@ -13,13 +13,13 @@ async function getInitial() {
 `;
     if (user_id) {
         connecta.innerHTML = htmloo;
-        connecta.href = "dashboard";
+        connecta.href = "profile";
         connectb.innerHTML = htmloo;
-        connectb.href = "dashboard";
+        connectb.href = "profile";
         connectc.classList = "";
         connectc.innerHTML = "";
         connectd.innerHTML = htmloo;
-        connectd.href = "dashboard";
+        connectd.href = "profile";
     };
 
     await TeamData();

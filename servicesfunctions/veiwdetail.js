@@ -20,7 +20,7 @@ if (!svcValue || svcValue.length < 5) {
     const user_id = sessionStorage.getItem('_id');
     if (user_id) {
         document.getElementById('login').innerHTML = `
-            <a class="nav-link" href="dashboard">Mon Compte</a>
+            <a class="nav-link" href="profile">Mon Compte</a>
         `;
 
         document.getElementById('creacom').innerHTML = "";
